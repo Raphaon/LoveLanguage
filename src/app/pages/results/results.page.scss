@@ -16,7 +16,7 @@
 }
 
 .summary .lead {
-  color: rgba(29, 25, 43, 0.75);
+  color: var(--app-text-muted);
   margin: 0;
 }
 
@@ -43,7 +43,7 @@
 
 .insight p {
   margin: 0;
-  color: rgba(29, 25, 43, 0.75);
+  color: var(--app-text-muted);
 }
 
 .actions ion-button + ion-button {

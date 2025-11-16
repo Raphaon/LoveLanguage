@@ -17,7 +17,7 @@
 
 .quiz__progress p {
   margin: 0.25rem 0 0;
-  color: rgba(29, 25, 43, 0.65);
+  color: var(--app-text-soft);
 }
 
 .badge {
@@ -84,7 +84,7 @@
 }
 
 .option ion-icon {
-  color: rgba(29, 25, 43, 0.35);
+  color: var(--app-text-faint);
 }
 
 .option.selected {
