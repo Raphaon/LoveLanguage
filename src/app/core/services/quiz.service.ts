@@ -19,6 +19,8 @@ export class QuizService {
   private currentQuestionIndex$ = new BehaviorSubject<number>(0);
   private answers$ = new BehaviorSubject<QuestionAnswer[]>([]);
   private filteredQuestions: Question[] = [];
+  private loaded = false;
+  private loadingPromise?: Promise<void>;
 
   private readonly MIN_QUESTIONS = 10;
   private readonly MAX_QUESTIONS = 20;
@@ -30,22 +32,41 @@ export class QuizService {
   ) { }
 
   async loadQuestions(): Promise<void> {
-    try {
-      const data = await firstValueFrom(
-        this.http.get<QuestionData>('assets/data/questions.json')
-      );
-      if (data?.questions) {
-        this.questions = data.questions
-          .filter(q => q.actif)
-          .map(question => ({ ...question, source: 'static' as const }));
-      }
-    } catch (error) {
-      console.error('Erreur lors du chargement des questions:', error);
-      throw error;
+    if (this.loaded && this.questions.length) {
+      return;
     }
+
+    if (this.loadingPromise) {
+      return this.loadingPromise;
+    }
+
+    this.loadingPromise = (async () => {
+      try {
+        const data = await firstValueFrom(
+          this.http.get<QuestionData>('assets/data/questions.json')
+        );
+        if (data?.questions) {
+          this.questions = data.questions
+            .filter(q => q.actif)
+            .map(question => ({ ...question, source: 'static' as const }));
+          this.loaded = true;
+        }
+      } catch (error) {
+        console.error('Erreur lors du chargement des questions:', error);
+        throw error;
+      } finally {
+        this.loadingPromise = undefined;
+      }
+    })();
+
+    return this.loadingPromise;
   }
 
   async initQuiz(userProfile: UserProfile): Promise<Question[]> {
+    if (!this.loaded || !this.questions.length) {
+      await this.loadQuestions();
+    }
+
     const eligibleQuestions = this.questions.filter(q => {
       if (!q.relationshipTypes || q.relationshipTypes.length === 0) {
         return true;
@@ -188,6 +209,7 @@ export class QuizService {
     this.answers$.next([]);
     this.filteredQuestions = [];
     this.proceduralQuestions = [];
+    this.loaded = this.questions.length > 0;
   }
 
   getCurrentAnswers(): QuestionAnswer[] {
