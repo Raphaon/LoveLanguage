@@ -1,0 +1,82 @@
+<ion-header translucent="true">
+  <ion-toolbar>
+    <ion-title>Questions pour faire connaissance</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <div class="page">
+    <section class="filters">
+      <div class="filter-group">
+        <h2>Thèmes</h2>
+        <ion-chip
+          [class.active]="!selectedTheme"
+          (click)="selectTheme(undefined)">
+          <ion-label>Tous</ion-label>
+        </ion-chip>
+        <ion-chip
+          *ngFor="let theme of themes"
+          [class.active]="selectedTheme === theme"
+          (click)="selectTheme(theme)">
+          <ion-label>{{ theme | titlecase }}</ion-label>
+        </ion-chip>
+      </div>
+
+      <div class="filter-group depth">
+        <h2>Niveau</h2>
+        <ion-segment [value]="selectedDepth || 'all'">
+          <ion-segment-button value="all" (click)="selectDepth(undefined)">
+            <ion-label>Tous</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="leger" (click)="selectDepth('leger')">
+            <ion-label>Léger</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="moyen" (click)="selectDepth('moyen')">
+            <ion-label>Moyen</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="profond" (click)="selectDepth('profond')">
+            <ion-label>Profond</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    </section>
+
+    <section class="question-card" *ngIf="!loading; else loadingState">
+      <ion-card>
+        <ion-card-header>
+          <p class="question-meta">
+            <span>{{ selectedTheme ? (selectedTheme | titlecase) : 'Tous thèmes' }}</span>
+            ·
+            <span>{{ selectedDepth ? (selectedDepth | titlecase) : 'Tous niveaux' }}</span>
+          </p>
+          <h2>Question du moment</h2>
+        </ion-card-header>
+        <ion-card-content>
+          <p class="question-text" *ngIf="currentQuestion; else emptyState">
+            {{ currentQuestion?.texte }}
+          </p>
+        </ion-card-content>
+        <div class="question-actions" *ngIf="currentQuestion">
+          <ion-button fill="clear" (click)="toggleFavorite()">
+            <ion-icon slot="start" [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+            {{ isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+          </ion-button>
+          <ion-button color="primary" (click)="pickQuestion()">
+            <ion-icon slot="start" name="refresh-outline"></ion-icon>
+            Nouvelle question
+          </ion-button>
+        </div>
+      </ion-card>
+    </section>
+
+    <ng-template #loadingState>
+      <div class="loading-state">
+        <ion-spinner name="crescent"></ion-spinner>
+      </div>
+    </ng-template>
+
+    <ng-template #emptyState>
+      <p class="empty">Aucune question disponible avec ces filtres pour le moment.</p>
+    </ng-template>
+  </div>
+</ion-content>

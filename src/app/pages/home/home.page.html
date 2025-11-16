@@ -1,13 +1,76 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>home</ion-title>
+    <ion-title>Love Lang</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <div class="home">
+    <section class="hero">
+      <h1>Comprends ton langage de l’amour</h1>
+      <p>Un test, des gestes personnalisés et des questions inspirantes pour nourrir vos liens.</p>
+      <ion-button color="primary" (click)="startQuiz()">
+        <ion-icon slot="start" name="play-circle"></ion-icon>
+        Commencer le test
+      </ion-button>
+    </section>
+
+    <section class="cards">
+      <ion-card (click)="goTo('/quiz')">
+        <ion-card-header>
+          <ion-card-title>Test guidé</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          15 questions adaptatives pour révéler ton langage d’amour principal.
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="goTo('/gestures')">
+        <ion-card-header>
+          <ion-card-title>Idées personnalisées</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Trouve des cadeaux, messages et gestes adaptés à ton couple ou ta famille.
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="goTo('/questions')">
+        <ion-card-header>
+          <ion-card-title>Questions inspirantes</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Tire au sort une question profonde ou légère pour lancer une belle conversation.
+        </ion-card-content>
+      </ion-card>
+    </section>
+
+    <section *ngIf="latestResult" class="result-preview">
+      <h2>Dernier résultat</h2>
+      <div class="result-card">
+        <h3>{{ primaryLanguage?.label }}</h3>
+        <p>{{ primaryLanguage?.descriptionCourte }}</p>
+        <ion-button fill="clear" size="small" (click)="goTo('/results')">Voir le détail</ion-button>
+      </div>
+    </section>
+
+    <section class="gestures" *ngIf="featuredGestures.length">
+      <h2>Idées du jour</h2>
+      <ion-list>
+        <ion-item lines="none" *ngFor="let gesture of featuredGestures">
+          <ion-label>
+            <h3>{{ gesture.title }}</h3>
+            <p>{{ gesture.description }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </section>
+
+    <section class="question" *ngIf="questionOfTheDay">
+      <div class="question-card">
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+        <p>{{ questionOfTheDay }}</p>
+        <ion-button fill="clear" size="small" (click)="goTo('/questions')">Nouvelle question</ion-button>
+      </div>
+    </section>
+  </div>
 </ion-content>

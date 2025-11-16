@@ -1,20 +1,93 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  IonButton,
+  IonContent,
+  IonHeader,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonSelect,
+  IonSelectOption,
+  IonText,
+  IonTitle,
+  IonToolbar
+} from '@ionic/angular/standalone';
+import { Router } from '@angular/router';
+import { RELATIONSHIP_TYPE_LABELS, RelationshipType, UserProfile } from '../../core/models';
+import { StorageService } from '../../core/services';
 
 @Component({
   selector: 'app-profile-setup',
   templateUrl: './profile-setup.page.html',
   styleUrls: ['./profile-setup.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonList,
+    IonItem,
+    IonLabel,
+    IonInput,
+    IonSelect,
+    IonSelectOption,
+    IonButton,
+    IonText
+  ]
 })
 export class ProfileSetupPage implements OnInit {
+  form = this.fb.group({
+    prenom: ['', [Validators.required, Validators.minLength(2)]],
+    relationshipType: [RelationshipType.CELIBATAIRE, Validators.required]
+  });
 
-  constructor() { }
+  relationshipLabels = RELATIONSHIP_TYPE_LABELS;
+  relationshipTypes = Object.values(RelationshipType);
 
-  ngOnInit() {
+  saving = false;
+  existingProfile?: UserProfile | null;
+
+  constructor(
+    private fb: FormBuilder,
+    private storageService: StorageService,
+    private router: Router
+  ) {}
+
+  async ngOnInit() {
+    this.existingProfile = await this.storageService.getUserProfile();
+    if (this.existingProfile) {
+      this.form.patchValue({
+        prenom: this.existingProfile.prenom || '',
+        relationshipType: this.existingProfile.relationshipType
+      });
+    }
+  }
+
+  async saveProfile(): Promise<void> {
+    if (this.form.invalid || this.saving) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    this.saving = true;
+    const now = new Date();
+    const createdAt = this.existingProfile?.createdAt ? new Date(this.existingProfile.createdAt) : now;
+    const profile: UserProfile = {
+      prenom: this.form.value.prenom?.trim(),
+      relationshipType: this.form.value.relationshipType!,
+      createdAt,
+      updatedAt: now
+    };
+
+    await this.storageService.saveUserProfile(profile);
+    this.saving = false;
+    this.router.navigate(['/quiz']);
   }
 
 }

@@ -1,13 +1,55 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>quiz</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Test des langages</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">quiz</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true" *ngIf="!loading && currentQuestion; else loadingState">
+  <div class="quiz">
+    <div class="progress">
+      <div class="label">
+        <span>{{ questionCounter }}</span>
+        <ion-text color="medium">{{ currentQuestion?.texte | slice:0:60 }}...</ion-text>
+      </div>
+      <ion-progress-bar [value]="progress"></ion-progress-bar>
+    </div>
+
+    <section class="question">
+      <p class="eyebrow">Question</p>
+      <h2>{{ currentQuestion?.texte }}</h2>
+    </section>
+
+    <section class="options">
+      <button
+        *ngFor="let option of currentQuestion?.options"
+        class="option"
+        type="button"
+        [class.selected]="selectedOptionId === option.id"
+        (click)="chooseOption(option)">
+        <div class="letter">{{ option.label }}</div>
+        <div class="text">{{ option.texte }}</div>
+      </button>
+    </section>
+
+    <div class="actions">
+      <ion-button fill="clear" (click)="goPrevious()" [disabled]="!canGoBack">
+        Retour
+      </ion-button>
+      <ion-button color="primary" (click)="submitAnswer()" [disabled]="!canSubmit">
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        {{ currentIndex + 1 === total ? 'Voir mes résultats' : 'Continuer' }}
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
+
+<ng-template #loadingState>
+  <ion-content>
+    <div class="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  </ion-content>
+</ng-template>
