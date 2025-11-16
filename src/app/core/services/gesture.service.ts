@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { 
   Gesture, 
   GestureData, 
@@ -16,25 +17,42 @@ import { StorageService } from './storage.service';
 export class GestureService {
   private gestures: Gesture[] = [];
   private favoriteGestureIds: string[] = [];
+  private loadingPromise?: Promise<void>;
 
   constructor(
     private http: HttpClient,
     private storageService: StorageService
-  ) { 
+  ) {
     this.loadFavorites();
   }
 
   async loadGestures(): Promise<void> {
-    try {
-      const data = await this.http.get<GestureData>('assets/data/gestures.json').toPromise();
-      if (data && data.gestures) {
-        this.gestures = data.gestures;
-        await this.updateFavoriteStatus();
-      }
-    } catch (error) {
-      console.error('Erreur lors du chargement des gestes:', error);
-      throw error;
+    if (this.gestures.length) {
+      return;
     }
+
+    if (this.loadingPromise) {
+      return this.loadingPromise;
+    }
+
+    this.loadingPromise = (async () => {
+      try {
+        const data = await firstValueFrom(
+          this.http.get<GestureData>('assets/data/gestures.json')
+        );
+        if (data?.gestures) {
+          this.gestures = data.gestures;
+          await this.updateFavoriteStatus();
+        }
+      } catch (error) {
+        console.error('Erreur lors du chargement des gestes:', error);
+        throw error;
+      } finally {
+        this.loadingPromise = undefined;
+      }
+    })();
+
+    return this.loadingPromise;
   }
 
   private async loadFavorites(): Promise<void> {
@@ -117,12 +135,13 @@ export class GestureService {
     if (gesture.isFavorite) {
       await this.storageService.removeFavoriteGesture(gestureId);
       gesture.isFavorite = false;
+      this.favoriteGestureIds = this.favoriteGestureIds.filter(id => id !== gestureId);
     } else {
       await this.storageService.addFavoriteGesture(gestureId);
       gesture.isFavorite = true;
+      this.favoriteGestureIds = [...this.favoriteGestureIds, gestureId];
     }
 
-    await this.loadFavorites();
     return gesture.isFavorite;
   }
 

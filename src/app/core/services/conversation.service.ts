@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { ConversationQuestion, ConversationQuestionData, QuestionDepth, QuestionTheme } from '../models';
 import { StorageService } from './storage.service';
 
@@ -14,6 +15,7 @@ export class ConversationService {
   private history: string[] = [];
   private favorites: string[] = [];
   private loaded = false;
+  private loadingPromise?: Promise<void>;
 
   constructor(
     private http: HttpClient,
@@ -27,16 +29,28 @@ export class ConversationService {
       return;
     }
 
-    try {
-      const data = await this.http.get<ConversationQuestionData>('assets/data/conversation-questions.json').toPromise();
-      if (data?.questions) {
-        this.questions = data.questions;
-        this.loaded = true;
-      }
-    } catch (error) {
-      console.error('Erreur lors du chargement des questions de conversation', error);
-      throw error;
+    if (this.loadingPromise) {
+      return this.loadingPromise;
     }
+
+    this.loadingPromise = (async () => {
+      try {
+        const data = await firstValueFrom(
+          this.http.get<ConversationQuestionData>('assets/data/conversation-questions.json')
+        );
+        if (data?.questions) {
+          this.questions = data.questions;
+          this.loaded = true;
+        }
+      } catch (error) {
+        console.error('Erreur lors du chargement des questions de conversation', error);
+        throw error;
+      } finally {
+        this.loadingPromise = undefined;
+      }
+    })();
+
+    return this.loadingPromise;
   }
 
   hasQuestions(): boolean {
@@ -90,12 +104,14 @@ export class ConversationService {
   }
 
   async toggleFavorite(questionId: string): Promise<void> {
-    if (this.favorites.includes(questionId)) {
+    const isFavorite = this.favorites.includes(questionId);
+    if (isFavorite) {
       await this.storageService.removeFavoriteConversationQuestion(questionId);
+      this.favorites = this.favorites.filter(id => id !== questionId);
     } else {
       await this.storageService.addFavoriteConversationQuestion(questionId);
+      this.favorites = [...this.favorites, questionId];
     }
-    await this.loadFavorites();
   }
 
   async loadFavorites(): Promise<void> {
