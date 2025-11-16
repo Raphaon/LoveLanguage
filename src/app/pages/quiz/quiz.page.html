@@ -8,30 +8,34 @@
 </ion-header>
 
 <ion-content fullscreen="true" *ngIf="!loading && currentQuestion as question; else loadingState">
-  <div class="quiz">
-    <div class="progress">
-      <div class="label">
-        <span>{{ questionCounter }}</span>
-        <ion-text color="medium">{{ question.texte | slice:0:60 }}...</ion-text>
+  <div class="page quiz-page">
+    <section class="quiz__progress surface-card">
+      <div class="badge">Question {{ currentIndex + 1 }} / {{ total }}</div>
+      <div class="progress">
+        <div>
+          <h2>{{ question.texte | slice:0:80 }}{{ question.texte.length > 80 ? '…' : '' }}</h2>
+          <p>Réponds spontanément, ton intuition est la bonne.</p>
+        </div>
+        <ion-progress-bar [value]="progress"></ion-progress-bar>
       </div>
-      <ion-progress-bar [value]="progress"></ion-progress-bar>
-    </div>
-
-    <section class="question">
-      <p class="eyebrow">Question</p>
-      <h2>{{ question.texte }}</h2>
     </section>
 
-    <section class="options">
-      <button
-        *ngFor="let option of question.options"
-        class="option"
-        type="button"
-        [class.selected]="selectedOptionId === option.id"
-        (click)="chooseOption(option)">
-        <div class="letter">{{ option.label }}</div>
-        <div class="text">{{ option.texte }}</div>
-      </button>
+    <section class="quiz__card surface-card">
+      <p class="eyebrow">Question</p>
+      <h3>{{ question.texte }}</h3>
+
+      <div class="options">
+        <button
+          *ngFor="let option of question.options"
+          class="option"
+          type="button"
+          [class.selected]="selectedOptionId === option.id"
+          (click)="chooseOption(option)">
+          <div class="letter">{{ option.label }}</div>
+          <div class="text">{{ option.texte }}</div>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </button>
+      </div>
     </section>
 
     <div class="actions">

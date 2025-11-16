@@ -9,13 +9,12 @@ import {
   IonIcon,
   IonProgressBar,
   IonSpinner,
-  IonText,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { arrowForward } from 'ionicons/icons';
+import { arrowForward, chevronForwardOutline } from 'ionicons/icons';
 import { Question, QuestionOption, UserProfile } from '../../core/models';
 import { QuizService, ScoringService, StorageService } from '../../core/services';
 
@@ -35,8 +34,7 @@ import { QuizService, ScoringService, StorageService } from '../../core/services
     IonButton,
     IonIcon,
     IonProgressBar,
-    IonSpinner,
-    IonText
+    IonSpinner
   ]
 })
 export class QuizPage implements OnInit {
@@ -56,7 +54,7 @@ export class QuizPage implements OnInit {
     private storageService: StorageService,
     private router: Router
   ) {
-    addIcons({ arrowForward });
+    addIcons({ arrowForward, chevronForwardOutline });
   }
 
   async ngOnInit() {

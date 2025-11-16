@@ -1,40 +1,44 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
 :root {
-  /** Palette Bumble-like **/
-  --love-mq: #ff9e63;      // Moments de qualité - Corail
-  --love-sr: #ffc24b;      // Services rendus - Miel
-  --love-pq: #ffe4b3;      // Paroles valorisantes - Sable
-  --love-cd: #ffd966;      // Cadeaux - Nectar
-  --love-tp: #ffd1dc;      // Toucher physique - Rose poudré
+  /** Palette Material 3 inspirée de Google Material You **/
+  --love-mq: #6750a4; // Moments de qualité - Violet
+  --love-sr: #7f67be; // Services rendus - Lavande
+  --love-pq: #d0bcff; // Paroles valorisantes - Lilas
+  --love-cd: #f5ecff; // Cadeaux - Brume
+  --love-tp: #ffdde1; // Toucher physique - Rose poudré
 
-  /** primary : jaune Bumble **/
-  --ion-color-primary: #ffb600;
-  --ion-color-primary-rgb: 255,182,0;
-  --ion-color-primary-contrast: #1f1408;
-  --ion-color-primary-contrast-rgb: 31,20,8;
-  --ion-color-primary-shade: #e0a100;
-  --ion-color-primary-tint: #ffc126;
+  /** Teintes principales **/
+  --ion-color-primary: #6750a4;
+  --ion-color-primary-rgb: 103, 80, 164;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #5b4791;
+  --ion-color-primary-tint: #7c64b2;
 
-  /** secondary : brun doux **/
-  --ion-color-secondary: #2a1e17;
-  --ion-color-secondary-rgb: 42,30,23;
+  --ion-color-secondary: #625b71;
+  --ion-color-secondary-rgb: 98, 91, 113;
   --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255,255,255;
-  --ion-color-secondary-shade: #251a14;
-  --ion-color-secondary-tint: #3f342f;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #565065;
+  --ion-color-secondary-tint: #736c80;
 
-  /** tertiary : crème */
-  --ion-color-tertiary: #fff3d9;
-  --ion-color-tertiary-rgb: 255,243,217;
-  --ion-color-tertiary-contrast: #1f1408;
-  --ion-color-tertiary-contrast-rgb: 31,20,8;
-  --ion-color-tertiary-shade: #e0d4be;
-  --ion-color-tertiary-tint: #fff5dd;
+  --ion-color-tertiary: #7d5260;
+  --ion-color-tertiary-rgb: 125, 82, 96;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #6e4854;
+  --ion-color-tertiary-tint: #8a6370;
 
-  /** Background ultra clair **/
-  --ion-background-color: #fffbf4;
-  --ion-background-color-rgb: 255,251,244;
-  --ion-text-color: #1f1a17;
-  --ion-border-color: rgba(31, 26, 23, 0.08);
+  /** Surfaces et texte **/
+  --ion-background-color: #f7f4fb;
+  --ion-background-color-rgb: 247, 244, 251;
+  --ion-text-color: #1d192b;
+  --ion-border-color: rgba(29, 25, 43, 0.08);
+
+  --md-surface: #fef7ff;
+  --md-surface-container: #f4effa;
+  --md-surface-elevated: #ffffff;
+  --md-surface-tint: rgba(103, 80, 164, 0.08);
+  --md-outline: rgba(29, 25, 43, 0.15);
 }
