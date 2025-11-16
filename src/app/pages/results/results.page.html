@@ -5,24 +5,24 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="results" *ngIf="result; else emptyState">
+  <div class="results" *ngIf="result as testResult; else emptyState">
     <section class="summary">
       <h1>Ton langage principal</h1>
       <div class="languages">
-        <div class="language-card" *ngIf="primaryLanguage">
-          <h2>{{ primaryLanguage?.label }}</h2>
-          <p>{{ primaryLanguage?.descriptionCourte }}</p>
+        <div class="language-card" *ngIf="primaryLanguage as primary">
+          <h2>{{ primary.label }}</h2>
+          <p>{{ primary.descriptionCourte }}</p>
         </div>
-        <div class="language-card secondary" *ngIf="secondaryLanguage">
+        <div class="language-card secondary" *ngIf="secondaryLanguage as secondary">
           <h3>Langage secondaire</h3>
-          <h4>{{ secondaryLanguage?.label }}</h4>
-          <p>{{ secondaryLanguage?.descriptionCourte }}</p>
+          <h4>{{ secondary.label }}</h4>
+          <p>{{ secondary.descriptionCourte }}</p>
         </div>
       </div>
     </section>
 
     <section class="chart">
-      <app-chart [scores]="result?.scores || []"></app-chart>
+      <app-chart [scores]="testResult.scores"></app-chart>
     </section>
 
     <p class="result-message" *ngIf="resultMessage">{{ resultMessage }}</p>
