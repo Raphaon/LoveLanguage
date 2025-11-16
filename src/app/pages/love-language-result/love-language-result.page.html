@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Résultats du test</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="result-wrapper" *ngIf="summary as data; else noResult">
+    <section class="highlight">
+      <h2>Langage principal</h2>
+      <p class="language-label">{{ data.mainLanguage.label }} ({{ getScoreFor(data.mainLanguage.code) }})</p>
+      <p class="language-description">{{ data.mainLanguage.description }}</p>
+    </section>
+
+    <section class="highlight" *ngIf="data.secondaryLanguage as secondary">
+      <h2>Langage secondaire</h2>
+      <p class="language-label">{{ secondary.label }} ({{ getScoreFor(secondary.code) }})</p>
+      <p class="language-description">{{ secondary.description }}</p>
+    </section>
+
+    <section>
+      <h3>Scores détaillés</h3>
+      <ul>
+        <li *ngFor="let entry of scoreEntries">
+          <strong>{{ entry.label }}</strong>
+          <span>{{ entry.value }}</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Données pour histogramme</h3>
+      <ul>
+        <li *ngFor="let item of data.histogramData">
+          [{{ item.code }}] {{ item.label }} : {{ item.score }}
+        </li>
+      </ul>
+    </section>
+
+    <ion-button expand="block" (click)="restart()">Refaire le test</ion-button>
+  </div>
+
+  <ng-template #noResult>
+    <div class="empty-state">
+      <p>Aucun résultat disponible. Lance le quiz pour commencer.</p>
+      <ion-button (click)="restart()">Commencer le test</ion-button>
+    </div>
+  </ng-template>
+</ion-content>

@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+import { CurrentTestState, UserProfile } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
   private _storage: Storage | null = null;
+  private readonly storageReady: Promise<Storage>;
   private readonly KEYS = {
     USER_PROFILE: 'user_profile',
     TEST_RESULTS: 'test_results',
@@ -17,40 +19,63 @@ export class StorageService {
   };
 
   constructor(private storage: Storage) {
-    this.init();
+    this.storageReady = this.init();
   }
 
-  async init() {
-    const storage = await this.storage.create();
-    this._storage = storage;
+  async ready(): Promise<void> {
+    await this.storageReady;
+  }
+
+  private async init(): Promise<Storage> {
+    if (!this._storage) {
+      this._storage = await this.storage.create();
+    }
+    return this._storage;
+  }
+
+  private async getStore(): Promise<Storage> {
+    if (this._storage) {
+      return this._storage;
+    }
+    return this.storageReady;
   }
 
   async set(key: string, value: any): Promise<void> {
-    await this._storage?.set(key, value);
+    const store = await this.getStore();
+    await store.set(key, value);
   }
 
   async get(key: string): Promise<any> {
-    return await this._storage?.get(key);
+    const store = await this.getStore();
+    return await store.get(key);
   }
 
   async remove(key: string): Promise<void> {
-    await this._storage?.remove(key);
+    const store = await this.getStore();
+    await store.remove(key);
   }
 
   async clear(): Promise<void> {
-    await this._storage?.clear();
+    const store = await this.getStore();
+    await store.clear();
   }
 
   async keys(): Promise<string[]> {
-    return await this._storage?.keys() || [];
+    const store = await this.getStore();
+    return await store.keys();
   }
 
-  async saveUserProfile(profile: any): Promise<void> {
+  async saveUserProfile(profile: UserProfile): Promise<void> {
     await this.set(this.KEYS.USER_PROFILE, profile);
   }
 
-  async getUserProfile(): Promise<any> {
+  async getUserProfile(): Promise<UserProfile | null> {
     return await this.get(this.KEYS.USER_PROFILE);
+  }
+
+  async hasUserProfile(): Promise<boolean> {
+    const profile = await this.getUserProfile();
+    return !!profile;
   }
 
   async saveTestResult(result: any): Promise<void> {
@@ -68,11 +93,11 @@ export class StorageService {
     return results.length > 0 ? results[results.length - 1] : null;
   }
 
-  async saveCurrentTest(testData: any): Promise<void> {
+  async saveCurrentTest(testData: CurrentTestState): Promise<void> {
     await this.set(this.KEYS.CURRENT_TEST, testData);
   }
 
-  async getCurrentTest(): Promise<any> {
+  async getCurrentTest(): Promise<CurrentTestState | null> {
     return await this.get(this.KEYS.CURRENT_TEST);
   }
 

@@ -7,6 +7,9 @@ export * from './user-profile.model';
 // Questions
 export * from './question.model';
 
+// Quiz (standalone module)
+export * from './love-language-quiz.model';
+
 // Gestures
 export * from './gesture.model';
 

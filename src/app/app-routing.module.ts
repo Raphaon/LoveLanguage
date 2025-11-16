@@ -24,8 +24,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/quiz/quiz.module').then(m => m.QuizPageModule)
   },
   {
-    path: 'results',
+    path: 'quiz-result',
     loadChildren: () => import('./pages/results/results.module').then(m => m.ResultsPageModule)
+  },
+  {
+    path: 'results',
+    redirectTo: 'quiz-result',
+    pathMatch: 'full'
   },
   {
     path: 'gestures',
