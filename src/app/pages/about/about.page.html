@@ -1,13 +1,72 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>about</ion-title>
+    <ion-title>Vision & évolution</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">about</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <div class="about-page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Love Lang</p>
+        <h1>Plan d'exécution produit</h1>
+        <p class="subtitle">
+          Toutes les fonctionnalités clés du cahier des charges sont livrées dans la V1.
+          Cette page résume les briques actives et le niveau d'évolution visé pour les prochaines versions.
+        </p>
+      </div>
+      <div class="hero-meta">
+        <ion-chip color="success">
+          <ion-icon name="checkmark-circle"></ion-icon>
+          <ion-label>{{ currentEvolution.label }} – {{ currentEvolution.stage }}</ion-label>
+        </ion-chip>
+        <p>{{ currentEvolution.message }}</p>
+        <ion-button fill="clear" color="primary" routerLink="/home">
+          Retour à l'app
+        </ion-button>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="section-header">
+        <h2>Couverture fonctionnelle</h2>
+        <p>Vue synthétique des modules demandés dans le cahier des charges.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card" *ngFor="let feature of featureOverview">
+          <header>
+            <p class="area">{{ feature.area }} · {{ feature.version }}</p>
+            <ion-badge [color]="getStatusColor(feature.status)">
+              {{ getStatusLabel(feature.status) }}
+            </ion-badge>
+          </header>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="evolution">
+      <div class="section-header">
+        <h2>Niveaux d'évolution</h2>
+        <p>Roadmap officielle : MVP (V1), expérience connectée (V2) puis mode couple (V3).</p>
+      </div>
+      <div class="evolution-grid">
+        <article class="evolution-card" *ngFor="let level of evolutionLevels">
+          <header>
+            <ion-chip [color]="getStatusColor(level.status)">
+              <ion-icon [name]="level.status === 'done' ? 'checkmark-circle' : level.status === 'in-progress' ? 'time-outline' : 'trending-up-outline'"></ion-icon>
+              <ion-label>{{ level.stage }}</ion-label>
+            </ion-chip>
+            <small>{{ getStatusLabel(level.status) }} · {{ level.kpis }}</small>
+          </header>
+          <h3>{{ level.title }}</h3>
+          <p>{{ level.summary }}</p>
+          <ul>
+            <li *ngFor="let item of level.highlights">{{ item }}</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </div>
 </ion-content>
