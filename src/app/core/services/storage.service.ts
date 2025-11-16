@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
+import { CurrentTestState, UserProfile } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -45,12 +46,17 @@ export class StorageService {
     return await this._storage?.keys() || [];
   }
 
-  async saveUserProfile(profile: any): Promise<void> {
+  async saveUserProfile(profile: UserProfile): Promise<void> {
     await this.set(this.KEYS.USER_PROFILE, profile);
   }
 
-  async getUserProfile(): Promise<any> {
+  async getUserProfile(): Promise<UserProfile | null> {
     return await this.get(this.KEYS.USER_PROFILE);
+  }
+
+  async hasUserProfile(): Promise<boolean> {
+    const profile = await this.getUserProfile();
+    return !!profile;
   }
 
   async saveTestResult(result: any): Promise<void> {
@@ -68,11 +74,11 @@ export class StorageService {
     return results.length > 0 ? results[results.length - 1] : null;
   }
 
-  async saveCurrentTest(testData: any): Promise<void> {
+  async saveCurrentTest(testData: CurrentTestState): Promise<void> {
     await this.set(this.KEYS.CURRENT_TEST, testData);
   }
 
-  async getCurrentTest(): Promise<any> {
+  async getCurrentTest(): Promise<CurrentTestState | null> {
     return await this.get(this.KEYS.CURRENT_TEST);
   }
 
