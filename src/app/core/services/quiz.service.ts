@@ -6,15 +6,16 @@ import {
   QuestionAnswer,
   QuestionData,
   UserProfile,
-  RelationshipType,
   CurrentTestState
 } from '../models';
+import { ProceduralQuestionService } from './procedural-question.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
   private questions: Question[] = [];
+  private proceduralQuestions: Question[] = [];
   private currentQuestionIndex$ = new BehaviorSubject<number>(0);
   private answers$ = new BehaviorSubject<QuestionAnswer[]>([]);
   private filteredQuestions: Question[] = [];
@@ -23,7 +24,10 @@ export class QuizService {
   private readonly MAX_QUESTIONS = 20;
   private readonly PREFERRED_QUESTIONS = 15;
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private proceduralQuestionService: ProceduralQuestionService
+  ) { }
 
   async loadQuestions(): Promise<void> {
     try {
@@ -31,7 +35,9 @@ export class QuizService {
         this.http.get<QuestionData>('assets/data/questions.json')
       );
       if (data?.questions) {
-        this.questions = data.questions.filter(q => q.actif);
+        this.questions = data.questions
+          .filter(q => q.actif)
+          .map(question => ({ ...question, source: 'static' as const }));
       }
     } catch (error) {
       console.error('Erreur lors du chargement des questions:', error);
@@ -39,7 +45,7 @@ export class QuizService {
     }
   }
 
-  initQuiz(userProfile: UserProfile): Question[] {
+  async initQuiz(userProfile: UserProfile): Promise<Question[]> {
     const eligibleQuestions = this.questions.filter(q => {
       if (!q.relationshipTypes || q.relationshipTypes.length === 0) {
         return true;
@@ -47,8 +53,16 @@ export class QuizService {
       return q.relationshipTypes.includes(userProfile.relationshipType);
     });
 
-    this.filteredQuestions = this.selectQuestions(eligibleQuestions);
-    
+    const curatedQuestions = this.selectQuestions(eligibleQuestions);
+    const missingQuestions = Math.max(this.PREFERRED_QUESTIONS - curatedQuestions.length, 0);
+    this.proceduralQuestions = missingQuestions > 0
+      ? await this.proceduralQuestionService.generateQuestions(userProfile, missingQuestions)
+      : [];
+
+    this.filteredQuestions = [...curatedQuestions, ...this.proceduralQuestions]
+      .slice(0, this.MAX_QUESTIONS)
+      .sort((a, b) => a.ordre - b.ordre);
+
     this.currentQuestionIndex$.next(0);
     this.answers$.next([]);
 
@@ -85,7 +99,7 @@ export class QuizService {
 
   restoreQuiz(state: CurrentTestState): Question[] {
     const orderedQuestions = state.questionIds
-      .map(id => this.questions.find(q => q.id === id))
+      .map(id => this.findQuestionById(id))
       .filter((q): q is Question => !!q);
 
     this.filteredQuestions = orderedQuestions;
@@ -173,9 +187,15 @@ export class QuizService {
     this.currentQuestionIndex$.next(0);
     this.answers$.next([]);
     this.filteredQuestions = [];
+    this.proceduralQuestions = [];
   }
 
   getCurrentAnswers(): QuestionAnswer[] {
     return this.answers$.value;
+  }
+
+  private findQuestionById(id: string): Question | undefined {
+    return this.questions.find(q => q.id === id) ||
+      this.proceduralQuestions.find(q => q.id === id);
   }
 }
