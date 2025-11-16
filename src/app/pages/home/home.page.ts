@@ -77,18 +77,18 @@ export class HomePage implements OnInit {
       return this.conversationService.getRandomQuestion()?.texte;
     })();
 
-    const [latestResult, featuredGestures, questionOfTheDay] = await Promise.allSettled([
+    const [latestResult, featuredGestures, questionOfTheDay] = await Promise.all([
       latestResultPromise,
       featuredGesturesPromise,
       questionPromise
     ]);
 
-    this.latestResult = latestResult.status === 'fulfilled' ? latestResult.value : null;
+    this.latestResult = latestResult;
     if (this.latestResult) {
       this.primaryLanguage = LOVE_LANGUAGES_DATA.find(l => l.code === this.latestResult?.langagePrincipal);
     }
-    this.featuredGestures = featuredGestures.status === 'fulfilled' ? featuredGestures.value ?? [] : [];
-    this.questionOfTheDay = questionOfTheDay.status === 'fulfilled' ? questionOfTheDay.value : undefined;
+    this.featuredGestures = featuredGestures ?? [];
+    this.questionOfTheDay = questionOfTheDay;
   }
 
   goTo(path: string): void {
