@@ -1,0 +1,35 @@
+<ion-card class="gesture-card" (click)="onCardClick()" *ngIf="gesture">
+  <ion-card-header>
+    <div class="card-header-content">
+      <div class="title-section">
+        <ion-icon [name]="categoryIcons[gesture.categorie]" class="category-icon"></ion-icon>
+        <ion-card-title>{{ gesture.title }}</ion-card-title>
+      </div>
+      <ion-button 
+        fill="clear" 
+        size="small" 
+        (click)="onFavoriteClick($event)"
+        class="favorite-button">
+        <ion-icon 
+          slot="icon-only" 
+          [name]="gesture.isFavorite ? 'heart' : 'heart-outline'"
+          [color]="gesture.isFavorite ? 'danger' : 'medium'">
+        </ion-icon>
+      </ion-button>
+    </div>
+  </ion-card-header>
+
+  <ion-card-content>
+    <p class="gesture-description">{{ gesture.description }}</p>
+    
+    <div class="card-footer">
+      <app-language-badge 
+        *ngIf="showLanguageBadge"
+        [languageCode]="gesture.codeLangage"
+        [showLabel]="false"
+        [showEmoji]="true"
+        size="small">
+      </app-language-badge>
+    </div>
+  </ion-card-content>
+</ion-card>

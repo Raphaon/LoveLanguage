@@ -1,0 +1,55 @@
+.gesture-card {
+  margin: 12px 0;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .title-section {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+
+      .category-icon {
+        font-size: 1.25rem;
+        color: var(--ion-color-primary);
+      }
+
+      ion-card-title {
+        font-size: 1.125rem;
+        margin: 0;
+      }
+    }
+
+    .favorite-button {
+      margin: 0;
+      --padding-start: 8px;
+      --padding-end: 8px;
+
+      ion-icon {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .gesture-description {
+    color: var(--ion-color-medium);
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+  }
+}

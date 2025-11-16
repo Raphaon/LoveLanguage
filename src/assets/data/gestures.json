@@ -1,0 +1,3311 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-16",
+  "gestures": [
+    {
+      "id": "g_mq_1",
+      "title": "Soirée cinéma sans téléphone",
+      "description": "Organisez une soirée film à la maison, téléphones éteints, juste vous deux avec vos snacks préférés.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_2",
+      "title": "Promenade et discussion profonde",
+      "description": "Prenez le temps de marcher ensemble et de vraiment vous écouter, sans distractions.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_3",
+      "title": "Petit-déjeuner au lit ensemble",
+      "description": "Préparez un petit-déjeuner et prenez le temps de le savourer ensemble au lit, en discutant.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_4",
+      "title": "Rendez-vous surprise",
+      "description": "Planifiez une sortie surprise où vous pourrez passer du temps de qualité ensemble.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_5",
+      "title": "Cuisiner ensemble",
+      "description": "Choisissez une nouvelle recette et cuisinez ensemble, en profitant du moment partagé.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_6",
+      "title": "Soirée jeux de société",
+      "description": "Organisez une soirée jeux à deux ou en famille, sans écrans.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_7",
+      "title": "Regarder le coucher de soleil",
+      "description": "Trouvez un endroit agréable pour admirer le coucher de soleil ensemble.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_8",
+      "title": "Café en tête-à-tête",
+      "description": "Prenez un café ensemble dans un endroit calme, juste pour discuter.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_9",
+      "title": "Week-end escapade",
+      "description": "Planifiez une escapade d'un week-end pour vous retrouver loin du quotidien.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_10",
+      "title": "Écoute active quotidienne",
+      "description": "Prenez 20 minutes chaque jour pour vraiment écouter l'autre sans interruption.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_11",
+      "title": "Projet créatif ensemble",
+      "description": "Lancez-vous dans un projet créatif commun (peinture, bricolage, jardinage).",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_12",
+      "title": "Pique-nique romantique",
+      "description": "Organisez un pique-nique dans un parc ou un endroit spécial.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_13",
+      "title": "Soirée observation des étoiles",
+      "description": "Installez-vous confortablement pour observer les étoiles et discuter.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_14",
+      "title": "Cours ou atelier ensemble",
+      "description": "Inscrivez-vous à un cours qui vous intéresse tous les deux (danse, cuisine, poterie).",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_15",
+      "title": "Rituel du matin ensemble",
+      "description": "Créez un rituel matinal où vous prenez le temps de vous connecter avant la journée.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_16",
+      "title": "Lecture partagée",
+      "description": "Lisez le même livre et discutez-en ensemble régulièrement.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_17",
+      "title": "Journée aventure",
+      "description": "Partez à l'aventure ensemble : randonnée, exploration d'un nouveau quartier, etc.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_18",
+      "title": "Soirée dansante à la maison",
+      "description": "Mettez de la musique et dansez ensemble dans le salon.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_19",
+      "title": "Temps de qualité avec enfants",
+      "description": "Consacrez du temps exclusif à chaque enfant, individuellement.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_20",
+      "title": "Bain relaxant ensemble",
+      "description": "Prenez un bain ensemble avec des bougies et de la musique douce.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_21",
+      "title": "Conversation du soir",
+      "description": "Instaurez un moment quotidien pour discuter de votre journée, sans téléphone.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_22",
+      "title": "Visite de musée ou exposition",
+      "description": "Visitez ensemble un musée ou une exposition qui vous intéresse.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_23",
+      "title": "Brunch du dimanche",
+      "description": "Créez une tradition de brunch dominical où vous prenez le temps de discuter.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_24",
+      "title": "Projet de couple",
+      "description": "Travaillez ensemble sur un projet commun (décoration, rénovation, jardin).",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_25",
+      "title": "Soirée spa à la maison",
+      "description": "Créez une ambiance spa à la maison et prenez soin l'un de l'autre.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_26",
+      "title": "Exploration culinaire",
+      "description": "Découvrez ensemble un nouveau restaurant ou cuisine ethnique.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_27",
+      "title": "Activité sportive ensemble",
+      "description": "Pratiquez un sport ou une activité physique ensemble régulièrement.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_28",
+      "title": "Méditation ou yoga en duo",
+      "description": "Partagez un moment de méditation ou de yoga ensemble.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_29",
+      "title": "Planification de rêves",
+      "description": "Prenez du temps pour discuter de vos rêves et projets futurs ensemble.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_30",
+      "title": "Concert ou spectacle",
+      "description": "Assistez ensemble à un concert, spectacle ou événement culturel.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_31",
+      "title": "Journée déconnexion totale",
+      "description": "Passez une journée entière ensemble sans téléphones ni écrans.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_32",
+      "title": "Bénévolat ensemble",
+      "description": "Engagez-vous dans une activité de bénévolat commune.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_33",
+      "title": "Session photo ensemble",
+      "description": "Organisez une séance photo amusante, juste pour le plaisir.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_34",
+      "title": "Rituel du coucher",
+      "description": "Créez un rituel de coucher paisible où vous vous retrouvez.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_35",
+      "title": "Voyage découverte",
+      "description": "Planifiez un voyage dans un endroit que vous voulez découvrir ensemble.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_36",
+      "title": "Atelier DIY",
+      "description": "Créez quelque chose ensemble lors d'un atelier créatif.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_37",
+      "title": "Soirée contes et histoires",
+      "description": "Partagez vos histoires préférées ou racontez-vous des anecdotes.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_38",
+      "title": "Dégustation de vins ou thés",
+      "description": "Organisez une dégustation à la maison avec différentes variétés.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_39",
+      "title": "Marché ou foire ensemble",
+      "description": "Visitez un marché local ou une foire, prenez votre temps pour flâner.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_40",
+      "title": "Cours de danse",
+      "description": "Apprenez à danser ensemble, que ce soit salsa, tango ou valse.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_41",
+      "title": "Journée plage ou nature",
+      "description": "Passez une journée complète à la plage ou dans la nature, sans agenda précis.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_42",
+      "title": "Soirée quiz maison",
+      "description": "Créez votre propre quiz sur des sujets qui vous intéressent.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_43",
+      "title": "Apprentissage mutuel",
+      "description": "Enseignez-vous mutuellement une compétence que vous maîtrisez.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_44",
+      "title": "Playlist et discussion",
+      "description": "Créez une playlist ensemble et discutez de pourquoi chaque chanson est spéciale.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_45",
+      "title": "Journée traditions familiales",
+      "description": "Créez et maintenez des traditions familiales régulières.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_46",
+      "title": "Temps de gratitude",
+      "description": "Prenez un moment quotidien pour partager ce pour quoi vous êtes reconnaissants.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_47",
+      "title": "Exploration urbaine",
+      "description": "Explorez un quartier de votre ville que vous ne connaissez pas.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_48",
+      "title": "Soirée karaoké",
+      "description": "Chantez ensemble, même (surtout!) si vous chantez faux.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_49",
+      "title": "Projet de mémoire",
+      "description": "Créez ensemble un album photo ou un scrapbook de vos souvenirs.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_mq_50",
+      "title": "Rendez-vous régulier",
+      "description": "Établissez un rendez-vous hebdomadaire non négociable, juste vous deux.",
+      "codeLangage": "MQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "moment"
+    },
+    {
+      "id": "g_sr_51",
+      "title": "Préparer le café du matin",
+      "description": "Préparez le café ou le petit-déjeuner de votre partenaire avant qu'il/elle ne se réveille.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_52",
+      "title": "Faire la vaisselle sans qu'on le demande",
+      "description": "Prenez l'initiative de faire la vaisselle spontanément.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_53",
+      "title": "Laver la voiture",
+      "description": "Lavez la voiture de votre partenaire en surprise.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_54",
+      "title": "Courses hebdomadaires",
+      "description": "Faites les courses pour toute la semaine sans qu'on vous le demande.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_55",
+      "title": "Préparer le repas du soir",
+      "description": "Cuisinez le dîner pour soulager votre partenaire après une longue journée.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_56",
+      "title": "Tondre la pelouse",
+      "description": "Occupez-vous de l'entretien du jardin ou de la pelouse.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "marie",
+        "en_couple",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_57",
+      "title": "Ranger la maison",
+      "description": "Faites un grand ménage ou rangement sans qu'on vous le demande.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_58",
+      "title": "Remplir le réservoir d'essence",
+      "description": "Prenez la voiture et faites le plein d'essence.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_59",
+      "title": "Lessive et repassage",
+      "description": "Occupez-vous de toute la lessive et du repassage.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_60",
+      "title": "Réparer quelque chose",
+      "description": "Réparez ce robinet qui fuit ou cette porte qui grince depuis des semaines.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_61",
+      "title": "Préparer le sac pour le lendemain",
+      "description": "Préparez les affaires nécessaires pour le lendemain (sac, vêtements, lunch).",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_62",
+      "title": "Déneiger ou dégivrer la voiture",
+      "description": "En hiver, déneigez et dégivrez la voiture avant le départ.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_63",
+      "title": "Sortir les poubelles",
+      "description": "Prenez en charge cette tâche régulièrement sans rappel.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_64",
+      "title": "Faire les lits",
+      "description": "Faites tous les lits de la maison le matin.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_65",
+      "title": "Emmener les enfants à l'école",
+      "description": "Occupez-vous du trajet école pour donner une pause à votre partenaire.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "parent",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_66",
+      "title": "Nettoyer la salle de bain",
+      "description": "Nettoyez en profondeur la salle de bain.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_67",
+      "title": "Préparer les repas de la semaine",
+      "description": "Faites du meal prep pour toute la semaine.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_68",
+      "title": "Passer l'aspirateur",
+      "description": "Passez l'aspirateur dans toute la maison.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_69",
+      "title": "Arroser les plantes",
+      "description": "Prenez en charge l'entretien de toutes les plantes.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_70",
+      "title": "Organiser un placard",
+      "description": "Triez et organisez un placard ou une pièce en désordre.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_71",
+      "title": "Laver les vitres",
+      "description": "Nettoyez toutes les vitres de la maison.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_72",
+      "title": "Faire les courses en ligne",
+      "description": "Commandez et faites livrer les courses pour gagner du temps.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_73",
+      "title": "Préparer le bain",
+      "description": "Préparez un bain relaxant avec tout ce qu'il faut (température parfaite, produits, serviettes).",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_74",
+      "title": "Gérer les factures",
+      "description": "Prenez en charge le paiement des factures du mois.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_75",
+      "title": "Nettoyer le frigo",
+      "description": "Videz, nettoyez et réorganisez le réfrigérateur.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_76",
+      "title": "Cuisiner le plat préféré",
+      "description": "Préparez le plat préféré de votre partenaire sans occasion spéciale.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_77",
+      "title": "Coucher les enfants",
+      "description": "Prenez en charge toute la routine du coucher des enfants.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "parent",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_78",
+      "title": "Faire une commission importante",
+      "description": "Accomplissez une course ou démarche administrative ennuyeuse à leur place.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_79",
+      "title": "Préparer les vêtements",
+      "description": "Sortez et préparez une tenue pour le lendemain.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_80",
+      "title": "Débarrasser la table",
+      "description": "Débarrassez et nettoyez après chaque repas.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_81",
+      "title": "Organiser le garage",
+      "description": "Triez et organisez le garage ou la cave.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "marie",
+        "en_couple",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_82",
+      "title": "Préparer le petit-déjeuner au lit",
+      "description": "Préparez et servez le petit-déjeuner au lit le week-end.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_83",
+      "title": "Nettoyer après un projet",
+      "description": "Rangez et nettoyez tout après un projet ou activité.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_84",
+      "title": "Faire les retouches",
+      "description": "Faites les petites réparations et retouches dans la maison.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_85",
+      "title": "Préparer les bagages",
+      "description": "Aidez à préparer les valises pour un voyage.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_86",
+      "title": "Nettoyer le four",
+      "description": "Nettoyez le four en profondeur.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_87",
+      "title": "Gérer le courrier",
+      "description": "Triez, classez et gérez tout le courrier et les documents.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_88",
+      "title": "Laver les draps",
+      "description": "Changez et lavez tous les draps de la maison.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_89",
+      "title": "Préparer les lunch boxes",
+      "description": "Préparez les repas du midi pour toute la famille.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "parent",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_90",
+      "title": "Faire le tri des vêtements",
+      "description": "Triez les vêtements à donner ou à jeter.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_91",
+      "title": "Nettoyer les chaussures",
+      "description": "Nettoyez et cirez toutes les chaussures.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_92",
+      "title": "Organiser les rendez-vous",
+      "description": "Prenez en charge l'organisation des rendez-vous médicaux ou autres.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_93",
+      "title": "Faire le plein de produits",
+      "description": "Vérifiez et renouvelez les produits de base (papier toilette, détergent, etc.).",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_94",
+      "title": "Promener le chien",
+      "description": "Occupez-vous de promener le chien régulièrement.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_95",
+      "title": "Préparer le thermos",
+      "description": "Préparez un thermos de café ou thé pour le trajet.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_96",
+      "title": "Faire les photocopies",
+      "description": "Occupez-vous des tâches administratives ennuyeuses.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_97",
+      "title": "Charger les appareils",
+      "description": "Assurez-vous que tous les appareils sont chargés pour le lendemain.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_98",
+      "title": "Nettoyer la voiture intérieur",
+      "description": "Nettoyez l'intérieur de la voiture en profondeur.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_99",
+      "title": "Gérer le recyclage",
+      "description": "Occupez-vous du tri et de la sortie du recyclage.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_sr_100",
+      "title": "Organiser les photos",
+      "description": "Triez et organisez les photos numériques ou physiques.",
+      "codeLangage": "SR",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "service"
+    },
+    {
+      "id": "g_pq_101",
+      "title": "Compliment sincère quotidien",
+      "description": "Faites un compliment sincère et spécifique chaque jour.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_102",
+      "title": "Message d'amour matinal",
+      "description": "Envoyez un message tendre dès le réveil.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_103",
+      "title": "Lettre d'amour manuscrite",
+      "description": "Écrivez une vraie lettre d'amour à la main.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_104",
+      "title": "Valoriser en public",
+      "description": "Complimentez votre partenaire devant d'autres personnes.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_105",
+      "title": "Liste de qualités",
+      "description": "Écrivez une liste de toutes les qualités que vous admirez chez l'autre.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_106",
+      "title": "Message d'encouragement",
+      "description": "Envoyez un message d'encouragement avant un événement important.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_107",
+      "title": "Dire 'je t'aime' autrement",
+      "description": "Trouvez une nouvelle façon créative de dire 'je t'aime'.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_108",
+      "title": "Reconnaissance d'efforts",
+      "description": "Reconnaissez verbalement les efforts et le travail de l'autre.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_109",
+      "title": "Poème ou vers personnalisé",
+      "description": "Écrivez un court poème ou quelques vers pour votre partenaire.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_110",
+      "title": "Messages spontanés dans la journée",
+      "description": "Envoyez des petits messages affectueux tout au long de la journée.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_111",
+      "title": "Affirmer la beauté",
+      "description": "Dites à votre partenaire qu'il/elle est beau/belle, régulièrement.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_112",
+      "title": "Merci spécifique",
+      "description": "Remerciez de manière spécifique pour quelque chose de précis.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_113",
+      "title": "Post-it d'amour",
+      "description": "Laissez des post-it avec des messages doux un peu partout.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_114",
+      "title": "Valoriser les talents",
+      "description": "Soulignez un talent ou une compétence particulière de votre partenaire.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_115",
+      "title": "Message vocal affectueux",
+      "description": "Laissez un message vocal tendre et personnel.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_116",
+      "title": "Partager la fierté",
+      "description": "Dites explicitement que vous êtes fier(e) de votre partenaire.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_117",
+      "title": "Rappeler un souvenir heureux",
+      "description": "Partagez le souvenir d'un moment spécial partagé ensemble.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_118",
+      "title": "Compliment sur l'apparence",
+      "description": "Complimentez une nouvelle coupe, tenue ou look.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_119",
+      "title": "Dire pourquoi vous l'aimez",
+      "description": "Expliquez précisément pourquoi vous aimez cette personne.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_120",
+      "title": "Encouragement pour un projet",
+      "description": "Encouragez activement un projet ou un rêve de votre partenaire.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_121",
+      "title": "Carte de gratitude",
+      "description": "Offrez une carte avec un message de gratitude sincère.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_pq_122",
+      "title": "Valoriser devant la famille",
+      "description": "Parlez positivement de votre partenaire devant la famille.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_123",
+      "title": "SMS surprise au travail",
+      "description": "Envoyez un message affectueux pendant les heures de travail.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_124",
+      "title": "Compliment sur les qualités intérieures",
+      "description": "Soulignez une qualité de cœur ou de caractère.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_125",
+      "title": "Journal de gratitude partagé",
+      "description": "Tenez un journal où vous notez ce que vous appréciez chez l'autre.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_126",
+      "title": "Valoriser en tant que parent",
+      "description": "Dites à votre partenaire qu'il/elle est un parent formidable.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "parent",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_127",
+      "title": "Email d'amour",
+      "description": "Envoyez un email romantique et détaillé.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_128",
+      "title": "Affirmer la confiance",
+      "description": "Dites que vous avez confiance en l'autre et ses capacités.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_129",
+      "title": "Souligner une amélioration",
+      "description": "Remarquez et félicitez un progrès ou une amélioration.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_130",
+      "title": "Message avant de dormir",
+      "description": "Envoyez un message tendre avant de vous endormir.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_131",
+      "title": "Appréciation publique sur réseaux",
+      "description": "Publiez un message appréciatif sur les réseaux sociaux (si l'autre apprécie).",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_132",
+      "title": "Dire 'tu me manques'",
+      "description": "Exprimez clairement que l'autre vous manque.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_133",
+      "title": "Valoriser le style",
+      "description": "Complimentez le sens du style ou du goût de votre partenaire.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_134",
+      "title": "Mot doux dans le lunch",
+      "description": "Glissez un petit mot affectueux dans le sac ou la boîte à lunch.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_135",
+      "title": "Reconnaissance quotidienne",
+      "description": "Établissez un rituel quotidien de reconnaissance mutuelle.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_136",
+      "title": "Compliment sur l'intelligence",
+      "description": "Soulignez l'intelligence ou la perspicacité de votre partenaire.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_137",
+      "title": "Message d'appréciation détaillé",
+      "description": "Écrivez un long message détaillant tout ce que vous appréciez.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_138",
+      "title": "Valoriser l'humour",
+      "description": "Dites que vous adorez son sens de l'humour et que ça vous fait du bien.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_139",
+      "title": "Rappeler votre première rencontre",
+      "description": "Partagez ce qui vous a séduit lors de votre première rencontre.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_140",
+      "title": "Encouragement face à un défi",
+      "description": "Encouragez activement lors d'un défi ou d'une difficulté.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_141",
+      "title": "Message de soutien moral",
+      "description": "Envoyez un message de soutien pendant une période difficile.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_142",
+      "title": "Compliment devant les enfants",
+      "description": "Complimentez votre partenaire devant vos enfants.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "parent",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_143",
+      "title": "Dire ce qui vous inspire",
+      "description": "Exprimez comment l'autre vous inspire à être meilleur(e).",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_144",
+      "title": "Appréciation d'une recette",
+      "description": "Complimentez sincèrement un repas ou une préparation.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_145",
+      "title": "Message surprise du matin",
+      "description": "Réveillez votre partenaire avec un message vocal affectueux.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_146",
+      "title": "Dire merci pour la relation",
+      "description": "Remerciez simplement d'être dans votre vie.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_147",
+      "title": "Valoriser la force de caractère",
+      "description": "Soulignez la force, le courage ou la résilience de votre partenaire.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_148",
+      "title": "Message romantique inattendu",
+      "description": "Envoyez un message très romantique sans occasion particulière.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_149",
+      "title": "Affirmation d'amour inconditionnel",
+      "description": "Rappelez que votre amour est inconditionnel et permanent.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_pq_150",
+      "title": "Compliment sur un talent créatif",
+      "description": "Valorisez une création, un projet ou une expression créative.",
+      "codeLangage": "PQ",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "message"
+    },
+    {
+      "id": "g_cd_151",
+      "title": "Fleurs sans raison",
+      "description": "Offrez des fleurs un jour ordinaire, sans occasion spéciale.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_152",
+      "title": "Livre préféré avec dédicace",
+      "description": "Offrez un livre que vous pensez qu'il/elle aimera avec une dédicace personnelle.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_153",
+      "title": "Chocolats favoris",
+      "description": "Ramenez les chocolats ou friandises préférées de votre partenaire.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_154",
+      "title": "Bijou significatif",
+      "description": "Offrez un bijou qui a une signification particulière pour vous deux.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_155",
+      "title": "Photo encadrée",
+      "description": "Encadrez une belle photo de vous deux et offrez-la.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_156",
+      "title": "Objet de collection",
+      "description": "Trouvez un objet rare pour compléter une collection.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_157",
+      "title": "Parfum préféré",
+      "description": "Offrez une nouvelle bouteille du parfum favori.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_158",
+      "title": "Surprise en rentrant",
+      "description": "Laissez un petit cadeau surprise à la maison pour le retour.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_159",
+      "title": "Cadeau fait main",
+      "description": "Créez quelque chose de vos mains spécialement pour votre partenaire.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_160",
+      "title": "Gadget technologique utile",
+      "description": "Offrez un gadget qui facilitera la vie quotidienne.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_161",
+      "title": "Bougie parfumée",
+      "description": "Offrez une belle bougie parfumée dans un parfum apprécié.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_162",
+      "title": "Abonnement à un service",
+      "description": "Offrez un abonnement (streaming, magazine, box mensuelle).",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_163",
+      "title": "Album photo personnalisé",
+      "description": "Créez un album photo avec vos meilleurs souvenirs.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_164",
+      "title": "Plante ou fleur vivante",
+      "description": "Offrez une belle plante pour la maison ou le bureau.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_165",
+      "title": "Vêtement dans son style",
+      "description": "Achetez un vêtement qui correspond parfaitement à son style.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_166",
+      "title": "Accessoire pratique et élégant",
+      "description": "Offrez un bel accessoire utile au quotidien (sac, portefeuille, montre).",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_167",
+      "title": "Coffret de soins",
+      "description": "Offrez un coffret de produits de beauté ou de soins.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_168",
+      "title": "Billet pour un événement",
+      "description": "Offrez des billets pour un concert, match ou spectacle.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_169",
+      "title": "Objet personnalisé",
+      "description": "Faites personnaliser un objet avec initiales, noms ou date spéciale.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_170",
+      "title": "Thé ou café spécial",
+      "description": "Offrez un thé ou café rare et de qualité.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_171",
+      "title": "Carte cadeau réfléchie",
+      "description": "Offrez une carte cadeau pour le magasin ou restaurant préféré.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_172",
+      "title": "Set de voyage",
+      "description": "Offrez un beau set de voyage pratique.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_173",
+      "title": "Outil pour un hobby",
+      "description": "Achetez quelque chose en lien avec un passe-temps ou passion.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_174",
+      "title": "Journée spa offerte",
+      "description": "Offrez un bon pour une journée spa ou massage.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_175",
+      "title": "Décoration pour la maison",
+      "description": "Trouvez un objet déco qui correspond au style de la maison.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_176",
+      "title": "Livre de recettes",
+      "description": "Offrez un beau livre de recettes dans un style culinaire apprécié.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_177",
+      "title": "Écouteurs de qualité",
+      "description": "Offrez de bons écouteurs ou un casque audio.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_178",
+      "title": "Ensemble de verres élégants",
+      "description": "Offrez de beaux verres pour le vin, cocktails ou café.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_179",
+      "title": "Puzzle ou jeu personnalisé",
+      "description": "Créez un puzzle avec une photo de vous deux ou un jeu spécial.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_180",
+      "title": "Coffret dégustation",
+      "description": "Offrez un coffret de dégustation (vins, fromages, chocolats).",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_181",
+      "title": "Accessoire pour voiture",
+      "description": "Offrez un accessoire pratique ou esthétique pour la voiture.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_182",
+      "title": "Sac à main ou sac de sport",
+      "description": "Offrez un beau sac pratique et élégant.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_183",
+      "title": "Kit de jardinage",
+      "description": "Offrez un ensemble d'outils ou de graines pour le jardinage.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_184",
+      "title": "Coffret de thés du monde",
+      "description": "Offrez une sélection de thés de différents pays.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_185",
+      "title": "Équipement sportif",
+      "description": "Achetez de l'équipement pour un sport pratiqué.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_186",
+      "title": "Porte-clés spécial",
+      "description": "Trouvez ou créez un porte-clés unique et significatif.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_187",
+      "title": "Calendrier personnalisé",
+      "description": "Créez un calendrier avec des photos de famille ou de couple.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_188",
+      "title": "Gourde design",
+      "description": "Offrez une belle gourde réutilisable.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_189",
+      "title": "Set de bougies décoratives",
+      "description": "Offrez un ensemble de bougies élégantes.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_190",
+      "title": "Statue ou figurine",
+      "description": "Trouvez une statue ou figurine en lien avec ses intérêts.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_191",
+      "title": "Accessoires de bureau",
+      "description": "Offrez de beaux accessoires pour égayer le bureau.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_192",
+      "title": "Couverture douce",
+      "description": "Offrez une couverture très douce et confortable.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_193",
+      "title": "Expérience cadeau",
+      "description": "Offrez un bon pour une expérience (cours de cuisine, vol en montgolfière, etc.).",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_194",
+      "title": "Boîte à souvenirs",
+      "description": "Offrez une belle boîte pour conserver les souvenirs précieux.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_195",
+      "title": "Journal intime élégant",
+      "description": "Offrez un beau carnet ou journal.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_196",
+      "title": "Diffuseur d'huiles essentielles",
+      "description": "Offrez un diffuseur avec des huiles essentielles.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_197",
+      "title": "Chaussons confortables",
+      "description": "Offrez des chaussons très confortables pour la maison.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_198",
+      "title": "Set de cuisine spécialisé",
+      "description": "Offrez des ustensiles pour une cuisine spécifique (sushi, pâtisserie, etc.).",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_199",
+      "title": "Tirelire créative",
+      "description": "Offrez une tirelire originale pour un projet commun.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_cd_200",
+      "title": "Ensemble de serviettes luxueuses",
+      "description": "Offrez de belles serviettes douces et élégantes.",
+      "codeLangage": "CD",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "cadeau"
+    },
+    {
+      "id": "g_tp_201",
+      "title": "Câlin du matin",
+      "description": "Commencez chaque journée par un câlin chaleureux.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_202",
+      "title": "Tenir la main spontanément",
+      "description": "Prenez la main de votre partenaire lors de promenades ou trajets.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_203",
+      "title": "Massage des épaules",
+      "description": "Offrez un massage des épaules après une longue journée.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_204",
+      "title": "Bisou sur le front",
+      "description": "Donnez un bisou tendre sur le front de manière inattendue.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_205",
+      "title": "Câlin par derrière",
+      "description": "Faites un câlin surprise par derrière pendant une activité.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_206",
+      "title": "Caresser les cheveux",
+      "description": "Caressez doucement les cheveux de votre partenaire.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_207",
+      "title": "Main sur l'épaule",
+      "description": "Posez une main réconfortante sur l'épaule.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_208",
+      "title": "Se blottir ensemble",
+      "description": "Blottissez-vous ensemble sur le canapé pour regarder un film.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_209",
+      "title": "Massage des pieds",
+      "description": "Offrez un massage relaxant des pieds.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_210",
+      "title": "Danser ensemble",
+      "description": "Dansez ensemble, enlacés, même sans musique.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_211",
+      "title": "Main dans le dos",
+      "description": "Placez votre main dans le bas du dos lors de déplacements.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_212",
+      "title": "Câlin avant de dormir",
+      "description": "Terminez chaque journée par un câlin avant de vous endormir.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_213",
+      "title": "Embrasser la main",
+      "description": "Embrassez délicatement la main de votre partenaire.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_214",
+      "title": "Frotter le dos",
+      "description": "Frottez doucement le dos de manière apaisante.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_215",
+      "title": "Étreinte prolongée",
+      "description": "Offrez une étreinte longue et sincère, sans se presser.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_216",
+      "title": "Massage du cuir chevelu",
+      "description": "Massez délicatement le cuir chevelu.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_217",
+      "title": "Se tenir la main au lit",
+      "description": "Tenez-vous la main avant de vous endormir.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_218",
+      "title": "Bisou au réveil",
+      "description": "Réveillez votre partenaire avec un doux bisou.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_219",
+      "title": "Accolade chaleureuse",
+      "description": "Donnez une accolade forte et réconfortante.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_220",
+      "title": "Appuyer sa tête",
+      "description": "Appuyez votre tête contre l'épaule de votre partenaire.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_221",
+      "title": "Massage complet",
+      "description": "Offrez un massage complet du corps avec huiles.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_222",
+      "title": "Caresser le visage",
+      "description": "Caressez tendrement le visage de votre partenaire.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_223",
+      "title": "Étreinte de retrouvailles",
+      "description": "Faites une longue étreinte lors des retrouvailles après une absence.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_224",
+      "title": "Marcher bras dessus bras dessous",
+      "description": "Marchez bras dessus bras dessous lors de promenades.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_225",
+      "title": "Bisou d'au revoir",
+      "description": "Ne jamais partir sans un bisou d'au revoir.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_226",
+      "title": "Câlin de réconfort",
+      "description": "Offrez un câlin réconfortant lors de moments difficiles.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_227",
+      "title": "Main sur la cuisse",
+      "description": "Posez affectueusement votre main sur la cuisse lors de trajets en voiture.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_228",
+      "title": "Se coller en dormant",
+      "description": "Dormez collés l'un contre l'autre.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_229",
+      "title": "Chatouilles ludiques",
+      "description": "Faites des chatouilles douces et ludiques.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_230",
+      "title": "Tape dans le dos encourageante",
+      "description": "Donnez une tape amicale et encourageante dans le dos.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_231",
+      "title": "Bisou surprise",
+      "description": "Donnez un bisou surprise à un moment inattendu.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_232",
+      "title": "Caresses pendant un film",
+      "description": "Caressez doucement le bras ou la main pendant un film.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_233",
+      "title": "Massage des mains",
+      "description": "Massez délicatement les mains et les doigts.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_234",
+      "title": "Se tenir chaud",
+      "description": "Blottissez-vous pour vous tenir chaud.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_235",
+      "title": "Câlin debout prolongé",
+      "description": "Restez enlacés debout pendant plusieurs minutes.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_236",
+      "title": "Toucher rassurant",
+      "description": "Touchez doucement pour rassurer dans une situation stressante.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_237",
+      "title": "Bisous papillon",
+      "description": "Faites des bisous papillon avec les cils.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_238",
+      "title": "Main dans la main au cinéma",
+      "description": "Tenez-vous la main pendant tout le film.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_239",
+      "title": "Étirer ensemble",
+      "description": "Faites des étirements ensemble avec contact physique.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_240",
+      "title": "Câlin groupe familial",
+      "description": "Faites un grand câlin de groupe en famille.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_241",
+      "title": "Caresser le bras",
+      "description": "Caressez doucement le bras lors de conversations.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_242",
+      "title": "Massage de la nuque",
+      "description": "Massez la nuque pour soulager les tensions.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_243",
+      "title": "Se bercer ensemble",
+      "description": "Bercez-vous doucement l'un l'autre.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_244",
+      "title": "High five affectueux",
+      "description": "Transformez un high five en moment de connexion.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_245",
+      "title": "Enlacement en cuisinant",
+      "description": "Enlaçez votre partenaire pendant qu'il/elle cuisine.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_246",
+      "title": "Bisou sur la joue",
+      "description": "Donnez régulièrement des bisous tendres sur la joue.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_247",
+      "title": "Contact pendant le sommeil",
+      "description": "Maintenez un contact (pied, main) pendant le sommeil.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_248",
+      "title": "Caresser pendant une conversation",
+      "description": "Maintenez un contact physique doux pendant les discussions.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_249",
+      "title": "Tape affectueuse sur la tête",
+      "description": "Donnez une petite tape affectueuse sur la tête.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "celibataire",
+        "en_couple",
+        "fiance",
+        "marie",
+        "parent"
+      ],
+      "categorie": "physique"
+    },
+    {
+      "id": "g_tp_250",
+      "title": "Proximité physique constante",
+      "description": "Restez physiquement proche lors de rassemblements sociaux.",
+      "codeLangage": "TP",
+      "relationshipTypes": [
+        "en_couple",
+        "fiance",
+        "marie"
+      ],
+      "categorie": "physique"
+    }
+  ]
+}

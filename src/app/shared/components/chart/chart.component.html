@@ -1,0 +1,12 @@
+<div class="chart-container">
+  <canvas 
+    baseChart
+    *ngIf="barChartData"
+    [data]="barChartData"
+    [options]="barChartOptions"
+    type="bar">
+  </canvas>
+  <div *ngIf="!barChartData || scores.length === 0" class="no-data">
+    <p>Aucune donnée à afficher</p>
+  </div>
+</div>

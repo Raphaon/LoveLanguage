@@ -1,0 +1,9 @@
+<div class="language-badge" [class]="badgeClass" *ngIf="language" [style.--badge-color]="language.color">
+  <div class="badge-icon" *ngIf="showIcon || showEmoji">
+    <ion-icon *ngIf="showIcon && !showEmoji" [name]="language.icon"></ion-icon>
+    <span *ngIf="showEmoji" class="emoji">{{ language.emoji }}</span>
+  </div>
+  <div class="badge-label" *ngIf="showLabel">
+    {{ language.label }}
+  </div>
+</div>
