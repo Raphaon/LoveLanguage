@@ -5,53 +5,65 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="gestures">
-    <section class="filters">
-      <div class="filter-group">
-        <h2>Langage d'amour</h2>
-        <ion-chip [class.active]="!selectedLanguage" (click)="selectLanguage(undefined)">Tous</ion-chip>
-        <ion-chip
-          *ngFor="let language of languages"
-          [class.active]="selectedLanguage === language.code"
-          (click)="selectLanguage(language.code)">
-          {{ language.label }}
-        </ion-chip>
+  <div class="page gestures-page">
+    <section class="filters surface-card">
+      <div class="filters__header">
+        <div>
+          <p class="eyebrow">Filtrer les idées</p>
+          <h1>Suggestions personnalisées</h1>
+        </div>
+        <p>Affiche uniquement les gestes correspondant à ton langage, au type de relation et à tes envies.</p>
       </div>
 
-      <div class="filter-group">
-        <h2>Relation</h2>
-        <ion-select placeholder="Tous" [value]="selectedRelationship" (ionChange)="selectRelationship($event.detail.value)">
-          <ion-select-option [value]="null">Tous</ion-select-option>
-          <ion-select-option *ngFor="let type of relationshipEntries" [value]="type[0]">
-            {{ type[1] }}
-          </ion-select-option>
-        </ion-select>
-      </div>
+      <div class="filter-grid">
+        <div class="filter-group">
+          <h2>Langage d'amour</h2>
+          <div class="chip-list">
+            <ion-chip [class.active]="!selectedLanguage" (click)="selectLanguage(undefined)">Tous</ion-chip>
+            <ion-chip
+              *ngFor="let language of languages"
+              [class.active]="selectedLanguage === language.code"
+              (click)="selectLanguage(language.code)">
+              {{ language.label }}
+            </ion-chip>
+          </div>
+        </div>
 
-      <div class="filter-group categories">
-        <h2>Catégorie</h2>
-        <ion-segment [value]="selectedCategory || 'all'">
-          <ion-segment-button value="all" (click)="selectCategory(undefined)">
-            Tous
-          </ion-segment-button>
-          <ion-segment-button
-            *ngFor="let category of categories"
-            [value]="category.value"
-            (click)="selectCategory(category.value)">
-            {{ category.label }}
-          </ion-segment-button>
-        </ion-segment>
-      </div>
+        <div class="filter-group">
+          <h2>Relation</h2>
+          <ion-select placeholder="Tous" [value]="selectedRelationship" (ionChange)="selectRelationship($event.detail.value)">
+            <ion-select-option [value]="null">Tous</ion-select-option>
+            <ion-select-option *ngFor="let type of relationshipEntries" [value]="type[0]">
+              {{ type[1] }}
+            </ion-select-option>
+          </ion-select>
+        </div>
 
-      <div class="filter-group search">
-        <ion-label position="stacked">Recherche</ion-label>
-        <ion-input
-          placeholder="Une idée, un mot-clé..."
-          [value]="search"
-          (ionInput)="onSearchChange($event.detail.value)"></ion-input>
-        <div class="favorite-toggle">
-          <ion-label>Favoris uniquement</ion-label>
-          <ion-toggle [(ngModel)]="favoritesOnly" (ionChange)="applyFilters()"></ion-toggle>
+        <div class="filter-group categories">
+          <h2>Catégorie</h2>
+          <ion-segment [value]="selectedCategory || 'all'">
+            <ion-segment-button value="all" (click)="selectCategory(undefined)">
+              Tous
+            </ion-segment-button>
+            <ion-segment-button
+              *ngFor="let category of categories"
+              [value]="category.value"
+              (click)="selectCategory(category.value)">
+              {{ category.label }}
+            </ion-segment-button>
+          </ion-segment>
+        </div>
+
+        <div class="filter-group search">
+          <ion-label position="stacked">Recherche</ion-label>
+          <ion-input
+            placeholder="Une idée, un mot-clé..."
+            [value]="search"
+            (ionInput)="onSearchChange($event.detail.value)"></ion-input>
+          <div class="favorite-toggle">
+            <ion-label>Favoris uniquement</ion-label>
+            <ion-toggle [(ngModel)]="favoritesOnly" (ionChange)="applyFilters()"></ion-toggle>
+          </div>
         </div>
       </div>
     </section>
@@ -66,6 +78,6 @@
   </div>
 
   <ng-template #emptyState>
-    <p class="empty">Aucune idée ne correspond à ces filtres pour le moment.</p>
+    <div class="empty surface-card">Aucune idée ne correspond à ces filtres pour le moment.</div>
   </ng-template>
 </ion-content>

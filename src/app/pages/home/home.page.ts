@@ -1,23 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {
-  IonButton,
-  IonCard,
-  IonCardContent,
-  IonCardHeader,
-  IonCardTitle,
-  IonContent,
-  IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonTitle,
-  IonToolbar
-} from '@ionic/angular/standalone';
+import { IonButton, IonContent, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { playCircle, chatbubbleEllipsesOutline } from 'ionicons/icons';
+import { playCircle, chatbubbleEllipsesOutline, bulbOutline, giftOutline, helpCircleOutline } from 'ionicons/icons';
 import { Gesture, LoveLanguage, LOVE_LANGUAGES_DATA, TestResult } from '../../core/models';
 import { ConversationService, GestureService, StorageService } from '../../core/services';
 
@@ -33,14 +19,7 @@ import { ConversationService, GestureService, StorageService } from '../../core/
     IonToolbar,
     IonTitle,
     IonButton,
-    IonIcon,
-    IonCard,
-    IonCardHeader,
-    IonCardTitle,
-    IonCardContent,
-    IonList,
-    IonItem,
-    IonLabel
+    IonIcon
   ]
 })
 export class HomePage implements OnInit {
@@ -55,7 +34,7 @@ export class HomePage implements OnInit {
     private conversationService: ConversationService,
     private router: Router
   ) {
-    addIcons({ playCircle, chatbubbleEllipsesOutline });
+    addIcons({ playCircle, chatbubbleEllipsesOutline, bulbOutline, giftOutline, helpCircleOutline });
   }
 
   async ngOnInit() {
