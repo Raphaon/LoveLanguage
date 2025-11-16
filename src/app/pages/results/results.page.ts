@@ -11,7 +11,7 @@ import {
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { arrowForward, statsChartOutline, giftOutline } from 'ionicons/icons';
-import { LoveLanguage, LoveLanguageCode, LOVE_LANGUAGES_DATA, TestResult, TestStatistics } from '../../core/models';
+import { LoveLanguage, LoveLanguageCode, LOVE_LANGUAGES_DATA, TestResult } from '../../core/models';
 import { ScoringService, StorageService } from '../../core/services';
 import { ChartComponent } from '../../shared/components/chart/chart.component';
 
@@ -37,7 +37,6 @@ export class ResultsPage implements OnInit {
   secondaryLanguage?: LoveLanguage;
   loading = true;
   resultMessage?: string;
-  statistics?: TestStatistics;
 
   constructor(
     private storageService: StorageService,
@@ -59,7 +58,6 @@ export class ResultsPage implements OnInit {
         this.secondaryLanguage = this.getLanguageDetails(this.result.langageSecondaire);
       }
       this.resultMessage = this.scoringService.getResultMessage(this.result as TestResult);
-      this.statistics = this.scoringService.calculateStatistics(this.result as TestResult);
     }
     this.loading = false;
   }
