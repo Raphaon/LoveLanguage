@@ -40,6 +40,37 @@
   font-size: 1.05rem;
 }
 
+.hero__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-self: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(103, 80, 164, 0.25);
+}
+
+.version-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ion-color-primary);
+  padding: 0.2rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(103, 80, 164, 0.12);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.version-note {
+  margin: 0;
+  color: rgba(29, 25, 43, 0.7);
+  font-size: 0.95rem;
+}
+
 .hero__actions {
   display: flex;
   flex-wrap: wrap;

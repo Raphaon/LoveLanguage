@@ -35,6 +35,18 @@
   gap: 1.25rem;
 }
 
+.procedural-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--ion-color-primary);
+}
+
+.procedural-hint ion-icon {
+  font-size: 1rem;
+}
+
 .quiz__card h3 {
   font-size: 1.5rem;
   margin: 0;

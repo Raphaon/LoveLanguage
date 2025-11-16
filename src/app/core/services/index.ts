@@ -4,3 +4,4 @@ export * from './love-language-quiz.service';
 export * from './scoring.service';
 export * from './gesture.service';
 export * from './conversation.service';
+export * from './procedural-question.service';

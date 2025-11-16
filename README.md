@@ -11,6 +11,11 @@ Love Lang est une application Ionic/Angular qui aide les utilisateurs à découv
 - **Questions pour faire connaissance** – Tirage aléatoire avec filtres par thème/niveau, favoris, historique antiredites.
 - **Stockage local** – Persistence via `@ionic/storage-angular` pour les profils, résultats et favoris.
 
+## 🚀 Cap sur la V2
+
+- **Moteur de quiz génératif** – Les questions complémentaires sont construites dynamiquement à partir de la base de gestes.
+- **Préparation du mode connecté** – Les services restent sérialisés/local-first pour brancher facilement Nest/Firebase ensuite.
+
 ## 🧱 Architecture & structure
 
 - **Framework** : Ionic + Angular standalone components.

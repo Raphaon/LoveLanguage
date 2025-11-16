@@ -87,7 +87,7 @@ export class AboutPage {
       title: 'Quiz génératif depuis les gestes',
       description: 'Construction d’items à partir d’une base de gestes (backlog de variantes).',
       area: 'Produit',
-      status: 'in-progress',
+      status: 'done',
       version: 'V2'
     },
     {
@@ -123,10 +123,10 @@ export class AboutPage {
       title: 'Expérience connectée & contenu évolutif',
       stage: 'V2',
       status: 'in-progress',
-      summary: 'Préparation des services pour brancher un backend et générer des quiz infinis.',
+      summary: 'Le moteur procédural transforme les gestes en nouvelles questions en attendant la synchro connectée.',
       highlights: [
-        'Service de quiz prêt pour un moteur procédural',
-        'Architecture prévue pour Nest/Firebase',
+        'Moteur de quiz génératif branché sur la base de gestes',
+        'Architecture prête pour Nest/Firebase',
         'Favoris/paramètres sérialisés pour future synchro'
       ],
       kpis: 'Spécifications couvertes à ~60% (côté front)'
@@ -147,8 +147,8 @@ export class AboutPage {
 
   readonly currentEvolution = {
     label: 'Niveau actuel',
-    stage: 'V1',
-    message: 'Le MVP décrit dans le cahier des charges est opérationnel et testable. Les briques V2/V3 sont cadrées.'
+    stage: 'V2',
+    message: 'Le moteur de quiz génératif est en production mobile et prépare la connexion aux services Nest/Firebase.'
   };
 
   constructor() {
