@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, firstValueFrom } from 'rxjs';
 import {
   Question,
   QuestionAnswer,
@@ -27,8 +27,10 @@ export class QuizService {
 
   async loadQuestions(): Promise<void> {
     try {
-      const data = await this.http.get<QuestionData>('assets/data/questions.json').toPromise();
-      if (data && data.questions) {
+      const data = await firstValueFrom(
+        this.http.get<QuestionData>('assets/data/questions.json')
+      );
+      if (data?.questions) {
         this.questions = data.questions.filter(q => q.actif);
       }
     } catch (error) {

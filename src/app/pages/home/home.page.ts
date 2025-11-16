@@ -63,19 +63,32 @@ export class HomePage implements OnInit {
   }
 
   async loadData(): Promise<void> {
-    this.latestResult = await this.storageService.getLastTestResult();
+    const latestResultPromise = this.storageService.getLastTestResult();
+    const featuredGesturesPromise = (async () => {
+      if (!this.gestureService.getAllGestures().length) {
+        await this.gestureService.loadGestures();
+      }
+      return this.gestureService.getRandomSuggestions(3);
+    })();
+    const questionPromise = (async () => {
+      if (!this.conversationService.hasQuestions()) {
+        await this.conversationService.loadQuestions();
+      }
+      return this.conversationService.getRandomQuestion()?.texte;
+    })();
+
+    const [latestResult, featuredGestures, questionOfTheDay] = await Promise.allSettled([
+      latestResultPromise,
+      featuredGesturesPromise,
+      questionPromise
+    ]);
+
+    this.latestResult = latestResult.status === 'fulfilled' ? latestResult.value : null;
     if (this.latestResult) {
       this.primaryLanguage = LOVE_LANGUAGES_DATA.find(l => l.code === this.latestResult?.langagePrincipal);
     }
-    if (!this.gestureService.getAllGestures().length) {
-      await this.gestureService.loadGestures();
-    }
-    this.featuredGestures = this.gestureService.getRandomSuggestions(3);
-
-    if (!this.conversationService.hasQuestions()) {
-      await this.conversationService.loadQuestions();
-    }
-    this.questionOfTheDay = this.conversationService.getRandomQuestion()?.texte;
+    this.featuredGestures = featuredGestures.status === 'fulfilled' ? featuredGestures.value ?? [] : [];
+    this.questionOfTheDay = questionOfTheDay.status === 'fulfilled' ? questionOfTheDay.value : undefined;
   }
 
   goTo(path: string): void {

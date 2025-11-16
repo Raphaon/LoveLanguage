@@ -23,9 +23,11 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     try {
       await this.storageService.ready();
-      await this.quizService.loadQuestions();
-      await this.gestureService.loadGestures();
-      await this.conversationService.loadQuestions();
+      await Promise.all([
+        this.quizService.loadQuestions(),
+        this.gestureService.loadGestures(),
+        this.conversationService.loadQuestions()
+      ]);
       console.log('✅ Données chargées avec succès');
     } catch (error) {
       console.error('❌ Erreur lors du chargement des données:', error);
