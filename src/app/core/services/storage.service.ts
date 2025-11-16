@@ -26,11 +26,6 @@ export class StorageService {
     return await this.storageReady;
   }
 
-  /**
-   * Initializes the Ionic Storage instance. Exposed publicly so bootstrap
-   * logic (e.g. AppComponent) can await completion without TypeScript access
-   * errors.
-   */
   public async init(): Promise<Storage> {
     if (!this._storage) {
       this._storage = await this.storage.create();

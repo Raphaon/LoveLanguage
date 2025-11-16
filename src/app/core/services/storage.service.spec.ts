@@ -37,8 +37,8 @@ describe('StorageService', () => {
     service = TestBed.inject(StorageService);
   });
 
-  it('should initialize storage when init is awaited', async () => {
-    const storage = await service.init();
+  it('should initialize storage before ready resolves', async () => {
+    const storage = await service.ready();
 
     expect(storageSpy.create).toHaveBeenCalledTimes(1);
     expect(storage).toBe(storeInstance as unknown as Storage);
@@ -48,7 +48,7 @@ describe('StorageService', () => {
     const payload = { foo: 'bar' };
     storeInstance.get.and.returnValue(Promise.resolve(payload));
 
-    await service.init();
+    await service.ready();
     await service.set('test-key', payload);
     const value = await service.get('test-key');
 

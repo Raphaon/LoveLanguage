@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      await this.storageService.init();
+      await this.storageService.ready();
       await this.quizService.loadQuestions();
       await this.gestureService.loadGestures();
       await this.conversationService.loadQuestions();
