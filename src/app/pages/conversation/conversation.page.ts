@@ -1,6 +1,21 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonContent, IonHeader, IonIcon, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import {
+  IonButton,
+  IonChip,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonLabel,
+  IonCard,
+  IonCardHeader,
+  IonCardContent,
+  IonSegment,
+  IonSegmentButton,
+  IonSpinner,
+  IonTitle,
+  IonToolbar
+} from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { refreshOutline, heartOutline, heart } from 'ionicons/icons';
 import { ConversationQuestion, QuestionDepth, QuestionTheme } from '../../core/models';
@@ -11,46 +26,32 @@ import { ConversationService } from '../../core/services/conversation.service';
   templateUrl: './conversation.page.html',
   styleUrls: ['./conversation.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonContent, IonHeader, IonToolbar, IonTitle, IonIcon]
+  imports: [
+    CommonModule,
+    IonContent,
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonCard,
+    IonCardHeader,
+    IonCardContent,
+    IonSegment,
+    IonSegmentButton,
+    IonLabel,
+    IonChip,
+    IonButton,
+    IonIcon,
+    IonSpinner
+  ]
 })
-export class ConversationPage implements OnInit, OnDestroy {
+export class ConversationPage implements OnInit {
   themes: QuestionTheme[] = [];
   depths: QuestionDepth[] = [];
   selectedTheme?: QuestionTheme;
   selectedDepth?: QuestionDepth;
   currentQuestion?: ConversationQuestion | null;
   favoriteIds: string[] = [];
-  pageLoading = true;
-  fetchingQuestion = false;
-  private fetchTimeout?: ReturnType<typeof setTimeout>;
-
-  readonly themeLabels: Record<QuestionTheme, string> = {
-    amour: 'Amour',
-    bonus: 'Bonus',
-    culture: 'Culture',
-    enfance: 'Enfance',
-    famille: 'Famille',
-    loisirs: 'Loisirs',
-    personnalite: 'Personnalité',
-    relations: 'Relations',
-    reves: 'Rêves',
-    spiritualite: 'Spiritualité',
-    travail: 'Travail',
-    valeurs: 'Valeurs'
-  };
-
-  readonly depthLabels: Record<QuestionDepth, string> = {
-    leger: 'Léger',
-    moyen: 'Moyen',
-    profond: 'Profond'
-  };
-
-  readonly depthFilters: Array<{ key: string; label: string; value?: QuestionDepth }> = [
-    { key: 'all', label: 'Tous' },
-    { key: 'leger', label: 'Léger', value: 'leger' },
-    { key: 'moyen', label: 'Moyen', value: 'moyen' },
-    { key: 'profond', label: 'Profond', value: 'profond' }
-  ];
+  loading = true;
 
   constructor(private conversationService: ConversationService) {
     addIcons({ refreshOutline, heartOutline, heart });
@@ -61,32 +62,15 @@ export class ConversationPage implements OnInit, OnDestroy {
     this.themes = this.conversationService.getAvailableThemes();
     this.depths = this.conversationService.getAvailableDepths();
     await this.refreshFavorites();
-    this.pickQuestion({ skipDelay: true });
-    this.pageLoading = false;
+    this.pickQuestion();
+    this.loading = false;
   }
 
-  pickQuestion(options?: { skipDelay?: boolean }): void {
-    const assignQuestion = () => {
-      this.currentQuestion = this.conversationService.getRandomQuestion({
-        theme: this.selectedTheme,
-        depth: this.selectedDepth
-      });
-      this.fetchingQuestion = false;
-      this.fetchTimeout = undefined;
-    };
-
-    this.fetchingQuestion = true;
-
-    if (options?.skipDelay) {
-      assignQuestion();
-      return;
-    }
-
-    if (this.fetchTimeout) {
-      clearTimeout(this.fetchTimeout);
-    }
-
-    this.fetchTimeout = setTimeout(assignQuestion, 220);
+  pickQuestion(): void {
+    this.currentQuestion = this.conversationService.getRandomQuestion({
+      theme: this.selectedTheme,
+      depth: this.selectedDepth
+    });
   }
 
   selectTheme(theme?: QuestionTheme): void {
@@ -99,35 +83,6 @@ export class ConversationPage implements OnInit, OnDestroy {
     this.selectedDepth = depth;
     this.conversationService.clearHistory();
     this.pickQuestion();
-  }
-
-  randomizeTheme(): void {
-    if (!this.themes.length) {
-      return;
-    }
-    const index = Math.floor(Math.random() * this.themes.length);
-    this.selectTheme(this.themes[index]);
-  }
-
-  resetFilters(): void {
-    this.selectedTheme = undefined;
-    this.selectedDepth = undefined;
-    this.conversationService.clearHistory();
-    this.pickQuestion();
-  }
-
-  get themeLabel(): string {
-    if (!this.selectedTheme) {
-      return 'Tous thèmes';
-    }
-    return this.themeLabels[this.selectedTheme];
-  }
-
-  get depthLabel(): string {
-    if (!this.selectedDepth) {
-      return 'Tous niveaux';
-    }
-    return this.depthLabels[this.selectedDepth];
   }
 
   get isFavorite(): boolean {
@@ -148,11 +103,5 @@ export class ConversationPage implements OnInit, OnDestroy {
   private async refreshFavorites(): Promise<void> {
     await this.conversationService.loadFavorites();
     this.favoriteIds = this.conversationService.getFavoriteIds();
-  }
-
-  ngOnDestroy(): void {
-    if (this.fetchTimeout) {
-      clearTimeout(this.fetchTimeout);
-    }
   }
 }

@@ -9,8 +9,7 @@ export type QuestionTheme =
   | 'loisirs'
   | 'travail'
   | 'famille'
-  | 'culture'
-  | 'bonus';
+  | 'culture';
 
 export type QuestionDepth = 'leger' | 'moyen' | 'profond';
 
