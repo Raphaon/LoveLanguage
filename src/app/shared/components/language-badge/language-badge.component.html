@@ -1,9 +1,11 @@
-<div class="language-badge" [class]="badgeClass" *ngIf="language" [style.--badge-color]="language.color">
-  <div class="badge-icon" *ngIf="showIcon || showEmoji">
-    <ion-icon *ngIf="showIcon && !showEmoji" [name]="language.icon"></ion-icon>
-    <span *ngIf="showEmoji" class="emoji">{{ language.emoji }}</span>
+<ng-container *ngIf="language as lang">
+  <div class="language-badge" [class]="badgeClass" [style.--badge-color]="lang.color">
+    <div class="badge-icon" *ngIf="showIcon || showEmoji">
+      <ion-icon *ngIf="showIcon && !showEmoji" [name]="lang.icon"></ion-icon>
+      <span *ngIf="showEmoji" class="emoji">{{ lang.emoji }}</span>
+    </div>
+    <div class="badge-label" *ngIf="showLabel">
+      {{ lang.label }}
+    </div>
   </div>
-  <div class="badge-label" *ngIf="showLabel">
-    {{ language.label }}
-  </div>
-</div>
+</ng-container>

@@ -12,3 +12,6 @@ export * from './gesture.model';
 
 // Test Results
 export * from './test-result.model';
+
+// Conversation questions
+export * from './conversation-question.model';
