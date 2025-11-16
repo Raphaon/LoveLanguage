@@ -11,6 +11,7 @@ export class StorageService {
     TEST_RESULTS: 'test_results',
     CURRENT_TEST: 'current_test',
     FAVORITE_GESTURES: 'favorite_gestures',
+    FAVORITE_CONVERSATION_QUESTIONS: 'favorite_conversation_questions',
     ONBOARDING_COMPLETED: 'onboarding_completed',
     APP_SETTINGS: 'app_settings'
   };
@@ -110,6 +111,31 @@ export class StorageService {
 
   async isOnboardingCompleted(): Promise<boolean> {
     return await this.get(this.KEYS.ONBOARDING_COMPLETED) || false;
+  }
+
+  async getFavoriteConversationQuestions(): Promise<string[]> {
+    return await this.get(this.KEYS.FAVORITE_CONVERSATION_QUESTIONS) || [];
+  }
+
+  async saveFavoriteConversationQuestions(questionIds: string[]): Promise<void> {
+    await this.set(this.KEYS.FAVORITE_CONVERSATION_QUESTIONS, questionIds);
+  }
+
+  async addFavoriteConversationQuestion(questionId: string): Promise<void> {
+    const favorites = await this.getFavoriteConversationQuestions();
+    if (!favorites.includes(questionId)) {
+      favorites.push(questionId);
+      await this.saveFavoriteConversationQuestions(favorites);
+    }
+  }
+
+  async removeFavoriteConversationQuestion(questionId: string): Promise<void> {
+    const favorites = await this.getFavoriteConversationQuestions();
+    const index = favorites.indexOf(questionId);
+    if (index > -1) {
+      favorites.splice(index, 1);
+      await this.saveFavoriteConversationQuestions(favorites);
+    }
   }
 
   async resetApp(): Promise<void> {

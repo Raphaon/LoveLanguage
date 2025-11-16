@@ -1,13 +1,49 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>results</ion-title>
+    <ion-title>Résultats</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">results</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <div class="results" *ngIf="result; else emptyState">
+    <section class="summary">
+      <h1>Ton langage principal</h1>
+      <div class="languages">
+        <div class="language-card" *ngIf="primaryLanguage">
+          <h2>{{ primaryLanguage?.label }}</h2>
+          <p>{{ primaryLanguage?.descriptionCourte }}</p>
+        </div>
+        <div class="language-card secondary" *ngIf="secondaryLanguage">
+          <h3>Langage secondaire</h3>
+          <h4>{{ secondaryLanguage?.label }}</h4>
+          <p>{{ secondaryLanguage?.descriptionCourte }}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="chart">
+      <app-chart [scores]="result?.scores || []"></app-chart>
+    </section>
+
+    <p class="result-message" *ngIf="resultMessage">{{ resultMessage }}</p>
+
+    <section class="actions">
+      <ion-button expand="block" color="primary" (click)="goToGestures()">
+        <ion-icon slot="start" name="gift-outline"></ion-icon>
+        Voir les gestes d'attention adaptés
+      </ion-button>
+      <ion-button expand="block" fill="clear" (click)="restartQuiz()">
+        <ion-icon slot="start" name="arrow-forward"></ion-icon>
+        Refaire le test
+      </ion-button>
+    </section>
+  </div>
+
+  <ng-template #emptyState>
+    <div class="empty">
+      <ion-icon name="stats-chart-outline"></ion-icon>
+      <p>Aucun résultat pour le moment. Lance ton premier test !</p>
+      <ion-button (click)="restartQuiz()">Commencer le test</ion-button>
+    </div>
+  </ng-template>
 </ion-content>

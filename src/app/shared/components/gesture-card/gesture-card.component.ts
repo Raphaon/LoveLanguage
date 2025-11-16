@@ -1,10 +1,31 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonIcon
+} from '@ionic/angular/standalone';
 import { Gesture, GESTURE_CATEGORY_ICONS } from '../../../core/models';
+import { LanguageBadgeComponent } from '../language-badge/language-badge.component';
 
 @Component({
   selector: 'app-gesture-card',
   templateUrl: './gesture-card.component.html',
   styleUrls: ['./gesture-card.component.scss'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonButton,
+    IonIcon,
+    LanguageBadgeComponent
+  ]
 })
 export class GestureCardComponent {
   @Input() gesture!: Gesture;
