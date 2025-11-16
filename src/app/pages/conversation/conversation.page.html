@@ -42,7 +42,7 @@
     </section>
 
     <section class="question-card" *ngIf="!loading; else loadingState">
-      <ion-card *ngIf="currentQuestion as question; else emptyState">
+      <ion-card>
         <ion-card-header>
           <p class="question-meta">
             <span>{{ selectedTheme ? (selectedTheme | titlecase) : 'Tous thèmes' }}</span>
@@ -52,11 +52,11 @@
           <h2>Question du moment</h2>
         </ion-card-header>
         <ion-card-content>
-          <p class="question-text">
-            {{ question.texte }}
+          <p class="question-text" *ngIf="currentQuestion; else emptyState">
+            {{ currentQuestion?.texte }}
           </p>
         </ion-card-content>
-        <div class="question-actions">
+        <div class="question-actions" *ngIf="currentQuestion">
           <ion-button fill="clear" (click)="toggleFavorite()">
             <ion-icon slot="start" [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
             {{ isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
