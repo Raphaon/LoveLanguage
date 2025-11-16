@@ -52,8 +52,8 @@
           <h2>Question du moment</h2>
         </ion-card-header>
         <ion-card-content>
-          <p class="question-text" *ngIf="currentQuestion; else emptyState">
-            {{ currentQuestion?.texte }}
+          <p class="question-text" *ngIf="currentQuestion as question; else emptyState">
+            {{ question.texte }}
           </p>
         </ion-card-content>
         <div class="question-actions" *ngIf="currentQuestion">

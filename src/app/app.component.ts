@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    await this.storageService.init();
+    await this.storageService.ready();
 
     try {
       await this.quizService.loadQuestions();
