@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Test des langages de l'amour</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="quiz-wrapper" *ngIf="hasQuestions; else emptyState">
+    <p class="question-counter">Question {{ questionCounter }}</p>
+    <ion-progress-bar class="progress" [value]="progressValue"></ion-progress-bar>
+
+    <h2 class="question-text">{{ currentQuestion?.text }}</h2>
+
+    <div class="options">
+      <ion-button
+        fill="outline"
+        expand="block"
+        *ngFor="let option of currentQuestion?.options"
+        (click)="onSelectOption(option)">
+        <span class="option-label">{{ option.label }}.</span>
+        <span>{{ option.text }}</span>
+      </ion-button>
+    </div>
+  </div>
+
+  <ng-template #emptyState>
+    <div class="empty-state">
+      <p>Aucune question n'est disponible pour le moment.</p>
+      <ion-button (click)="restartQuiz()">Réessayer</ion-button>
+    </div>
+  </ng-template>
+</ion-content>

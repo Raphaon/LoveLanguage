@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { 
-  Question, 
-  QuestionAnswer, 
+import {
+  Question,
+  QuestionAnswer,
   QuestionData,
   UserProfile,
-  RelationshipType
+  RelationshipType,
+  CurrentTestState
 } from '../models';
 
 @Injectable({
@@ -52,6 +53,10 @@ export class QuizService {
     return this.filteredQuestions;
   }
 
+  hasQuestions(): boolean {
+    return this.questions.length > 0;
+  }
+
   private selectQuestions(availableQuestions: Question[]): Question[] {
     const sorted = [...availableQuestions].sort((a, b) => a.ordre - b.ordre);
 
@@ -74,6 +79,24 @@ export class QuizService {
     }
 
     return selected.sort((a, b) => a.ordre - b.ordre);
+  }
+
+  restoreQuiz(state: CurrentTestState): Question[] {
+    const orderedQuestions = state.questionIds
+      .map(id => this.questions.find(q => q.id === id))
+      .filter((q): q is Question => !!q);
+
+    this.filteredQuestions = orderedQuestions;
+    const normalizedAnswers = (state.answers || []).map(answer => ({
+      ...answer,
+      timestamp: answer.timestamp ? new Date(answer.timestamp) : new Date()
+    }));
+
+    this.answers$.next(normalizedAnswers);
+    const safeIndex = Math.min(state.currentIndex, Math.max(this.filteredQuestions.length - 1, 0));
+    this.currentQuestionIndex$.next(safeIndex);
+
+    return this.filteredQuestions;
   }
 
   getCurrentQuestion(): Question | null {

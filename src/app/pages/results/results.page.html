@@ -1,13 +1,60 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>results</ion-title>
+    <ion-title>Résultats</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">results</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <div class="page-shell results-shell" *ngIf="result as quizResult; else emptyState">
+    <section class="hero bumble-card" *ngIf="primaryLanguage as mainLanguage">
+      <div class="badge">Langage principal</div>
+      <h1>{{ mainLanguage.label }}</h1>
+      <p>{{ mainLanguage.descriptionCourte }}</p>
+      <div class="tags">
+        <span>{{ quizResult.totalQuestions }} réponses</span>
+        <span *ngIf="(statistics?.dominantLanguages?.length || 0) > 1">Profil équilibré</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="mini-card" *ngIf="secondaryLanguage as secondary">
+        <p class="eyebrow">Langage secondaire</p>
+        <h3>{{ secondary.label }}</h3>
+        <p>{{ secondary.descriptionCourte }}</p>
+      </article>
+
+      <article class="mini-card" *ngIf="statistics as stats">
+        <p class="eyebrow">Insight</p>
+        <h3>{{ stats.isBalanced ? 'Profil harmonieux' : 'Préférence marquée' }}</h3>
+        <p *ngIf="resultMessage">{{ resultMessage }}</p>
+      </article>
+    </section>
+
+    <section class="chart-card bumble-card">
+      <div class="section-title">
+        <h2>Histogramme des scores</h2>
+        <span>{{ quizResult.date | date: 'dd MMM yyyy' }}</span>
+      </div>
+      <app-chart [scores]="quizResult.scores"></app-chart>
+    </section>
+
+    <section class="actions">
+      <ion-button expand="block" color="primary" (click)="goToGestures()">
+        <ion-icon slot="start" name="gift-outline"></ion-icon>
+        Voir les gestes d'attention adaptés
+      </ion-button>
+      <ion-button expand="block" fill="clear" (click)="restartQuiz()">
+        <ion-icon slot="start" name="arrow-forward"></ion-icon>
+        Refaire le test
+      </ion-button>
+    </section>
+  </div>
+
+  <ng-template #emptyState>
+    <div class="empty">
+      <ion-icon name="stats-chart-outline"></ion-icon>
+      <p>Aucun résultat pour le moment. Lance ton premier test !</p>
+      <ion-button (click)="restartQuiz()">Commencer le test</ion-button>
+    </div>
+  </ng-template>
 </ion-content>

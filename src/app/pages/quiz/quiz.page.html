@@ -1,13 +1,57 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>quiz</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Test des langages</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">quiz</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <div class="page-shell quiz-shell" *ngIf="!loading && currentQuestion as question; else loadingState">
+    <section class="progress-card bumble-card">
+      <div class="details">
+        <strong>{{ questionCounter }}</strong>
+        <span>Minimum {{ minQuestions }} questions</span>
+      </div>
+      <ion-progress-bar [value]="progress"></ion-progress-bar>
+    </section>
+
+    <div class="resume-pill" *ngIf="resumedFromDraft">
+      Test repris automatiquement — {{ (progress * 100) | number:'1.0-0' }}% complété
+    </div>
+
+    <article class="question-card bumble-card">
+      <p class="eyebrow">Question {{ currentIndex + 1 }}</p>
+      <h2>{{ question.texte }}</h2>
+      <div class="options">
+        <button
+          *ngFor="let option of question.options"
+          type="button"
+          class="option"
+          [class.selected]="selectedOptionId === option.id"
+          (click)="chooseOption(option)"
+        >
+          <span class="letter">{{ option.label }}</span>
+          <span class="text">{{ option.texte }}</span>
+        </button>
+      </div>
+    </article>
+
+    <div class="floating-actions">
+      <button type="button" class="ghost" (click)="goPrevious()" [disabled]="!canGoBack">Revenir</button>
+      <ion-button shape="round" size="large" color="primary" (click)="submitAnswer()" [disabled]="!canSubmit">
+        {{ currentIndex + 1 === total ? 'Voir mes résultats' : 'Continuer' }}
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
+
+<ng-template #loadingState>
+  <ion-content>
+    <div class="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+    </div>
+  </ion-content>
+</ng-template>
