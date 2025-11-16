@@ -1,0 +1,1506 @@
+{
+  "version": "1.1.0",
+  "lastUpdated": "2025-11-16",
+  "questions": [
+    {
+      "id": "c1",
+      "texte": "Quel était ton dessin animé préféré quand tu étais enfant ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c2",
+      "texte": "Quel jouet te manque encore aujourd’hui ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c3",
+      "texte": "Quelle était ta nourriture préférée petit ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c4",
+      "texte": "As-tu un surnom que ta famille t’appelait ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c5",
+      "texte": "Quel était ton jeu préféré dans la cour d’école ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c6",
+      "texte": "Quel était ton animal préféré petit ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c7",
+      "texte": "Quel sport ou activité faisais-tu enfant ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c8",
+      "texte": "Quel cadeau t’a le plus marqué dans ton enfance ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c9",
+      "texte": "Quel était ton héros ou héroïne préféré ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c10",
+      "texte": "Avais-tu une peluche fétiche ?",
+      "theme": "enfance",
+      "depth": "leger"
+    },
+    {
+      "id": "c11",
+      "texte": "Quel est ton plus beau souvenir d’enfance ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c12",
+      "texte": "Quel moment d’enfance a changé quelque chose dans ta vie ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c13",
+      "texte": "Comment décrirais-tu l’enfant que tu étais ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c14",
+      "texte": "Quel était ton endroit préféré pour jouer ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c15",
+      "texte": "Qu’est-ce qui te faisait te sentir en sécurité étant enfant ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c16",
+      "texte": "Quelles valeurs ta famille t’a transmises sans même te le dire ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c17",
+      "texte": "Qui était ton meilleur ami d’enfance ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c18",
+      "texte": "Quelle était ta plus grande peur étant enfant ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c19",
+      "texte": "Quel membre de ta famille t’a le plus influencé quand tu étais petit ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c20",
+      "texte": "Quelle tradition familiale te manque ?",
+      "theme": "enfance",
+      "depth": "moyen"
+    },
+    {
+      "id": "c21",
+      "texte": "Quel manque de ton enfance tu ressens encore aujourd’hui ?",
+      "theme": "enfance",
+      "depth": "profond"
+    },
+    {
+      "id": "c22",
+      "texte": "Quelle blessure d’enfance as-tu dû guérir avec le temps ?",
+      "theme": "enfance",
+      "depth": "profond"
+    },
+    {
+      "id": "c23",
+      "texte": "Quel événement de ton enfance t’a rendu plus fort ?",
+      "theme": "enfance",
+      "depth": "profond"
+    },
+    {
+      "id": "c24",
+      "texte": "Comment ton éducation a influencé la personne que tu es aujourd’hui ?",
+      "theme": "enfance",
+      "depth": "profond"
+    },
+    {
+      "id": "c25",
+      "texte": "Si tu pouvais changer une chose dans ton enfance, ce serait quoi ?",
+      "theme": "enfance",
+      "depth": "profond"
+    },
+    {
+      "id": "c26",
+      "texte": "Quel est ton langage d’amitié (comment tu donnes ton affection) ?",
+      "theme": "relations",
+      "depth": "leger"
+    },
+    {
+      "id": "c27",
+      "texte": "Préfères-tu avoir beaucoup de connaissances ou peu d’amis proches ?",
+      "theme": "relations",
+      "depth": "leger"
+    },
+    {
+      "id": "c28",
+      "texte": "Qu’est-ce qui te fait aimer quelqu’un en amitié ?",
+      "theme": "relations",
+      "depth": "leger"
+    },
+    {
+      "id": "c29",
+      "texte": "Quelle est la plus belle qualité d’un ami pour toi ?",
+      "theme": "relations",
+      "depth": "leger"
+    },
+    {
+      "id": "c30",
+      "texte": "Comment montres-tu à quelqu’un que tu l’apprécies ?",
+      "theme": "relations",
+      "depth": "leger"
+    },
+    {
+      "id": "c31",
+      "texte": "Quel est selon toi le secret d’une relation durable ?",
+      "theme": "relations",
+      "depth": "moyen"
+    },
+    {
+      "id": "c32",
+      "texte": "Comment gères-tu les conflits dans une relation ?",
+      "theme": "relations",
+      "depth": "moyen"
+    },
+    {
+      "id": "c33",
+      "texte": "Quel genre d’énergie cherches-tu chez les autres ?",
+      "theme": "relations",
+      "depth": "moyen"
+    },
+    {
+      "id": "c34",
+      "texte": "Qu’est-ce qui te donne confiance en quelqu’un ?",
+      "theme": "relations",
+      "depth": "moyen"
+    },
+    {
+      "id": "c35",
+      "texte": "Quelle limite tu mets dans tes relations ?",
+      "theme": "relations",
+      "depth": "moyen"
+    },
+    {
+      "id": "c36",
+      "texte": "Quelle relation t’a le plus blessé dans ta vie ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c37",
+      "texte": "Quel type de personne t’attire émotionnellement ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c38",
+      "texte": "Quelle forme d’amour te manque le plus ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c39",
+      "texte": "Comment sais-tu que tu peux vraiment faire confiance à quelqu’un ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c40",
+      "texte": "Quelle part de toi tu caches dans les relations, et pourquoi ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c41",
+      "texte": "Quelle relation t’a le plus construit ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c42",
+      "texte": "Quelle peur relationnelle as-tu encore aujourd’hui ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c43",
+      "texte": "Quelle erreur relationnelle tu ne veux plus jamais refaire ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c44",
+      "texte": "Quelle est ta plus grande force dans une relation ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c45",
+      "texte": "Quel est ton besoin affectif le plus profond ?",
+      "theme": "relations",
+      "depth": "profond"
+    },
+    {
+      "id": "c46",
+      "texte": "Quel est ton type de rendez-vous idéal ?",
+      "theme": "amour",
+      "depth": "leger"
+    },
+    {
+      "id": "c47",
+      "texte": "Qu’est-ce qui te fait craquer chez quelqu’un ?",
+      "theme": "amour",
+      "depth": "leger"
+    },
+    {
+      "id": "c48",
+      "texte": "Quel petit geste romantique t’a déjà marqué ?",
+      "theme": "amour",
+      "depth": "leger"
+    },
+    {
+      "id": "c49",
+      "texte": "Préfères-tu les messages ou les appels ?",
+      "theme": "amour",
+      "depth": "leger"
+    },
+    {
+      "id": "c50",
+      "texte": "Quelle chanson te fait penser à l’amour ?",
+      "theme": "amour",
+      "depth": "leger"
+    },
+    {
+      "id": "c51",
+      "texte": "Comment reconnais-tu que tu es amoureux(se) ?",
+      "theme": "amour",
+      "depth": "moyen"
+    },
+    {
+      "id": "c52",
+      "texte": "Que représente l’engagement pour toi ?",
+      "theme": "amour",
+      "depth": "moyen"
+    },
+    {
+      "id": "c53",
+      "texte": "Quel est ton langage d’amour principal ?",
+      "theme": "amour",
+      "depth": "moyen"
+    },
+    {
+      "id": "c54",
+      "texte": "Qu’est-ce qui te fait te sentir aimé(e) profondément ?",
+      "theme": "amour",
+      "depth": "moyen"
+    },
+    {
+      "id": "c55",
+      "texte": "Quelle est ta plus belle expérience amoureuse ?",
+      "theme": "amour",
+      "depth": "moyen"
+    },
+    {
+      "id": "c56",
+      "texte": "De quoi as-tu le plus peur en amour ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c57",
+      "texte": "Que penses-tu mériter dans une relation ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c58",
+      "texte": "Quel manque affectif impacte encore ta vie amoureuse ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c59",
+      "texte": "Quelle blessure en amour t’a transformé(e) ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c60",
+      "texte": "Si tu pouvais réécrire l’histoire d’un amour passé, que changerais-tu ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c61",
+      "texte": "Quelle croyance limitante sur l’amour veux-tu laisser tomber ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c62",
+      "texte": "Quel est ton plus grand rêve en amour ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c63",
+      "texte": "Qu’est-ce que tu ne peux pas accepter dans une relation ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c64",
+      "texte": "Quel est ton modèle d’amour idéal ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c65",
+      "texte": "À quel moment as-tu senti un amour authentique ?",
+      "theme": "amour",
+      "depth": "profond"
+    },
+    {
+      "id": "c66",
+      "texte": "Quel est ton plus grand rêve d’enfant qui persiste ?",
+      "theme": "reves",
+      "depth": "leger"
+    },
+    {
+      "id": "c67",
+      "texte": "Quel pays veux-tu absolument visiter ?",
+      "theme": "reves",
+      "depth": "leger"
+    },
+    {
+      "id": "c68",
+      "texte": "Quel métier te faisait rêver petit ?",
+      "theme": "reves",
+      "depth": "leger"
+    },
+    {
+      "id": "c69",
+      "texte": "Quel est ton rêve fou mais réalisable ?",
+      "theme": "reves",
+      "depth": "leger"
+    },
+    {
+      "id": "c70",
+      "texte": "Quel projet tu aimerais lancer un jour ?",
+      "theme": "reves",
+      "depth": "leger"
+    },
+    {
+      "id": "c71",
+      "texte": "Où te vois-tu dans 5 ans ?",
+      "theme": "reves",
+      "depth": "moyen"
+    },
+    {
+      "id": "c72",
+      "texte": "Quel est ton objectif majeur pour les prochains mois ?",
+      "theme": "reves",
+      "depth": "moyen"
+    },
+    {
+      "id": "c73",
+      "texte": "Qu’aimerais-tu accomplir avant 40 ans ?",
+      "theme": "reves",
+      "depth": "moyen"
+    },
+    {
+      "id": "c74",
+      "texte": "Quel changement aimerais-tu voir dans ta vie ?",
+      "theme": "reves",
+      "depth": "moyen"
+    },
+    {
+      "id": "c75",
+      "texte": "Quel est ton rêve de vie financière ?",
+      "theme": "reves",
+      "depth": "moyen"
+    },
+    {
+      "id": "c76",
+      "texte": "Quel rêve te fait le plus peur ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c77",
+      "texte": "Quel rêve t’a poursuivi pendant des années mais que tu n’as jamais osé ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c78",
+      "texte": "Quel rêve pourrait changer ta vie ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c79",
+      "texte": "Qu’est-ce qui te freine réellement dans tes ambitions ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c80",
+      "texte": "Que ferais-tu si tu n’avais aucune limite ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c81",
+      "texte": "Quel héritage veux-tu laisser ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c82",
+      "texte": "Quelle vision as-tu d’une vie pleinement réussie ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c83",
+      "texte": "Quel sacrifice es-tu prêt(e) à faire pour ton rêve ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c84",
+      "texte": "Quel rêve as-tu abandonné et pourquoi ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c85",
+      "texte": "Quel rêve secret n’as-tu jamais dit à personne ?",
+      "theme": "reves",
+      "depth": "profond"
+    },
+    {
+      "id": "c86",
+      "texte": "Quelle valeur est importante pour toi : loyauté, respect ou honnêteté ?",
+      "theme": "valeurs",
+      "depth": "leger"
+    },
+    {
+      "id": "c87",
+      "texte": "Préfères-tu la liberté ou la stabilité ?",
+      "theme": "valeurs",
+      "depth": "leger"
+    },
+    {
+      "id": "c88",
+      "texte": "Qu’est-ce qui t’irrite le plus chez quelqu’un ?",
+      "theme": "valeurs",
+      "depth": "leger"
+    },
+    {
+      "id": "c89",
+      "texte": "Quelle valeur t’attire chez une personne ?",
+      "theme": "valeurs",
+      "depth": "leger"
+    },
+    {
+      "id": "c90",
+      "texte": "Qu’est-ce qui compte le plus : intentions ou actions ?",
+      "theme": "valeurs",
+      "depth": "leger"
+    },
+    {
+      "id": "c91",
+      "texte": "Quelle valeur tu ne sacrifieras jamais ?",
+      "theme": "valeurs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c92",
+      "texte": "Quelle injustice te met immédiatement en colère ?",
+      "theme": "valeurs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c93",
+      "texte": "Quelle valeur représente ton éducation ?",
+      "theme": "valeurs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c94",
+      "texte": "Quelle valeur veux-tu transmettre ?",
+      "theme": "valeurs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c95",
+      "texte": "Quelle valeur te définit le mieux ?",
+      "theme": "valeurs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c96",
+      "texte": "Quelle valeur as-tu dû apprendre avec le temps ?",
+      "theme": "valeurs",
+      "depth": "profond"
+    },
+    {
+      "id": "c97",
+      "texte": "Quelle valeur t’a été arrachée dans la vie (trahison, mensonge…) ?",
+      "theme": "valeurs",
+      "depth": "profond"
+    },
+    {
+      "id": "c98",
+      "texte": "Quelle lutte intérieure as-tu avec tes valeurs ?",
+      "theme": "valeurs",
+      "depth": "profond"
+    },
+    {
+      "id": "c99",
+      "texte": "Quelle valeur te guide dans tes décisions difficiles ?",
+      "theme": "valeurs",
+      "depth": "profond"
+    },
+    {
+      "id": "c100",
+      "texte": "Quelle valeur as-tu dû défendre seul(e) contre tous ?",
+      "theme": "valeurs",
+      "depth": "profond"
+    },
+    {
+      "id": "c101",
+      "texte": "Te considères-tu introverti ou extraverti ?",
+      "theme": "personnalite",
+      "depth": "leger"
+    },
+    {
+      "id": "c102",
+      "texte": "Es-tu plutôt organisé ou spontané ?",
+      "theme": "personnalite",
+      "depth": "leger"
+    },
+    {
+      "id": "c103",
+      "texte": "Quelle qualité les gens voient facilement chez toi ?",
+      "theme": "personnalite",
+      "depth": "leger"
+    },
+    {
+      "id": "c104",
+      "texte": "Quel défaut tu assumes ?",
+      "theme": "personnalite",
+      "depth": "leger"
+    },
+    {
+      "id": "c105",
+      "texte": "Quel trait te définit le mieux ?",
+      "theme": "personnalite",
+      "depth": "leger"
+    },
+    {
+      "id": "c106",
+      "texte": "Quelle partie de ta personnalité te rend unique ?",
+      "theme": "personnalite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c107",
+      "texte": "Que ressens-tu quand on te critique ?",
+      "theme": "personnalite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c108",
+      "texte": "Quel type de personne te met mal à l’aise ?",
+      "theme": "personnalite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c109",
+      "texte": "Dans quel domaine es-tu naturellement doué(e) ?",
+      "theme": "personnalite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c110",
+      "texte": "Comment gères-tu le stress émotionnel ?",
+      "theme": "personnalite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c111",
+      "texte": "Quelle blessure influence encore ton caractère ?",
+      "theme": "personnalite",
+      "depth": "profond"
+    },
+    {
+      "id": "c112",
+      "texte": "Quel masque portes-tu parfois pour te protéger ?",
+      "theme": "personnalite",
+      "depth": "profond"
+    },
+    {
+      "id": "c113",
+      "texte": "Quelle version de toi-même veux-tu devenir ?",
+      "theme": "personnalite",
+      "depth": "profond"
+    },
+    {
+      "id": "c114",
+      "texte": "Quel défaut caches-tu souvent ?",
+      "theme": "personnalite",
+      "depth": "profond"
+    },
+    {
+      "id": "c115",
+      "texte": "Quelle partie de toi t’effraie mais que tu veux développer ?",
+      "theme": "personnalite",
+      "depth": "profond"
+    },
+    {
+      "id": "c116",
+      "texte": "Quelle chanson ou ambiance te rapproche de Dieu / du spirituel ?",
+      "theme": "spiritualite",
+      "depth": "leger"
+    },
+    {
+      "id": "c117",
+      "texte": "Quel est ton verset ou citation préféré ?",
+      "theme": "spiritualite",
+      "depth": "leger"
+    },
+    {
+      "id": "c118",
+      "texte": "Qu’est-ce qui te calme intérieurement ?",
+      "theme": "spiritualite",
+      "depth": "leger"
+    },
+    {
+      "id": "c119",
+      "texte": "Crois-tu aux signes ?",
+      "theme": "spiritualite",
+      "depth": "leger"
+    },
+    {
+      "id": "c120",
+      "texte": "Quelle est ta plus grande source de paix ?",
+      "theme": "spiritualite",
+      "depth": "leger"
+    },
+    {
+      "id": "c121",
+      "texte": "Quel rôle la foi a dans ta vie ?",
+      "theme": "spiritualite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c122",
+      "texte": "Comment gères-tu les moments où tu doutes ?",
+      "theme": "spiritualite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c123",
+      "texte": "Quelle expérience spirituelle t’a marqué(e) ?",
+      "theme": "spiritualite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c124",
+      "texte": "Comment trouves-tu du sens dans ce que tu vis ?",
+      "theme": "spiritualite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c125",
+      "texte": "Quelle pratique t’aide à rester aligné(e) ?",
+      "theme": "spiritualite",
+      "depth": "moyen"
+    },
+    {
+      "id": "c126",
+      "texte": "Quel combat spirituel vis-tu en secret ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c127",
+      "texte": "Quelle prière ou demande revient le plus ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c128",
+      "texte": "Quel miracle as-tu déjà vécu ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c129",
+      "texte": "Que penses-tu que Dieu veut faire dans ta vie ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c130",
+      "texte": "Quelle partie de ta foi est fragile ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c131",
+      "texte": "Quelle vérité te libère ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c132",
+      "texte": "Quel appel ressens-tu dans ton cœur ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c133",
+      "texte": "Quelle promesse t’a soutenu dans une période difficile ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c134",
+      "texte": "Quelle relation as-tu avec le pardon ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c135",
+      "texte": "Quelle transformation spirituelle attends-tu encore ?",
+      "theme": "spiritualite",
+      "depth": "profond"
+    },
+    {
+      "id": "c136",
+      "texte": "Quelle activité fais-tu pour te détendre ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c137",
+      "texte": "Quel film peux-tu regarder 10 fois ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c138",
+      "texte": "Quel est ton plat préféré à cuisiner ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c139",
+      "texte": "Quel sport aimerais-tu essayer ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c140",
+      "texte": "Quelle application utilises-tu le plus ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c141",
+      "texte": "Quel talent aimerais-tu développer ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c142",
+      "texte": "Quel livre t’a marqué récemment ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c143",
+      "texte": "Préfères-tu sortir ou rester à la maison ?",
+      "theme": "loisirs",
+      "depth": "leger"
+    },
+    {
+      "id": "c144",
+      "texte": "Quelle est ton activité du week-end idéale ?",
+      "theme": "loisirs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c145",
+      "texte": "Quel jeu de société tu adores ?",
+      "theme": "loisirs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c146",
+      "texte": "Quel hobby t’aide à te reconnecter à toi-même ?",
+      "theme": "loisirs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c147",
+      "texte": "Que fais-tu quand tu t’ennuies ?",
+      "theme": "loisirs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c148",
+      "texte": "Quelle activité aimerais-tu partager avec ton partenaire ?",
+      "theme": "loisirs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c149",
+      "texte": "Quel voyage t’a le plus marqué ?",
+      "theme": "loisirs",
+      "depth": "moyen"
+    },
+    {
+      "id": "c150",
+      "texte": "Quel film décrit le mieux ta vibe ?",
+      "theme": "loisirs",
+      "depth": "profond"
+    },
+    {
+      "id": "c151",
+      "texte": "Quel artiste écoutes-tu le plus ?",
+      "theme": "loisirs",
+      "depth": "profond"
+    },
+    {
+      "id": "c152",
+      "texte": "Quel loisir t’a aidé à guérir d’un moment difficile ?",
+      "theme": "loisirs",
+      "depth": "profond"
+    },
+    {
+      "id": "c153",
+      "texte": "À quoi consacres-tu trop de temps ?",
+      "theme": "loisirs",
+      "depth": "profond"
+    },
+    {
+      "id": "c154",
+      "texte": "Quelle passion voudrais-tu reprendre ?",
+      "theme": "loisirs",
+      "depth": "profond"
+    },
+    {
+      "id": "c155",
+      "texte": "Que ferais-tu si tu avais une journée libre ?",
+      "theme": "loisirs",
+      "depth": "profond"
+    },
+    {
+      "id": "c156",
+      "texte": "Quelle place occupes-tu dans la fratrie ?",
+      "theme": "famille",
+      "depth": "leger"
+    },
+    {
+      "id": "c157",
+      "texte": "Quel souvenir familial te fait sourire ?",
+      "theme": "famille",
+      "depth": "leger"
+    },
+    {
+      "id": "c158",
+      "texte": "Quel repas de famille était spécial chez toi ?",
+      "theme": "famille",
+      "depth": "leger"
+    },
+    {
+      "id": "c159",
+      "texte": "Quelle tradition tu veux transmettre ?",
+      "theme": "famille",
+      "depth": "leger"
+    },
+    {
+      "id": "c160",
+      "texte": "Avec quel parent es-tu le plus proche ?",
+      "theme": "famille",
+      "depth": "leger"
+    },
+    {
+      "id": "c161",
+      "texte": "Comment décrirais-tu la dynamique familiale ?",
+      "theme": "famille",
+      "depth": "leger"
+    },
+    {
+      "id": "c162",
+      "texte": "Quelle valeur familiale t’a marqué(e) ?",
+      "theme": "famille",
+      "depth": "leger"
+    },
+    {
+      "id": "c163",
+      "texte": "Quel rôle joues-tu dans ta famille ?",
+      "theme": "famille",
+      "depth": "moyen"
+    },
+    {
+      "id": "c164",
+      "texte": "Quel membre t’a le plus influencé ?",
+      "theme": "famille",
+      "depth": "moyen"
+    },
+    {
+      "id": "c165",
+      "texte": "Quelle difficulté familiale t’a marqué(e) ?",
+      "theme": "famille",
+      "depth": "moyen"
+    },
+    {
+      "id": "c166",
+      "texte": "Quel conflit familial t’a appris quelque chose ?",
+      "theme": "famille",
+      "depth": "moyen"
+    },
+    {
+      "id": "c167",
+      "texte": "Quelle est ta plus grande responsabilité familiale ?",
+      "theme": "famille",
+      "depth": "moyen"
+    },
+    {
+      "id": "c168",
+      "texte": "Que trouves-tu essentiel dans une famille ?",
+      "theme": "famille",
+      "depth": "moyen"
+    },
+    {
+      "id": "c169",
+      "texte": "Quelle relation familiale as-tu dû réparer ?",
+      "theme": "famille",
+      "depth": "moyen"
+    },
+    {
+      "id": "c170",
+      "texte": "Quelle absence familiale t’a touché ?",
+      "theme": "famille",
+      "depth": "profond"
+    },
+    {
+      "id": "c171",
+      "texte": "Que représente la famille pour toi ?",
+      "theme": "famille",
+      "depth": "profond"
+    },
+    {
+      "id": "c172",
+      "texte": "Quelle personne de ta famille admire-tu ?",
+      "theme": "famille",
+      "depth": "profond"
+    },
+    {
+      "id": "c173",
+      "texte": "Quelle habitude familiale t’a construit ?",
+      "theme": "famille",
+      "depth": "profond"
+    },
+    {
+      "id": "c174",
+      "texte": "Quel héritage familial veux-tu préserver ?",
+      "theme": "famille",
+      "depth": "profond"
+    },
+    {
+      "id": "c175",
+      "texte": "Quel moment familial te manque le plus ?",
+      "theme": "famille",
+      "depth": "profond"
+    },
+    {
+      "id": "c176",
+      "texte": "Quel métier rêvais-tu de faire enfant ?",
+      "theme": "travail",
+      "depth": "leger"
+    },
+    {
+      "id": "c177",
+      "texte": "Que préfères-tu dans ton travail actuel ?",
+      "theme": "travail",
+      "depth": "leger"
+    },
+    {
+      "id": "c178",
+      "texte": "Quel professeur t’a marqué ?",
+      "theme": "travail",
+      "depth": "leger"
+    },
+    {
+      "id": "c179",
+      "texte": "Quelle compétence voudrais-tu développer ?",
+      "theme": "travail",
+      "depth": "leger"
+    },
+    {
+      "id": "c180",
+      "texte": "Qu’est-ce qui te motive au travail ?",
+      "theme": "travail",
+      "depth": "leger"
+    },
+    {
+      "id": "c181",
+      "texte": "Quel est ton plus grand accomplissement pro ?",
+      "theme": "travail",
+      "depth": "leger"
+    },
+    {
+      "id": "c182",
+      "texte": "Quel job ne ferais-tu jamais ?",
+      "theme": "travail",
+      "depth": "leger"
+    },
+    {
+      "id": "c183",
+      "texte": "Comment gères-tu le stress professionnel ?",
+      "theme": "travail",
+      "depth": "moyen"
+    },
+    {
+      "id": "c184",
+      "texte": "Quel est ton objectif de carrière ?",
+      "theme": "travail",
+      "depth": "moyen"
+    },
+    {
+      "id": "c185",
+      "texte": "Que recherches-tu dans un environnement de travail ?",
+      "theme": "travail",
+      "depth": "moyen"
+    },
+    {
+      "id": "c186",
+      "texte": "Quelle expérience scolaire t’a transformé ?",
+      "theme": "travail",
+      "depth": "moyen"
+    },
+    {
+      "id": "c187",
+      "texte": "Quelle erreur professionnelle t’a enseigné une leçon ?",
+      "theme": "travail",
+      "depth": "moyen"
+    },
+    {
+      "id": "c188",
+      "texte": "Comment réagis-tu à la pression ?",
+      "theme": "travail",
+      "depth": "moyen"
+    },
+    {
+      "id": "c189",
+      "texte": "Quel rêve professionnel attends-tu encore ?",
+      "theme": "travail",
+      "depth": "moyen"
+    },
+    {
+      "id": "c190",
+      "texte": "Quelle carrière te passionnerait secrètement ?",
+      "theme": "travail",
+      "depth": "profond"
+    },
+    {
+      "id": "c191",
+      "texte": "Quelle relation au travail t’a marqué ?",
+      "theme": "travail",
+      "depth": "profond"
+    },
+    {
+      "id": "c192",
+      "texte": "Qu’est-ce qui te rend fier au travail ?",
+      "theme": "travail",
+      "depth": "profond"
+    },
+    {
+      "id": "c193",
+      "texte": "Quel blocage t’empêche d’avancer professionnellement ?",
+      "theme": "travail",
+      "depth": "profond"
+    },
+    {
+      "id": "c194",
+      "texte": "Quels talents naturels utilises-tu le plus ?",
+      "theme": "travail",
+      "depth": "profond"
+    },
+    {
+      "id": "c195",
+      "texte": "Quelle carrière exercerais-tu si l’argent n’était jamais un problème ?",
+      "theme": "travail",
+      "depth": "profond"
+    },
+    {
+      "id": "c196",
+      "texte": "Quel film t’a fait réfléchir ?",
+      "theme": "culture",
+      "depth": "leger"
+    },
+    {
+      "id": "c197",
+      "texte": "Quel livre a changé ta vision du monde ?",
+      "theme": "culture",
+      "depth": "leger"
+    },
+    {
+      "id": "c198",
+      "texte": "Quel pays t’inspire culturellement ?",
+      "theme": "culture",
+      "depth": "leger"
+    },
+    {
+      "id": "c199",
+      "texte": "Quelle langue aimerais-tu apprendre ?",
+      "theme": "culture",
+      "depth": "leger"
+    },
+    {
+      "id": "c200",
+      "texte": "Quel artiste t’inspire le plus ?",
+      "theme": "culture",
+      "depth": "leger"
+    },
+    {
+      "id": "c201",
+      "texte": "Quelle tradition culturelle te touche ?",
+      "theme": "culture",
+      "depth": "leger"
+    },
+    {
+      "id": "c202",
+      "texte": "Quel rituel culturel te fascine ?",
+      "theme": "culture",
+      "depth": "leger"
+    },
+    {
+      "id": "c203",
+      "texte": "Quel film t’a bouleversé émotionnellement ?",
+      "theme": "culture",
+      "depth": "moyen"
+    },
+    {
+      "id": "c204",
+      "texte": "Quel auteur te parle particulièrement ?",
+      "theme": "culture",
+      "depth": "moyen"
+    },
+    {
+      "id": "c205",
+      "texte": "Quelle culture aimerais-tu mieux comprendre ?",
+      "theme": "culture",
+      "depth": "moyen"
+    },
+    {
+      "id": "c206",
+      "texte": "Quel style musical te ressemble ?",
+      "theme": "culture",
+      "depth": "moyen"
+    },
+    {
+      "id": "c207",
+      "texte": "Quelle œuvre d’art t’a marqué ?",
+      "theme": "culture",
+      "depth": "moyen"
+    },
+    {
+      "id": "c208",
+      "texte": "Quelle danse ou musique te reconnecte à tes racines ?",
+      "theme": "culture",
+      "depth": "moyen"
+    },
+    {
+      "id": "c209",
+      "texte": "Quel personnage historique t’inspire ?",
+      "theme": "culture",
+      "depth": "moyen"
+    },
+    {
+      "id": "c210",
+      "texte": "Quel film représente ton idéal de vie ?",
+      "theme": "culture",
+      "depth": "profond"
+    },
+    {
+      "id": "c211",
+      "texte": "Quelle culture te choque le plus (positivement) ?",
+      "theme": "culture",
+      "depth": "profond"
+    },
+    {
+      "id": "c212",
+      "texte": "Quel savoir culturel aimerais-tu transmettre ?",
+      "theme": "culture",
+      "depth": "profond"
+    },
+    {
+      "id": "c213",
+      "texte": "Quelle place la culture a-t-elle dans ta vie ?",
+      "theme": "culture",
+      "depth": "profond"
+    },
+    {
+      "id": "c214",
+      "texte": "Quel monument rêves-tu de voir en vrai ?",
+      "theme": "culture",
+      "depth": "profond"
+    },
+    {
+      "id": "c215",
+      "texte": "Quel mythe ou légende t’a marqué enfant ?",
+      "theme": "culture",
+      "depth": "profond"
+    },
+    {
+      "id": "c216",
+      "texte": "Quelle est ta plus grande peur dans la vie ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c217",
+      "texte": "Qu’est-ce qui te fait vraiment te sentir vivant ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c218",
+      "texte": "Quelle vérité as-tu du mal à accepter sur toi-même ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c219",
+      "texte": "Quelle habitude t’a coûté le plus cher ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c220",
+      "texte": "Quel pardon n’as-tu jamais réussi à donner ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c221",
+      "texte": "Quel moment a changé ta vision de la vie ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c222",
+      "texte": "Quelle part de toi veux-tu guérir ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c223",
+      "texte": "Quel combat intérieur te fatigue le plus ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c224",
+      "texte": "Que voudrais-tu dire à l’enfant que tu étais ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c225",
+      "texte": "Quel secret as-tu porté trop longtemps ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c226",
+      "texte": "Quelle décision t’a libéré(e) ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c227",
+      "texte": "Quel rêve t’a sauvé d’un moment difficile ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c228",
+      "texte": "Quel mensonge sur toi-même veux-tu arrêter de croire ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c229",
+      "texte": "Quel changement radical te rendrait heureux ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c230",
+      "texte": "Qu’est-ce que l’amour a essayé de t’apprendre ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c231",
+      "texte": "Quel moment t’a humilié mais construit ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c232",
+      "texte": "Quelle vérité refuses-tu d’admettre ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c233",
+      "texte": "Quel souvenir te poursuit encore ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c234",
+      "texte": "Qu’est-ce que tu n’as jamais dit à personne ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c235",
+      "texte": "Quel est ton besoin émotionnel le plus profond ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c236",
+      "texte": "Quelle promesse tu t’es faite un jour ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c237",
+      "texte": "Quel rêve tu refuses d’abandonner ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c238",
+      "texte": "Quel message voudrais-tu laisser au monde ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c239",
+      "texte": "Qu’est-ce que tu veux protéger le plus dans ta vie ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c240",
+      "texte": "Qui es-tu quand personne ne te regarde ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c241",
+      "texte": "Quel moment de ta vie tu voudrais revivre une dernière fois ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c242",
+      "texte": "À quoi ressemblerait une version de toi totalement libre ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c243",
+      "texte": "Quelle vérité sur la vie as-tu appris à la dure ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c244",
+      "texte": "Quelle partie de toi Dieu est en train de transformer ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c245",
+      "texte": "Quelle leçon importante tu veux enseigner un jour ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c246",
+      "texte": "Quel est ton plus grande force intérieure ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c247",
+      "texte": "Quel rêve enterré veux-tu réveiller ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c248",
+      "texte": "Quelle étape importante tu évites depuis longtemps ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c249",
+      "texte": "Qu’est-ce qui te rend profondément fier de toi ?",
+      "theme": "bonus",
+      "depth": "profond"
+    },
+    {
+      "id": "c250",
+      "texte": "Quelle mission sens-tu dans ton cœur ?",
+      "theme": "bonus",
+      "depth": "profond"
+    }
+  ]
+}
