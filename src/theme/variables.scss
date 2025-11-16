@@ -1,2 +1,38 @@
 // For information on how to create your own theme, please refer to:
 // https://ionicframework.com/docs/theming/
+:root {
+  /** Couleurs des langages d'amour **/
+  --love-mq: #FF6B9D;      // Moments de qualité - Rose
+  --love-sr: #4ECDC4;      // Services rendus - Turquoise
+  --love-pq: #FFE66D;      // Paroles valorisantes - Jaune doux
+  --love-cd: #A8E6CF;      // Cadeaux - Vert menthe
+  --love-tp: #C7CEEA;      // Toucher physique - Lavande
+
+  /** primary **/
+  --ion-color-primary: #FF6B9D;
+  --ion-color-primary-rgb: 255,107,157;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #e05e8a;
+  --ion-color-primary-tint: #ff7aa7;
+
+  /** secondary **/
+  --ion-color-secondary: #4ECDC4;
+  --ion-color-secondary-rgb: 78,205,196;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0,0,0;
+  --ion-color-secondary-shade: #45b4ac;
+  --ion-color-secondary-tint: #60d2ca;
+
+  /** tertiary **/
+  --ion-color-tertiary: #C7CEEA;
+  --ion-color-tertiary-rgb: 199,206,234;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0,0,0;
+  --ion-color-tertiary-shade: #afb5ce;
+  --ion-color-tertiary-tint: #cdd3ec;
+
+  /** Backgrounds doux **/
+  --ion-background-color: #FFF5F8;
+  --ion-background-color-rgb: 255,245,248;
+}
