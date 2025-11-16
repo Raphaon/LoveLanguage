@@ -17,7 +17,7 @@
 
 .quiz__progress p {
   margin: 0.25rem 0 0;
-  color: rgba(29, 25, 43, 0.65);
+  color: var(--app-text-soft);
 }
 
 .badge {
@@ -33,6 +33,18 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+}
+
+.procedural-hint {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--ion-color-primary);
+}
+
+.procedural-hint ion-icon {
+  font-size: 1rem;
 }
 
 .quiz__card h3 {
@@ -72,7 +84,7 @@
 }
 
 .option ion-icon {
-  color: rgba(29, 25, 43, 0.35);
+  color: var(--app-text-faint);
 }
 
 .option.selected {

@@ -14,6 +14,8 @@ export interface QuestionOption {
 /**
  * Question du quiz
  */
+export type QuestionSource = 'static' | 'procedural';
+
 export interface Question {
   id: string;
   texte: string;
@@ -22,6 +24,7 @@ export interface Question {
   // Conditions d'affichage selon le profil (undefined = pour tous)
   relationshipTypes?: RelationshipType[];
   options: QuestionOption[];
+  source?: QuestionSource;
 }
 
 /**

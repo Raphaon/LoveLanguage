@@ -21,7 +21,11 @@
     </section>
 
     <section class="quiz__card surface-card">
-      <p class="eyebrow">Question</p>
+      <p class="eyebrow">{{ question.source === 'procedural' ? 'Question générée' : 'Question' }}</p>
+      <div class="procedural-hint" *ngIf="question.source === 'procedural'">
+        <ion-icon name="sparkles-outline"></ion-icon>
+        <span>Créée à partir des gestes qui te ressemblent</span>
+      </div>
       <h3>{{ question.texte }}</h3>
 
       <div class="options">

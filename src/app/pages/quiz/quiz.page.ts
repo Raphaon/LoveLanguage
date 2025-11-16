@@ -14,7 +14,7 @@ import {
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
-import { arrowForward, chevronForwardOutline } from 'ionicons/icons';
+import { arrowForward, chevronForwardOutline, sparklesOutline } from 'ionicons/icons';
 import { Question, QuestionOption, UserProfile } from '../../core/models';
 import { QuizService, ScoringService, StorageService } from '../../core/services';
 
@@ -54,7 +54,7 @@ export class QuizPage implements OnInit {
     private storageService: StorageService,
     private router: Router
   ) {
-    addIcons({ arrowForward, chevronForwardOutline });
+    addIcons({ arrowForward, chevronForwardOutline, sparklesOutline });
   }
 
   async ngOnInit() {
@@ -64,7 +64,7 @@ export class QuizPage implements OnInit {
       return;
     }
 
-    this.questions = this.quizService.initQuiz(this.userProfile);
+    this.questions = await this.quizService.initQuiz(this.userProfile);
     if (!this.questions.length) {
       console.error('Aucune question disponible');
       return;
