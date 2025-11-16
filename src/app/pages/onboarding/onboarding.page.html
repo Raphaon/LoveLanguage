@@ -1,13 +1,38 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>onboarding</ion-title>
+    <ion-title>Bienvenue sur Love Lang</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">onboarding</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <div class="onboarding">
+    <div class="slides">
+      <div class="slide-card" *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlide">
+        <div class="emoji">{{ slide.icon }}</div>
+        <h2>{{ slide.title }}</h2>
+        <p>{{ slide.description }}</p>
+      </div>
+    </div>
+
+    <div class="dots">
+      <span *ngFor="let slide of slides; let i = index" [class.active]="i === currentSlide"></span>
+    </div>
+
+    <div class="nav">
+      <ion-button fill="clear" (click)="previous()" [disabled]="currentSlide === 0">Précédent</ion-button>
+      <ion-button color="primary" (click)="next()">
+        {{ currentSlide === slides.length - 1 ? 'Je commence' : 'Continuer' }}
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
+
+<ion-footer>
+  <div class="actions">
+    <ion-button fill="clear" (click)="skip()">Passer</ion-button>
+    <ion-button color="primary" (click)="startJourney()">
+      <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      Commencer
+    </ion-button>
+  </div>
+</ion-footer>
