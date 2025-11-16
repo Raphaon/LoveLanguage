@@ -1,0 +1,696 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-15",
+  "questions": [
+    {
+      "id": "q1",
+      "texte": "Qu'est-ce qui vous fait le plus plaisir dans une journée ordinaire ?",
+      "ordre": 1,
+      "actif": true,
+      "options": [
+        {
+          "id": "q1_a",
+          "label": "A",
+          "texte": "Recevoir un message affectueux inattendu",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q1_b",
+          "label": "B",
+          "texte": "Passer du temps de qualité avec quelqu'un que vous aimez",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q1_c",
+          "label": "C",
+          "texte": "Recevoir une petite attention ou un cadeau surprise",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q1_d",
+          "label": "D",
+          "texte": "Que quelqu'un fasse une tâche à votre place",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q1_e",
+          "label": "E",
+          "texte": "Un câlin chaleureux ou une main sur l'épaule",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "texte": "Quand vous vous sentez triste ou stressé(e), qu'est-ce qui vous réconforte le plus ?",
+      "ordre": 2,
+      "actif": true,
+      "options": [
+        {
+          "id": "q2_a",
+          "label": "A",
+          "texte": "Des mots encourageants et rassurants",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q2_b",
+          "label": "B",
+          "texte": "Qu'on prenne le temps de m'écouter vraiment",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q2_c",
+          "label": "C",
+          "texte": "Recevoir quelque chose qui me fait plaisir",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q2_d",
+          "label": "D",
+          "texte": "Qu'on m'aide concrètement avec mes obligations",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q2_e",
+          "label": "E",
+          "texte": "Un câlin réconfortant ou être dans les bras de quelqu'un",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q3_couple",
+      "texte": "Dans votre relation, vous vous sentez le plus aimé(e) quand...",
+      "ordre": 3,
+      "actif": true,
+      "relationshipTypes": ["en_couple", "fiance", "marie"],
+      "options": [
+        {
+          "id": "q3_a",
+          "label": "A",
+          "texte": "Votre partenaire vous dit qu'il/elle est fier(e) de vous",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q3_b",
+          "label": "B",
+          "texte": "Vous passez une soirée ensemble, juste vous deux",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q3_c",
+          "label": "C",
+          "texte": "Votre partenaire vous fait une surprise",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q3_d",
+          "label": "D",
+          "texte": "Votre partenaire prend en charge une corvée pour vous",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q3_e",
+          "label": "E",
+          "texte": "Votre partenaire vous prend la main spontanément",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q3_celibataire",
+      "texte": "Avec vos proches, vous vous sentez le plus aimé(e) quand...",
+      "ordre": 3,
+      "actif": true,
+      "relationshipTypes": ["celibataire"],
+      "options": [
+        {
+          "id": "q3_a",
+          "label": "A",
+          "texte": "Ils reconnaissent vos qualités et vos réussites",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q3_b",
+          "label": "B",
+          "texte": "Vous passez du temps de qualité ensemble",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q3_c",
+          "label": "C",
+          "texte": "Ils pensent à vous offrir quelque chose",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q3_d",
+          "label": "D",
+          "texte": "Ils vous aident dans vos projets ou tâches",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q3_e",
+          "label": "E",
+          "texte": "Ils vous font un câlin ou une accolade chaleureuse",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q4",
+      "texte": "Pour votre anniversaire, que préféreriez-vous ?",
+      "ordre": 4,
+      "actif": true,
+      "options": [
+        {
+          "id": "q4_a",
+          "label": "A",
+          "texte": "Un message touchant et personnalisé",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q4_b",
+          "label": "B",
+          "texte": "Une journée entière passée avec vos proches",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q4_c",
+          "label": "C",
+          "texte": "Un cadeau qui montre qu'on vous connaît bien",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q4_d",
+          "label": "D",
+          "texte": "Qu'on organise tout pour que vous n'ayez rien à faire",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q4_e",
+          "label": "E",
+          "texte": "Des câlins et de l'affection physique de vos proches",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q5",
+      "texte": "Qu'est-ce qui vous blesse le plus ?",
+      "ordre": 5,
+      "actif": true,
+      "options": [
+        {
+          "id": "q5_a",
+          "label": "A",
+          "texte": "Des critiques ou des mots blessants",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q5_b",
+          "label": "B",
+          "texte": "Qu'on soit distrait ou absent quand on est ensemble",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q5_c",
+          "label": "C",
+          "texte": "Qu'on oublie une date importante ou qu'on n'apporte rien",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q5_d",
+          "label": "D",
+          "texte": "Qu'on ne m'aide pas quand j'en ai besoin",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q5_e",
+          "label": "E",
+          "texte": "Le manque de contact physique ou d'affection",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q6",
+      "texte": "Comment préférez-vous exprimer votre affection ?",
+      "ordre": 6,
+      "actif": true,
+      "options": [
+        {
+          "id": "q6_a",
+          "label": "A",
+          "texte": "Par des compliments et des encouragements",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q6_b",
+          "label": "B",
+          "texte": "En consacrant du temps aux personnes que j'aime",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q6_c",
+          "label": "C",
+          "texte": "En offrant des cadeaux réfléchis",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q6_d",
+          "label": "D",
+          "texte": "En aidant et en rendant service",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q6_e",
+          "label": "E",
+          "texte": "Par des gestes physiques d'affection",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q7_couple",
+      "texte": "Qu'est-ce qui renforce le plus votre connexion en couple ?",
+      "ordre": 7,
+      "actif": true,
+      "relationshipTypes": ["en_couple", "fiance", "marie"],
+      "options": [
+        {
+          "id": "q7_a",
+          "label": "A",
+          "texte": "Échanger des mots doux et s'encourager mutuellement",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q7_b",
+          "label": "B",
+          "texte": "Avoir des conversations profondes et significatives",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q7_c",
+          "label": "C",
+          "texte": "S'offrir de petites attentions régulièrement",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q7_d",
+          "label": "D",
+          "texte": "S'entraider dans les tâches quotidiennes",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q7_e",
+          "label": "E",
+          "texte": "Le contact physique et l'intimité",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q7_autre",
+      "texte": "Qu'est-ce qui renforce le plus vos relations ?",
+      "ordre": 7,
+      "actif": true,
+      "relationshipTypes": ["celibataire", "parent"],
+      "options": [
+        {
+          "id": "q7_a",
+          "label": "A",
+          "texte": "Échanger des mots d'encouragement",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q7_b",
+          "label": "B",
+          "texte": "Avoir des moments de qualité ensemble",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q7_c",
+          "label": "C",
+          "texte": "S'offrir des attentions",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q7_d",
+          "label": "D",
+          "texte": "S'entraider concrètement",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q7_e",
+          "label": "E",
+          "texte": "Les gestes d'affection physique appropriés",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q8",
+      "texte": "Si vous deviez choisir une seule chose, ce serait...",
+      "ordre": 8,
+      "actif": true,
+      "options": [
+        {
+          "id": "q8_a",
+          "label": "A",
+          "texte": "Entendre \"je t'aime\" tous les jours",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q8_b",
+          "label": "B",
+          "texte": "Avoir une heure de temps de qualité chaque jour",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q8_c",
+          "label": "C",
+          "texte": "Recevoir une petite surprise chaque semaine",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q8_d",
+          "label": "D",
+          "texte": "Ne jamais avoir à faire les corvées que vous détestez",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q8_e",
+          "label": "E",
+          "texte": "Recevoir des câlins et de l'affection physique régulièrement",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q9",
+      "texte": "Qu'est-ce qui vous fait vous sentir vraiment apprécié(e) ?",
+      "ordre": 9,
+      "actif": true,
+      "options": [
+        {
+          "id": "q9_a",
+          "label": "A",
+          "texte": "Qu'on reconnaisse verbalement mes efforts",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q9_b",
+          "label": "B",
+          "texte": "Qu'on mette de côté ses distractions pour être avec moi",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q9_c",
+          "label": "C",
+          "texte": "Recevoir un cadeau qui montre qu'on a pensé à moi",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q9_d",
+          "label": "D",
+          "texte": "Qu'on m'aide sans que j'aie à demander",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q9_e",
+          "label": "E",
+          "texte": "Un geste physique tendre et affectueux",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q10_parent",
+      "texte": "Avec vos enfants, qu'est-ce qui vous remplit de joie ?",
+      "ordre": 10,
+      "actif": true,
+      "relationshipTypes": ["parent"],
+      "options": [
+        {
+          "id": "q10_a",
+          "label": "A",
+          "texte": "Quand ils me disent des mots gentils",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q10_b",
+          "label": "B",
+          "texte": "Passer du temps de qualité avec eux",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q10_c",
+          "label": "C",
+          "texte": "Quand ils me font un dessin ou un petit cadeau",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q10_d",
+          "label": "D",
+          "texte": "Quand ils m'aident spontanément",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q10_e",
+          "label": "E",
+          "texte": "Les câlins et moments de tendresse",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q10_autre",
+      "texte": "Après une longue journée, qu'est-ce qui vous fait du bien ?",
+      "ordre": 10,
+      "actif": true,
+      "relationshipTypes": ["celibataire", "en_couple", "fiance", "marie"],
+      "options": [
+        {
+          "id": "q10_a",
+          "label": "A",
+          "texte": "Recevoir un message réconfortant",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q10_b",
+          "label": "B",
+          "texte": "Avoir quelqu'un qui m'écoute vraiment",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q10_c",
+          "label": "C",
+          "texte": "Trouver une petite attention qui m'attend",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q10_d",
+          "label": "D",
+          "texte": "Que quelqu'un ait préparé le dîner pour moi",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q10_e",
+          "label": "E",
+          "texte": "Un massage ou un câlin relaxant",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q11",
+      "texte": "Quelle phrase vous toucherait le plus ?",
+      "ordre": 11,
+      "actif": true,
+      "options": [
+        {
+          "id": "q11_a",
+          "label": "A",
+          "texte": "\"Tu es incroyable, je suis fier(e) de toi\"",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q11_b",
+          "label": "B",
+          "texte": "\"J'ai bloqué toute ma journée pour être avec toi\"",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q11_c",
+          "label": "C",
+          "texte": "\"J'ai vu ça et j'ai pensé à toi\"",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q11_d",
+          "label": "D",
+          "texte": "\"Ne t'inquiète pas, je m'occupe de tout\"",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q11_e",
+          "label": "E",
+          "texte": "\"Viens là, j'ai besoin d'un câlin\"",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q12",
+      "texte": "Dans une amitié, qu'est-ce qui compte le plus pour vous ?",
+      "ordre": 12,
+      "actif": true,
+      "options": [
+        {
+          "id": "q12_a",
+          "label": "A",
+          "texte": "Les encouragements et le soutien verbal",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q12_b",
+          "label": "B",
+          "texte": "Passer du temps ensemble régulièrement",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q12_c",
+          "label": "C",
+          "texte": "Les petites attentions et surprises",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q12_d",
+          "label": "D",
+          "texte": "Pouvoir compter sur l'autre en cas de besoin",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q12_e",
+          "label": "E",
+          "texte": "Les gestes d'affection (câlins, tapes dans le dos)",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q13",
+      "texte": "Comment aimez-vous célébrer une bonne nouvelle ?",
+      "ordre": 13,
+      "actif": true,
+      "options": [
+        {
+          "id": "q13_a",
+          "label": "A",
+          "texte": "En l'annonçant et en recevant des félicitations",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q13_b",
+          "label": "B",
+          "texte": "En partageant un moment spécial avec mes proches",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q13_c",
+          "label": "C",
+          "texte": "En m'offrant quelque chose pour célébrer",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q13_d",
+          "label": "D",
+          "texte": "En me faisant aider pour pouvoir en profiter pleinement",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q13_e",
+          "label": "E",
+          "texte": "Par des câlins et de la joie physique partagée",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q14",
+      "texte": "Qu'est-ce qui vous manque le plus quand vous êtes séparé(e) de vos proches ?",
+      "ordre": 14,
+      "actif": true,
+      "options": [
+        {
+          "id": "q14_a",
+          "label": "A",
+          "texte": "Nos conversations et leurs mots d'encouragement",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q14_b",
+          "label": "B",
+          "texte": "Nos moments partagés et notre présence mutuelle",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q14_c",
+          "label": "C",
+          "texte": "Les petites attentions et surprises",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q14_d",
+          "label": "D",
+          "texte": "Leur aide dans le quotidien",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q14_e",
+          "label": "E",
+          "texte": "Le contact physique et l'affection",
+          "codeLangage": "TP"
+        }
+      ]
+    },
+    {
+      "id": "q15",
+      "texte": "Pour montrer votre amour, vous préféreriez...",
+      "ordre": 15,
+      "actif": true,
+      "options": [
+        {
+          "id": "q15_a",
+          "label": "A",
+          "texte": "Écrire une lettre ou un message touchant",
+          "codeLangage": "PQ"
+        },
+        {
+          "id": "q15_b",
+          "label": "B",
+          "texte": "Planifier une journée spéciale ensemble",
+          "codeLangage": "MQ"
+        },
+        {
+          "id": "q15_c",
+          "label": "C",
+          "texte": "Offrir un cadeau significatif",
+          "codeLangage": "CD"
+        },
+        {
+          "id": "q15_d",
+          "label": "D",
+          "texte": "Accomplir une tâche importante pour eux",
+          "codeLangage": "SR"
+        },
+        {
+          "id": "q15_e",
+          "label": "E",
+          "texte": "Passer du temps dans leurs bras",
+          "codeLangage": "TP"
+        }
+      ]
+    }
+  ]
+}

@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>profile-setup</ion-title>
+    <ion-title>Profil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profile-setup</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content fullscreen="true">
+  <div class="profile">
+    <h1>Personnalise ton expérience</h1>
+    <p class="subtitle">Ces informations nous aident à te proposer des questions et suggestions adaptées.</p>
+
+    <form [formGroup]="form" (ngSubmit)="saveProfile()">
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label position="stacked">Prénom</ion-label>
+          <ion-input formControlName="prenom" placeholder="Ex : Léa"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="form.controls.prenom.touched && form.controls.prenom.invalid">
+          <small>Merci d'indiquer au moins 2 caractères.</small>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="stacked">Type de relation</ion-label>
+          <ion-select formControlName="relationshipType">
+            <ion-select-option *ngFor="let type of relationshipTypes" [value]="type">
+              {{ relationshipLabels[type] }}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="block" type="submit" [disabled]="saving">
+        Continuer vers le test
+      </ion-button>
+    </form>
+  </div>
 </ion-content>

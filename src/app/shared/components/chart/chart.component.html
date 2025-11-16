@@ -1,12 +1,15 @@
-<div class="chart-container">
-  <canvas 
-    baseChart
-    *ngIf="barChartData"
-    [data]="barChartData"
-    [options]="barChartOptions"
-    type="bar">
-  </canvas>
-  <div *ngIf="!barChartData || scores.length === 0" class="no-data">
-    <p>Aucune donnée à afficher</p>
+<div class="chart" *ngIf="scores && scores.length; else emptyChart">
+  <div class="chart-row" *ngFor="let score of scores">
+    <div class="label">{{ getLanguageLabel(score.code) }}</div>
+    <div class="bar">
+      <div class="fill" [style.width.%]="score.percentage" [style.background]="getLanguageColor(score.code)"></div>
+      <span class="value">{{ score.percentage }}%</span>
+    </div>
   </div>
 </div>
+
+<ng-template #emptyChart>
+  <div class="no-data">
+    <p>Aucune donnée à afficher</p>
+  </div>
+</ng-template>

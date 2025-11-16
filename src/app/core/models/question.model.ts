@@ -1,5 +1,5 @@
 import { LoveLanguageCode } from './love-language.model';
-import { RelationshipType } from './user-profile.model';
+import { RelationshipType, UserProfile } from './user-profile.model';
 
 /**
  * Option de réponse pour une question
@@ -41,4 +41,12 @@ export interface QuestionData {
   questions: Question[];
   version: string; // Pour gérer les mises à jour futures
   lastUpdated: string; // ISO date string
+}
+
+export interface CurrentTestState {
+  questionIds: string[];
+  answers: QuestionAnswer[];
+  currentIndex: number;
+  userProfile?: UserProfile;
+  updatedAt: string;
 }
