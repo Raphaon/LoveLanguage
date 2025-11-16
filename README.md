@@ -18,29 +18,6 @@ Love Lang est une application Ionic/Angular qui aide les utilisateurs à découv
 - **Données** : Sources structurées dans `src/assets/data/` (questions, gestes, prompts de conversation).
 - **Services cœur** : Gestion du quiz, scoring, stockage et génération des questions (`src/app/core/services`).
 
-## 🛠️ Fiabilité du stockage
-
-- `StorageService` attend désormais la disponibilité d'Ionic Storage avant toute lecture/écriture, ce qui évite les clics "Commencer le test" sans effet lorsque la base locale n'était pas encore initialisée.
-- Toutes les données (profil, onboarding, quiz en cours, favoris) sont donc réellement persistées même si l'utilisateur interagit immédiatement après l'ouverture de l'app.
-
-## 🧠 Parcours Quiz Love Language
-
-Le quiz fonctionne désormais intégralement avec des composants standalone et un service dédié.
-
-1. **Service `LoveLanguageQuizService`** (`src/app/core/services/love-language-quiz.service.ts`)
-   - Fournit les questions et métadonnées.
-   - Conserve les réponses, calcule les scores et construit un résumé complet prêt pour un histogramme.
-   - Expose `isQuizComplete()` pour empêcher l'accès aux résultats tant que toutes les questions ne sont pas répondues.
-2. **Page `/quiz` (`LoveLanguageQuizPage`)**
-   - Affiche une question à la fois, compteur et barre de progression linéaire (mise à jour exacte jusqu'à 100%).
-   - Déclenche l'enregistrement de la réponse puis enchaîne automatiquement vers la question suivante.
-3. **Page `/quiz-result` (`LoveLanguageResultPage`)**
-   - Vérifie que le quiz est complété avant de calculer les scores.
-   - Affiche le langage principal, le secondaire et les données prêtes pour un histogramme.
-   - Permet de relancer immédiatement le quiz.
-
-Ce découplage garantit un flux fiable, testable et facilement extensible (ajout de nouvelles questions, persistance avancée, etc.).
-
 ## 🚀 Prise en main
 
 ### Prérequis
@@ -78,12 +55,5 @@ npm test
 ## 🔐 Confidentialité & évolutions
 - Les données restent sur l'appareil (aucun backend requis pour la V1).
 - Prévu pour évoluer vers une V2/V3 : backend Nest/Firebase, mode couple, notifications intelligentes.
-
-## 💡 Améliorations proposées
-
-- **Persistance des quiz en cours** : stocker l'état courant dans `StorageService` afin que l'utilisateur puisse reprendre même après avoir quitté l'app.
-- **Mode révision** : permettre de revoir l'ensemble des questions et réponses choisies après le résultat pour faciliter les discussions de couple.
-- **Histogramme interactif** : brancher `ngx-charts` ou `ng-apexcharts` afin de transformer les données `histogramData` en graphique animé.
-- **Comparaison de profils** : une fois les deux partenaires testés, afficher une vue combinée (radar, delta par langage) dans la page résultats.
 
 Pour toute contribution, ouvrez une issue ou une pull request en décrivant clairement les changements.

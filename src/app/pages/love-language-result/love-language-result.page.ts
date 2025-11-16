@@ -27,7 +27,7 @@ export class LoveLanguageResultPage implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if (!this.quizService.isQuizComplete()) {
+    if (!this.quizService.hasAnyAnswer()) {
       this.router.navigate(['/quiz']);
       return;
     }
