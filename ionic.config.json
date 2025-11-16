@@ -1,0 +1,7 @@
+{
+  "name": "love-language-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
