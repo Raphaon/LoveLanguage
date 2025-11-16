@@ -75,12 +75,19 @@ export class HomePage implements OnInit {
   }
 
   async startQuiz(): Promise<void> {
-    const hasCompleted = await this.storageService.isOnboardingCompleted();
-    if (hasCompleted) {
-      this.router.navigate(['/profile-setup']);
-    } else {
+    const hasCompletedOnboarding = await this.storageService.isOnboardingCompleted();
+    if (!hasCompletedOnboarding) {
       this.router.navigate(['/onboarding']);
+      return;
     }
+
+    const hasProfile = await this.storageService.hasUserProfile();
+    if (!hasProfile) {
+      this.router.navigate(['/profile-setup']);
+      return;
+    }
+
+    this.router.navigate(['/quiz']);
   }
 
 }
