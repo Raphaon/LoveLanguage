@@ -20,16 +20,11 @@ export const routes: Routes = [
   },
   {
     path: 'quiz',
-    loadComponent: () => import('./pages/love-language-quiz/love-language-quiz.page').then(m => m.LoveLanguageQuizPage)
-  },
-  {
-    path: 'quiz-result',
-    loadComponent: () => import('./pages/love-language-result/love-language-result.page').then(m => m.LoveLanguageResultPage)
+    loadComponent: () => import('./pages/quiz/quiz.page').then(m => m.QuizPage)
   },
   {
     path: 'results',
-    redirectTo: 'quiz-result',
-    pathMatch: 'full'
+    loadComponent: () => import('./pages/results/results.page').then(m => m.ResultsPage)
   },
   {
     path: 'gestures',

@@ -20,27 +20,27 @@ import { LoveLanguageCode, QuizResultSummary } from '../../core/models';
 })
 export class LoveLanguageResultPage implements OnInit {
   summary?: QuizResultSummary;
-  scoreEntries: { code: LoveLanguageCode; label: string; value: number }[] = [];
 
   constructor(
     private readonly quizService: LoveLanguageQuizService,
     private readonly router: Router
   ) {}
 
-  async ngOnInit(): Promise<void> {
-    if (!this.quizService.isQuizComplete()) {
+  ngOnInit(): void {
+    if (!this.quizService.hasAnyAnswer()) {
       this.router.navigate(['/quiz']);
       return;
     }
 
-    try {
-      this.summary = this.quizService.computeResultSummary();
-      this.scoreEntries = this.summary ? this.buildScoreEntries(this.summary) : [];
-    } catch (error) {
-      console.error('Impossible de générer les résultats du quiz.', error);
-      this.quizService.resetQuiz();
-      this.router.navigate(['/quiz']);
+    this.summary = this.quizService.computeResultSummary();
+  }
+
+  get scoreEntries(): { label: string; value: number }[] {
+    if (!this.summary) {
+      return [];
     }
+
+    return Object.entries(this.summary.scores).map(([label, value]) => ({ label, value }));
   }
 
   getScoreFor(code: LoveLanguageCode): number {
@@ -54,13 +54,5 @@ export class LoveLanguageResultPage implements OnInit {
   restart(): void {
     this.quizService.resetQuiz();
     this.router.navigate(['/quiz']);
-  }
-
-  private buildScoreEntries(summary: QuizResultSummary): { code: LoveLanguageCode; label: string; value: number }[] {
-    return (Object.keys(summary.scores) as LoveLanguageCode[]).map(code => ({
-      code,
-      label: this.quizService.getLanguageMeta(code).label,
-      value: summary.scores[code]
-    }));
   }
 }

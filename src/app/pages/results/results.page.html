@@ -5,40 +5,27 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="page-shell results-shell" *ngIf="result as quizResult; else emptyState">
-    <section class="hero bumble-card" *ngIf="primaryLanguage as mainLanguage">
-      <div class="badge">Langage principal</div>
-      <h1>{{ mainLanguage.label }}</h1>
-      <p>{{ mainLanguage.descriptionCourte }}</p>
-      <div class="tags">
-        <span>{{ quizResult.totalQuestions }} réponses</span>
-        <ng-container *ngIf="statistics as stats">
-          <span *ngIf="stats.dominantLanguages.length > 1">Profil équilibré</span>
-        </ng-container>
+  <div class="results" *ngIf="result; else emptyState">
+    <section class="summary">
+      <h1>Ton langage principal</h1>
+      <div class="languages">
+        <div class="language-card" *ngIf="primaryLanguage">
+          <h2>{{ primaryLanguage?.label }}</h2>
+          <p>{{ primaryLanguage?.descriptionCourte }}</p>
+        </div>
+        <div class="language-card secondary" *ngIf="secondaryLanguage">
+          <h3>Langage secondaire</h3>
+          <h4>{{ secondaryLanguage?.label }}</h4>
+          <p>{{ secondaryLanguage?.descriptionCourte }}</p>
+        </div>
       </div>
     </section>
 
-    <section class="grid">
-      <article class="mini-card" *ngIf="secondaryLanguage as secondary">
-        <p class="eyebrow">Langage secondaire</p>
-        <h3>{{ secondary.label }}</h3>
-        <p>{{ secondary.descriptionCourte }}</p>
-      </article>
-
-      <article class="mini-card" *ngIf="statistics as stats">
-        <p class="eyebrow">Insight</p>
-        <h3>{{ stats.isBalanced ? 'Profil harmonieux' : 'Préférence marquée' }}</h3>
-        <p *ngIf="resultMessage">{{ resultMessage }}</p>
-      </article>
+    <section class="chart">
+      <app-chart [scores]="result?.scores || []"></app-chart>
     </section>
 
-    <section class="chart-card bumble-card">
-      <div class="section-title">
-        <h2>Histogramme des scores</h2>
-        <span>{{ quizResult.date | date: 'dd MMM yyyy' }}</span>
-      </div>
-      <app-chart [scores]="quizResult.scores"></app-chart>
-    </section>
+    <p class="result-message" *ngIf="resultMessage">{{ resultMessage }}</p>
 
     <section class="actions">
       <ion-button expand="block" color="primary" (click)="goToGestures()">

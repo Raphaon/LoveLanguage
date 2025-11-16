@@ -82,6 +82,6 @@ export class LoveLanguageQuizPage implements OnInit {
 
     this.currentIndex = index;
     this.currentQuestion = this.questions[index];
-    this.progressValue = this.totalQuestions ? (index + 1) / this.totalQuestions : 0;
+    this.progressValue = this.totalQuestions ? index / this.totalQuestions : 0;
   }
 }

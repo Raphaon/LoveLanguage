@@ -5,83 +5,72 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="page-shell home-shell">
-    <section class="hero-card bumble-card">
-      <div>
-        <p class="eyebrow">Version 1 complète</p>
-        <h1>Connais ton langage d’amour en 5 minutes</h1>
-        <p class="subtitle">
-          Test interactif, histogramme instantané et gestes personnalisés pour nourrir ton couple ou tes amitiés.
-        </p>
-      </div>
-      <div class="cta-group">
-        <ion-button size="large" color="primary" (click)="startQuiz()">
-          <ion-icon slot="start" name="play-circle"></ion-icon>
-          Passer le quiz
-        </ion-button>
-        <button class="ghost" type="button" (click)="goTo('/about')">Niveau d’évolution</button>
-      </div>
-      <div class="pill" *ngIf="latestResult as result">
-        Dernier résultat :
-        <strong *ngIf="primaryLanguage as latestLang; else unknownLang">{{ latestLang.label }}</strong>
-        – mis à jour le {{ result.date | date: 'dd MMM' }}
+  <div class="home">
+    <section class="hero">
+      <h1>Comprends ton langage de l’amour</h1>
+      <p>Un test, des gestes personnalisés et des questions inspirantes pour nourrir vos liens.</p>
+      <ion-button color="primary" (click)="startQuiz()">
+        <ion-icon slot="start" name="play-circle"></ion-icon>
+        Commencer le test
+      </ion-button>
+    </section>
+
+    <section class="cards">
+      <ion-card (click)="goTo('/quiz')">
+        <ion-card-header>
+          <ion-card-title>Test guidé</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          15 questions adaptatives pour révéler ton langage d’amour principal.
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="goTo('/gestures')">
+        <ion-card-header>
+          <ion-card-title>Idées personnalisées</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Trouve des cadeaux, messages et gestes adaptés à ton couple ou ta famille.
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card (click)="goTo('/questions')">
+        <ion-card-header>
+          <ion-card-title>Questions inspirantes</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Tire au sort une question profonde ou légère pour lancer une belle conversation.
+        </ion-card-content>
+      </ion-card>
+    </section>
+
+    <section *ngIf="latestResult" class="result-preview">
+      <h2>Dernier résultat</h2>
+      <div class="result-card">
+        <h3>{{ primaryLanguage?.label }}</h3>
+        <p>{{ primaryLanguage?.descriptionCourte }}</p>
+        <ion-button fill="clear" size="small" (click)="goTo('/results')">Voir le détail</ion-button>
       </div>
     </section>
 
-    <section class="status-cards">
-      <div class="status bumble-card" *ngIf="primaryLanguage as mainLanguage">
-        <div>
-          <p class="eyebrow">Langage principal</p>
-          <h2>{{ mainLanguage.label }}</h2>
-          <p>{{ mainLanguage.descriptionCourte }}</p>
-        </div>
-        <ion-button fill="clear" size="small" (click)="goTo('/quiz-result')">Voir mes scores</ion-button>
-      </div>
-      <div class="status mini" *ngIf="featuredGestures.length">
-        {{ featuredGestures.length }} idées fraiches aujourd’hui
-      </div>
-      <div class="status mini" *ngIf="questionOfTheDay">Question du jour prête</div>
-    </section>
-
-    <section class="feature-grid">
-      <article class="feature" (click)="goTo('/quiz')">
-        <h3>Test guidé</h3>
-        <p>15 questions adaptatives pour révéler tes langages d’amour.</p>
-        <span>Commencer</span>
-      </article>
-      <article class="feature" (click)="goTo('/gestures')">
-        <h3>Idées de gestes</h3>
-        <p>Cadeaux, messages et services filtrés par relation.</p>
-        <span>Explorer</span>
-      </article>
-      <article class="feature" (click)="goTo('/questions')">
-        <h3>Questions pour se découvrir</h3>
-        <p>Thèmes et niveaux variés pour ouvrir le dialogue.</p>
-        <span>Lancer</span>
-      </article>
-    </section>
-
-    <section class="duo" *ngIf="featuredGestures.length || questionOfTheDay">
-      <article class="bumble-card" *ngIf="featuredGestures.length">
-        <div class="section-title">
-          <h2>Idées du jour</h2>
-          <ion-button fill="clear" size="small" (click)="goTo('/gestures')">Voir tout</ion-button>
-        </div>
-        <ul>
-          <li *ngFor="let gesture of featuredGestures">
-            <strong>{{ gesture.title }}</strong>
+    <section class="gestures" *ngIf="featuredGestures.length">
+      <h2>Idées du jour</h2>
+      <ion-list>
+        <ion-item lines="none" *ngFor="let gesture of featuredGestures">
+          <ion-label>
+            <h3>{{ gesture.title }}</h3>
             <p>{{ gesture.description }}</p>
-          </li>
-        </ul>
-      </article>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </section>
 
-      <article class="conversation" *ngIf="questionOfTheDay">
-        <div class="bumble-card">
-          <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-          <p>{{ questionOfTheDay }}</p>
-          <ion-button fill="clear" size="small" (click)="goTo('/questions')">Nouvelle question</ion-button>
-        </div>
-      </article>
+    <section class="question" *ngIf="questionOfTheDay">
+      <div class="question-card">
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+        <p>{{ questionOfTheDay }}</p>
+        <ion-button fill="clear" size="small" (click)="goTo('/questions')">Nouvelle question</ion-button>
+      </div>
     </section>
   </div>
 </ion-content>

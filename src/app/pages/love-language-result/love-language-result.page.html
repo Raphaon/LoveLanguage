@@ -18,18 +18,11 @@
       <p class="language-description">{{ secondary.description }}</p>
     </section>
 
-    <section class="meta-card">
-      <h3>Progression</h3>
-      <p class="meta-line">
-        {{ data.answeredQuestions }} / {{ data.totalQuestions }} questions répondues
-      </p>
-    </section>
-
     <section>
       <h3>Scores détaillés</h3>
       <ul>
         <li *ngFor="let entry of scoreEntries">
-          <strong>[{{ entry.code }}] {{ entry.label }}</strong>
+          <strong>{{ entry.label }}</strong>
           <span>{{ entry.value }}</span>
         </li>
       </ul>

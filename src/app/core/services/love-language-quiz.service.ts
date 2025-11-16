@@ -3,7 +3,6 @@ import {
   LOVE_LANGUAGES_DATA,
   LoveLanguageCode,
   LoveLanguageMeta,
-  QuizCompletionSnapshot,
   QuizOption,
   QuizQuestion,
   QuizResultSummary,
@@ -13,11 +12,6 @@ import {
 @Injectable({
   providedIn: 'root'
 })
-/**
- * Encapsulates the entire lightweight quiz flow: exposes the question bank,
- * tracks answers, keeps scores in sync and knows how to build a
- * histogram-ready summary once the user has answered everything.
- */
 export class LoveLanguageQuizService {
   private readonly questions: QuizQuestion[] = [
     {
@@ -82,20 +76,15 @@ export class LoveLanguageQuizService {
     label: language.label,
     description: language.descriptionCourte
   }));
-  private readonly languageMetaMap = new Map<LoveLanguageCode, LoveLanguageMeta>(
-    this.languageMetas.map(meta => [meta.code, meta])
-  );
 
   private scores: QuizScores = this.createEmptyScores();
   private answers = new Map<string, QuizOption>();
   private lastSummary: QuizResultSummary | null = null;
 
-  /** Returns the entire question bank (as a shallow copy). */
   getQuestions(): QuizQuestion[] {
     return [...this.questions];
   }
 
-  /** Gives access to a single question, or null when the index is out of range. */
   getQuestionByIndex(index: number): QuizQuestion | null {
     if (index < 0 || index >= this.questions.length) {
       return null;
@@ -103,22 +92,16 @@ export class LoveLanguageQuizService {
     return this.questions[index];
   }
 
-  /** Helper so the UI can display counters without duplicating logic. */
   getTotalQuestions(): number {
     return this.questions.length;
   }
 
-  /** Clears all answers/scores so a fresh attempt can begin. */
   resetQuiz(): void {
     this.scores = this.createEmptyScores();
     this.answers.clear();
     this.lastSummary = null;
   }
 
-  /**
-   * Records an answer and keeps the scores consistent even if the user
-   * revisits a question and changes their choice.
-   */
   answerQuestion(questionId: string, option: QuizOption): void {
     if (!option) {
       return;
@@ -133,34 +116,15 @@ export class LoveLanguageQuizService {
     this.updateScore(option.languageCode, 1);
   }
 
-  /** Returns an immutable snapshot of the current scores. */
   getScores(): QuizScores {
     return { ...this.scores };
   }
 
-  /** True once at least one answer has been provided. */
   hasAnyAnswer(): boolean {
     return this.answers.size > 0;
   }
 
-  getAnsweredQuestionCount(): number {
-    return this.answers.size;
-  }
-
-  isQuizComplete(): boolean {
-    return this.answers.size === this.questions.length && this.questions.length > 0;
-  }
-
-  /**
-   * Once every question has been answered, builds the full summary consumed by
-   * the results page. Throws if we attempt to compute it too early to prevent
-   * inconsistent UI states.
-   */
   computeResultSummary(): QuizResultSummary {
-    if (!this.isQuizComplete()) {
-      throw new Error('Impossible de calculer le résultat tant que le quiz est incomplet.');
-    }
-
     const histogramData = this.languageMetas.map(meta => ({
       code: meta.code,
       label: meta.label,
@@ -168,23 +132,14 @@ export class LoveLanguageQuizService {
     }));
 
     const sorted = [...histogramData].sort((a, b) => b.score - a.score);
-    const mainCode = sorted[0]?.code;
-    if (!mainCode) {
-      throw new Error('Aucun score disponible – impossible de déterminer un langage principal.');
-    }
-    const mainMeta = this.getLanguageMeta(mainCode);
-    const secondaryCandidate = sorted[1];
-    const secondaryMeta = secondaryCandidate && secondaryCandidate.score > 0
-      ? this.getLanguageMeta(secondaryCandidate.code)
-      : undefined;
+    const mainMeta = this.findMeta(sorted[0]?.code);
+    const secondaryMeta = sorted[1] && sorted[1].score > 0 ? this.findMeta(sorted[1].code) : undefined;
 
     const summary: QuizResultSummary = {
       scores: this.getScores(),
       mainLanguage: mainMeta,
       secondaryLanguage: secondaryMeta,
-      histogramData,
-      answeredQuestions: this.getAnsweredQuestionCount(),
-      totalQuestions: this.getTotalQuestions()
+      histogramData
     };
 
     this.lastSummary = summary;
@@ -195,23 +150,12 @@ export class LoveLanguageQuizService {
     return this.lastSummary;
   }
 
-  /** Quick snapshot consumed by UI layers (progress bars, disable/enable CTA). */
-  getCompletionSnapshot(): QuizCompletionSnapshot {
-    const total = this.getTotalQuestions();
-    const answered = this.getAnsweredQuestionCount();
-    const progress = total ? answered / total : 0;
-
-    return {
-      answered,
-      total,
-      progress,
-      isComplete: this.isQuizComplete()
-    };
-  }
-
-  /** Exposes the human readable metadata for a language code. */
-  getLanguageMeta(code: LoveLanguageCode): LoveLanguageMeta {
-    return this.languageMetaMap.get(code) || this.languageMetas[0];
+  private findMeta(code?: LoveLanguageCode): LoveLanguageMeta {
+    const fallback = this.languageMetas[0];
+    if (!code) {
+      return fallback;
+    }
+    return this.languageMetas.find(meta => meta.code === code) || fallback;
   }
 
   private asScoreKey(code: LoveLanguageCode): keyof QuizScores {

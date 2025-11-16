@@ -20,12 +20,6 @@ section {
   border: 1px solid var(--ion-color-primary, #ff4f8b);
 }
 
-.meta-card {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .language-label {
   font-size: 1.2rem;
   font-weight: 600;
@@ -49,12 +43,6 @@ ul {
 li {
   display: flex;
   justify-content: space-between;
-}
-
-.meta-line {
-  margin: 0;
-  color: var(--ion-color-medium);
-  font-weight: 500;
 }
 
 .empty-state {

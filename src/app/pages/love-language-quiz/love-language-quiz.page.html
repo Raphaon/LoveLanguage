@@ -9,33 +9,24 @@
     <p class="question-counter">Question {{ questionCounter }}</p>
     <ion-progress-bar class="progress" [value]="progressValue"></ion-progress-bar>
 
-    <ng-container *ngIf="currentQuestion as question; else missingQuestion">
-      <h2 class="question-text">{{ question.text }}</h2>
+    <h2 class="question-text">{{ currentQuestion?.text }}</h2>
 
-      <div class="options">
-        <ion-button
-          fill="outline"
-          expand="block"
-          *ngFor="let option of question.options"
-          (click)="onSelectOption(option)">
-          <span class="option-label">{{ option.label }}.</span>
-          <span>{{ option.text }}</span>
-        </ion-button>
-      </div>
-    </ng-container>
+    <div class="options">
+      <ion-button
+        fill="outline"
+        expand="block"
+        *ngFor="let option of currentQuestion?.options"
+        (click)="onSelectOption(option)">
+        <span class="option-label">{{ option.label }}.</span>
+        <span>{{ option.text }}</span>
+      </ion-button>
+    </div>
   </div>
 
   <ng-template #emptyState>
     <div class="empty-state">
       <p>Aucune question n'est disponible pour le moment.</p>
       <ion-button (click)="restartQuiz()">Réessayer</ion-button>
-    </div>
-  </ng-template>
-
-  <ng-template #missingQuestion>
-    <div class="empty-state">
-      <p>Question introuvable pour le moment.</p>
-      <ion-button (click)="restartQuiz()">Relancer le test</ion-button>
     </div>
   </ng-template>
 </ion-content>
