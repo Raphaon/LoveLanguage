@@ -9,13 +9,14 @@ import {
   IonIcon,
   IonProgressBar,
   IonSpinner,
+  IonText,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { addIcons } from 'ionicons';
 import { arrowForward } from 'ionicons/icons';
-import { CurrentTestState, Question, QuestionOption, UserProfile } from '../../core/models';
+import { Question, QuestionOption, UserProfile } from '../../core/models';
 import { QuizService, ScoringService, StorageService } from '../../core/services';
 
 @Component({
@@ -34,7 +35,8 @@ import { QuizService, ScoringService, StorageService } from '../../core/services
     IonButton,
     IonIcon,
     IonProgressBar,
-    IonSpinner
+    IonSpinner,
+    IonText
   ]
 })
 export class QuizPage implements OnInit {
@@ -47,7 +49,6 @@ export class QuizPage implements OnInit {
   loading = true;
   userProfile?: UserProfile | null;
   minQuestions = 10;
-  resumedFromDraft = false;
 
   constructor(
     private quizService: QuizService,
@@ -65,13 +66,13 @@ export class QuizPage implements OnInit {
       return;
     }
 
-    await this.ensureQuestionBank();
-
-    const resumed = await this.tryResumeQuiz();
-    if (!resumed) {
-      this.startNewQuiz();
+    this.questions = this.quizService.initQuiz(this.userProfile);
+    if (!this.questions.length) {
+      console.error('Aucune question disponible');
+      return;
     }
-
+    this.total = this.quizService.getTotalQuestions();
+    this.loadCurrentQuestion();
     this.loading = false;
   }
 
@@ -102,7 +103,6 @@ export class QuizPage implements OnInit {
       this.finishQuiz();
     } else {
       this.loadCurrentQuestion(this.currentIndex + 1);
-      this.persistState();
     }
   }
 
@@ -110,7 +110,6 @@ export class QuizPage implements OnInit {
     if (this.quizService.previousQuestion()) {
       const newIndex = Math.max(this.currentIndex - 1, 0);
       this.loadCurrentQuestion(newIndex);
-      this.persistState();
     }
   }
 
@@ -134,73 +133,7 @@ export class QuizPage implements OnInit {
     const result = this.scoringService.createTestResult(answers, this.userProfile);
     await this.storageService.saveTestResult(result);
     await this.storageService.clearCurrentTest();
-    this.resumedFromDraft = false;
     this.router.navigate(['/results'], { state: { resultId: result.id } });
-  }
-
-  private async ensureQuestionBank(): Promise<void> {
-    if (!this.quizService.hasQuestions()) {
-      await this.quizService.loadQuestions();
-    }
-  }
-
-  private startNewQuiz(): void {
-    if (!this.userProfile) {
-      return;
-    }
-    this.questions = this.quizService.initQuiz(this.userProfile);
-    if (!this.questions.length) {
-      console.error('Aucune question disponible');
-      return;
-    }
-    this.total = this.quizService.getTotalQuestions();
-    this.loadCurrentQuestion();
-    this.resumedFromDraft = false;
-    this.persistState();
-  }
-
-  private async tryResumeQuiz(): Promise<boolean> {
-    if (!this.userProfile) {
-      return false;
-    }
-    const savedState = await this.storageService.getCurrentTest();
-    if (!savedState || !this.isStateCompatible(savedState)) {
-      return false;
-    }
-
-    this.questions = this.quizService.restoreQuiz(savedState);
-    this.total = this.quizService.getTotalQuestions();
-    const targetIndex = Math.min(savedState.currentIndex, Math.max(this.questions.length - 1, 0));
-    this.loadCurrentQuestion(targetIndex);
-    this.resumedFromDraft = true;
-    return true;
-  }
-
-  private isStateCompatible(state: CurrentTestState): boolean {
-    if (!this.userProfile) {
-      return false;
-    }
-    if (!state.questionIds || !state.questionIds.length) {
-      return false;
-    }
-    if (!state.userProfile) {
-      return true;
-    }
-    return state.userProfile.relationshipType === this.userProfile.relationshipType;
-  }
-
-  private async persistState(): Promise<void> {
-    if (!this.userProfile || !this.questions.length) {
-      return;
-    }
-    const state: CurrentTestState = {
-      questionIds: this.questions.map(q => q.id),
-      answers: this.quizService.getCurrentAnswers(),
-      currentIndex: this.currentIndex,
-      userProfile: this.userProfile,
-      updatedAt: new Date().toISOString()
-    };
-    await this.storageService.saveCurrentTest(state);
   }
 
 }
