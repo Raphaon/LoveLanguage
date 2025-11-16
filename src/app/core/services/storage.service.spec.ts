@@ -38,9 +38,10 @@ describe('StorageService', () => {
   });
 
   it('should initialize storage before ready resolves', async () => {
-    await service.ready();
+    const storage = await service.ready();
 
     expect(storageSpy.create).toHaveBeenCalledTimes(1);
+    expect(storage).toBe(storeInstance as unknown as Storage);
   });
 
   it('should allow storing and retrieving values after initialization', async () => {

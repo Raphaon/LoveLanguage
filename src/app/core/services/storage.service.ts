@@ -22,8 +22,8 @@ export class StorageService {
     this.storageReady = this.init();
   }
 
-  async ready(): Promise<void> {
-    await this.storageReady;
+  async ready(): Promise<Storage> {
+    return await this.storageReady;
   }
 
   private async init(): Promise<Storage> {
