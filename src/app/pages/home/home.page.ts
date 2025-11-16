@@ -2,9 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
   IonContent,
   IonHeader,
   IonIcon,
+  IonItem,
+  IonLabel,
+  IonList,
   IonTitle,
   IonToolbar
 } from '@ionic/angular/standalone';
@@ -26,7 +33,14 @@ import { ConversationService, GestureService, StorageService } from '../../core/
     IonToolbar,
     IonTitle,
     IonButton,
-    IonIcon
+    IonIcon,
+    IonCard,
+    IonCardHeader,
+    IonCardTitle,
+    IonCardContent,
+    IonList,
+    IonItem,
+    IonLabel
   ]
 })
 export class HomePage implements OnInit {
@@ -69,14 +83,12 @@ export class HomePage implements OnInit {
   }
 
   async startQuiz(): Promise<void> {
-    const onboardingDone = await this.storageService.isOnboardingCompleted();
-    if (!onboardingDone) {
+    const hasCompleted = await this.storageService.isOnboardingCompleted();
+    if (hasCompleted) {
+      this.router.navigate(['/profile-setup']);
+    } else {
       this.router.navigate(['/onboarding']);
-      return;
     }
-
-    const hasProfile = await this.storageService.hasUserProfile();
-    this.router.navigate([hasProfile ? '/quiz' : '/profile-setup']);
   }
 
 }

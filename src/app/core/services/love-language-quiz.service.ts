@@ -124,14 +124,6 @@ export class LoveLanguageQuizService {
     return this.answers.size > 0;
   }
 
-  getAnsweredQuestionCount(): number {
-    return this.answers.size;
-  }
-
-  isQuizComplete(): boolean {
-    return this.answers.size === this.questions.length;
-  }
-
   computeResultSummary(): QuizResultSummary {
     const histogramData = this.languageMetas.map(meta => ({
       code: meta.code,

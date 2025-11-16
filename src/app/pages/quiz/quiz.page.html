@@ -7,42 +7,40 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen="true">
-  <div class="page-shell quiz-shell" *ngIf="!loading && currentQuestion as question; else loadingState">
-    <section class="progress-card bumble-card">
-      <div class="details">
-        <strong>{{ questionCounter }}</strong>
-        <span>Minimum {{ minQuestions }} questions</span>
+<ion-content fullscreen="true" *ngIf="!loading && currentQuestion; else loadingState">
+  <div class="quiz">
+    <div class="progress">
+      <div class="label">
+        <span>{{ questionCounter }}</span>
+        <ion-text color="medium">{{ currentQuestion?.texte | slice:0:60 }}...</ion-text>
       </div>
       <ion-progress-bar [value]="progress"></ion-progress-bar>
-    </section>
-
-    <div class="resume-pill" *ngIf="resumedFromDraft">
-      Test repris automatiquement — {{ (progress * 100) | number:'1.0-0' }}% complété
     </div>
 
-    <article class="question-card bumble-card">
-      <p class="eyebrow">Question {{ currentIndex + 1 }}</p>
-      <h2>{{ question.texte }}</h2>
-      <div class="options">
-        <button
-          *ngFor="let option of question.options"
-          type="button"
-          class="option"
-          [class.selected]="selectedOptionId === option.id"
-          (click)="chooseOption(option)"
-        >
-          <span class="letter">{{ option.label }}</span>
-          <span class="text">{{ option.texte }}</span>
-        </button>
-      </div>
-    </article>
+    <section class="question">
+      <p class="eyebrow">Question</p>
+      <h2>{{ currentQuestion?.texte }}</h2>
+    </section>
 
-    <div class="floating-actions">
-      <button type="button" class="ghost" (click)="goPrevious()" [disabled]="!canGoBack">Revenir</button>
-      <ion-button shape="round" size="large" color="primary" (click)="submitAnswer()" [disabled]="!canSubmit">
-        {{ currentIndex + 1 === total ? 'Voir mes résultats' : 'Continuer' }}
+    <section class="options">
+      <button
+        *ngFor="let option of currentQuestion?.options"
+        class="option"
+        type="button"
+        [class.selected]="selectedOptionId === option.id"
+        (click)="chooseOption(option)">
+        <div class="letter">{{ option.label }}</div>
+        <div class="text">{{ option.texte }}</div>
+      </button>
+    </section>
+
+    <div class="actions">
+      <ion-button fill="clear" (click)="goPrevious()" [disabled]="!canGoBack">
+        Retour
+      </ion-button>
+      <ion-button color="primary" (click)="submitAnswer()" [disabled]="!canSubmit">
         <ion-icon slot="end" name="arrow-forward"></ion-icon>
+        {{ currentIndex + 1 === total ? 'Voir mes résultats' : 'Continuer' }}
       </ion-button>
     </div>
   </div>
