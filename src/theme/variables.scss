@@ -1,49 +1,117 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
 :root {
-  /** Palette Material 3 inspirée de Google Material You **/
-  --love-mq: #6750a4; // Moments de qualité - Violet
-  --love-sr: #7f67be; // Services rendus - Lavande
-  --love-pq: #d0bcff; // Paroles valorisantes - Lilas
-  --love-cd: #f5ecff; // Cadeaux - Brume
-  --love-tp: #ffdde1; // Toucher physique - Rose poudré
+  /* CupidArrow Core Tokens */
+  --ca-bg: #0b0614;
+  --ca-bg-gradient: linear-gradient(145deg, #0b0614 0%, #1b0b2d 40%, #301444 100%);
+  --ca-primary: #ff6b9c;
+  --ca-secondary: #ffb86b;
+  --ca-accent-soft: #ffd5e5;
+  --ca-text: #ffffff;
+  --ca-text-muted: #d2c6e6;
+  --ca-card: rgba(22, 11, 40, 0.9);
+  --ca-border: rgba(255, 255, 255, 0.08);
+  --ca-hover: rgba(255, 107, 156, 0.15);
+  --ca-error: #ff4b6b;
+  --ca-success: #3dd68c;
 
-  /** Teintes principales **/
-  --ion-color-primary: #6750a4;
-  --ion-color-primary-rgb: 103, 80, 164;
+  --ca-fs-xs: 12px;
+  --ca-fs-sm: 14px;
+  --ca-fs-md: 16px;
+  --ca-fs-lg: 18px;
+  --ca-fs-xl: 22px;
+  --ca-fs-2xl: 28px;
+
+  --ca-radius-sm: 8px;
+  --ca-radius-md: 12px;
+  --ca-radius-lg: 16px;
+  --ca-space-2: 8px;
+  --ca-space-3: 12px;
+  --ca-space-4: 16px;
+  --ca-space-6: 24px;
+  --ca-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --ca-ease: cubic-bezier(.22, .61, .36, 1);
+  --ca-dur-1: 150ms;
+  --ca-dur-2: 250ms;
+
+  --ca-font-display: ui-serif, Georgia, "Times New Roman", serif;
+  --ca-font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Ionic Mapping */
+  --ion-background-color: var(--ca-bg);
+  --ion-text-color: var(--ca-text);
+  --ion-color-primary: var(--ca-primary);
+  --ion-color-primary-rgb: 255, 107, 156;
+  --ion-color-primary-contrast: #0b0614;
+  --ion-color-primary-contrast-rgb: 11, 6, 20;
+  --ion-color-primary-shade: #e65f8c;
+  --ion-color-primary-tint: #ff82ad;
+
+  --ion-color-secondary: var(--ca-secondary);
+  --ion-color-secondary-rgb: 255, 184, 107;
+  --ion-color-secondary-contrast: #1b0b2d;
+  --ion-color-secondary-contrast-rgb: 27, 11, 45;
+  --ion-color-secondary-shade: #e6a460;
+  --ion-color-secondary-tint: #ffc07f;
+
+  --ion-color-success: var(--ca-success);
+  --ion-color-success-contrast: #0b0614;
+  --ion-color-danger: var(--ca-error);
+  --ion-color-danger-contrast: #ffffff;
+
+  --ion-toolbar-background: transparent;
+  --ion-card-background: var(--ca-card);
+  --ion-item-background: transparent;
+  --ion-border-color: var(--ca-border);
+}
+
+:root body {
+  background: var(--ca-bg);
+  color: var(--ca-text);
+}
+
+body.ca-dark {
+  /* Dark remains default; provide light tokens for inversion */
+}
+
+body.ca-light {
+  --ca-bg: #f9f5ff;
+  --ca-bg-gradient: linear-gradient(160deg, #f9f5ff 0%, #f1e8ff 35%, #e7defc 100%);
+  --ca-text: #1b0b2d;
+  --ca-text-muted: #4c3f5f;
+  --ca-card: #ffffff;
+  --ca-border: rgba(27, 11, 45, 0.08);
+  --ion-background-color: var(--ca-bg);
+  --ion-text-color: var(--ca-text);
+  --ion-card-background: var(--ca-card);
   --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #5b4791;
-  --ion-color-primary-tint: #7c64b2;
-
-  --ion-color-secondary: #625b71;
-  --ion-color-secondary-rgb: 98, 91, 113;
   --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #565065;
-  --ion-color-secondary-tint: #736c80;
+}
 
-  --ion-color-tertiary: #7d5260;
-  --ion-color-tertiary-rgb: 125, 82, 96;
-  --ion-color-tertiary-contrast: #ffffff;
-  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
-  --ion-color-tertiary-shade: #6e4854;
-  --ion-color-tertiary-tint: #8a6370;
+:root {
+  /* Component radii */
+  --ca-button-radius: 999px;
+  --ca-card-radius: var(--ca-radius-lg);
+  --ca-input-radius: var(--ca-radius-md);
+}
 
-  /** Surfaces et texte **/
-  --ion-background-color: #f7f4fb;
-  --ion-background-color-rgb: 247, 244, 251;
-  --ion-text-color: #1d192b;
-  --ion-border-color: rgba(29, 25, 43, 0.08);
+/* Ionic color palette registration */
+.ion-color-cupid {
+  --ion-color-base: var(--ion-color-primary);
+  --ion-color-base-rgb: var(--ion-color-primary-rgb);
+  --ion-color-contrast: var(--ion-color-primary-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-primary-contrast-rgb);
+  --ion-color-shade: var(--ion-color-primary-shade);
+  --ion-color-tint: var(--ion-color-primary-tint);
+}
 
-  --md-surface: #fef7ff;
-  --md-surface-container: #f4effa;
-  --md-surface-elevated: #ffffff;
-  --md-surface-tint: rgba(103, 80, 164, 0.08);
-  --md-outline: rgba(29, 25, 43, 0.15);
+:root {
+  --ion-font-family: var(--ca-font-text);
+  --ion-toolbar-color: var(--ca-text);
+  --ion-item-color: var(--ca-text);
+  --focus-outline: 2px solid var(--ca-accent-soft);
+}
 
-  --app-text-strong: #1d172c;
-  --app-text-muted: rgba(29, 25, 43, 0.72);
-  --app-text-soft: rgba(29, 25, 43, 0.58);
-  --app-text-faint: rgba(29, 25, 43, 0.4);
+/* Hover & active helpers */
+:root {
+  --ca-state-hover: color-mix(in srgb, var(--ca-primary) 20%, transparent);
+  --ca-state-active: color-mix(in srgb, var(--ca-primary) 35%, transparent);
 }

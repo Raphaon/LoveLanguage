@@ -1,0 +1,45 @@
+{
+  "colors": {
+    "bg": "#0b0614",
+    "bgGradient": "linear-gradient(145deg, #0b0614 0%, #1b0b2d 40%, #301444 100%)",
+    "primary": "#ff6b9c",
+    "secondary": "#ffb86b",
+    "accentSoft": "#ffd5e5",
+    "text": "#ffffff",
+    "textMuted": "#d2c6e6",
+    "card": "rgba(22, 11, 40, 0.9)",
+    "border": "rgba(255, 255, 255, 0.08)",
+    "hover": "rgba(255, 107, 156, 0.15)",
+    "error": "#ff4b6b",
+    "success": "#3dd68c"
+  },
+  "typography": {
+    "display": "ui-serif, Georgia, 'Times New Roman', serif",
+    "text": "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+    "fs": {
+      "xs": 12,
+      "sm": 14,
+      "md": 16,
+      "lg": 18,
+      "xl": 22,
+      "xxl": 28
+    }
+  },
+  "radius": {
+    "sm": 8,
+    "md": 12,
+    "lg": 16
+  },
+  "space": {
+    "2": 8,
+    "3": 12,
+    "4": 16,
+    "6": 24
+  },
+  "shadow": "0 8px 24px rgba(0,0,0,0.25)",
+  "ease": "cubic-bezier(.22,.61,.36,1)",
+  "durations": {
+    "1": 150,
+    "2": 250
+  }
+}

@@ -1,17 +1,18 @@
 .profile {
-  padding: 2rem 1.5rem;
-}
-
-.profile h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
+  display: grid;
+  gap: var(--ca-space-4);
 }
 
 .subtitle {
-  color: var(--ion-color-medium);
-  margin-bottom: 1.5rem;
+  color: var(--ca-text-muted);
+  margin: 0 0 var(--ca-space-3);
 }
 
-ion-list {
-  margin-bottom: 1.5rem;
+.profile-form {
+  display: grid;
+  gap: var(--ca-space-4);
+}
+
+.actions {
+  margin-top: var(--ca-space-3);
 }

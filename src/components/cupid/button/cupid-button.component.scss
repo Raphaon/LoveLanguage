@@ -1,0 +1,43 @@
+:host {
+  display: inline-block;
+  width: 100%;
+}
+
+.cupid-button {
+  width: 100%;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --padding-start: var(--ca-space-4);
+  --padding-end: var(--ca-space-4);
+  --background: var(--ca-primary);
+  --background-focused: var(--ca-state-active);
+  --background-hover: var(--ca-state-hover);
+  --color: var(--ion-color-primary-contrast);
+  text-transform: none;
+}
+
+.cupid-button.ion-color-secondary {
+  --background: var(--ca-secondary);
+  --background-hover: color-mix(in srgb, var(--ca-secondary) 18%, transparent);
+  --background-focused: color-mix(in srgb, var(--ca-secondary) 30%, transparent);
+  --color: var(--ion-color-secondary-contrast);
+}
+
+.cupid-button.button-outline {
+  --border-color: var(--ca-border);
+  --color: var(--ca-text);
+  --background: transparent;
+  box-shadow: inset 0 0 0 1px var(--ca-border);
+}
+
+.cupid-button.button-outline:hover {
+  background: var(--ca-hover);
+}
+
+.cupid-button:active {
+  transform: translateY(1px);
+}
+
+:host-context(.ca-light) .cupid-button.button-outline {
+  --border-color: color-mix(in srgb, var(--ca-text) 15%, transparent);
+}

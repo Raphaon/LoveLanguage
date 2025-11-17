@@ -1,23 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import {
-  IonButton,
-  IonContent,
-  IonHeader,
-  IonInput,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonSelect,
-  IonSelectOption,
-  IonText,
-  IonTitle,
-  IonToolbar
-} from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonInput, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import { Router } from '@angular/router';
 import { RELATIONSHIP_TYPE_LABELS, RelationshipType, UserProfile } from '../../core/models';
 import { StorageService } from '../../core/services';
+import { CupidToolbarComponent } from '../../../components/cupid/toolbar/cupid-toolbar.component';
+import { CupidCardComponent } from '../../../components/cupid/card/cupid-card.component';
+import { CupidButtonComponent } from '../../../components/cupid/button/cupid-button.component';
 
 @Component({
   selector: 'app-profile-setup',
@@ -29,16 +19,12 @@ import { StorageService } from '../../core/services';
     ReactiveFormsModule,
     IonContent,
     IonHeader,
-    IonTitle,
-    IonToolbar,
-    IonList,
-    IonItem,
-    IonLabel,
     IonInput,
     IonSelect,
     IonSelectOption,
-    IonButton,
-    IonText
+    CupidToolbarComponent,
+    CupidCardComponent,
+    CupidButtonComponent
   ]
 })
 export class ProfileSetupPage implements OnInit {

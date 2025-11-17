@@ -1,37 +1,46 @@
 <ion-header translucent="true">
-  <ion-toolbar>
-    <ion-title>Profil</ion-title>
-  </ion-toolbar>
+  <cupid-toolbar title="Profil" [showBack]="true"></cupid-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="profile">
-    <h1>Personnalise ton expérience</h1>
-    <p class="subtitle">Ces informations nous aident à te proposer des questions et suggestions adaptées.</p>
+  <div class="page-shell profile">
+    <cupid-card title="Personnalise ton expérience" subtitle="CupidArrow">
+      <p class="subtitle">Ces informations nous aident à te proposer des questions et suggestions adaptées.</p>
+      <form [formGroup]="form" (ngSubmit)="saveProfile()" class="profile-form" novalidate>
+        <div class="ca-form-field">
+          <label for="prenom">Prénom</label>
+          <ion-input
+            id="prenom"
+            class="ca-form-control"
+            formControlName="prenom"
+            required
+            aria-required="true"
+            placeholder="Ex : Léa"></ion-input>
+          <p class="ca-form-error" *ngIf="form.controls.prenom.touched && form.controls.prenom.invalid">
+            Merci d'indiquer au moins 2 caractères.
+          </p>
+        </div>
 
-    <form [formGroup]="form" (ngSubmit)="saveProfile()">
-      <ion-list lines="none">
-        <ion-item>
-          <ion-label position="stacked">Prénom</ion-label>
-          <ion-input formControlName="prenom" placeholder="Ex : Léa"></ion-input>
-        </ion-item>
-        <ion-text color="danger" *ngIf="form.controls.prenom.touched && form.controls.prenom.invalid">
-          <small>Merci d'indiquer au moins 2 caractères.</small>
-        </ion-text>
-
-        <ion-item>
-          <ion-label position="stacked">Type de relation</ion-label>
-          <ion-select formControlName="relationshipType">
+        <div class="ca-form-field">
+          <label for="relationship">Type de relation</label>
+          <ion-select
+            id="relationship"
+            class="ca-form-control"
+            formControlName="relationshipType"
+            interface="popover"
+            aria-label="Type de relation">
             <ion-select-option *ngFor="let type of relationshipTypes" [value]="type">
               {{ relationshipLabels[type] }}
             </ion-select-option>
           </ion-select>
-        </ion-item>
-      </ion-list>
+        </div>
 
-      <ion-button expand="block" type="submit" [disabled]="saving">
-        Continuer vers le test
-      </ion-button>
-    </form>
+        <div class="actions">
+          <cupid-button type="submit" [disabled]="saving || form.invalid" [fullWidth]="true">
+            {{ saving ? 'Sauvegarde…' : 'Continuer vers le test' }}
+          </cupid-button>
+        </div>
+      </form>
+    </cupid-card>
   </div>
 </ion-content>

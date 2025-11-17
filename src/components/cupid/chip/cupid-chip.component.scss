@@ -1,0 +1,21 @@
+.cupid-chip {
+  --background: rgba(255, 255, 255, 0.06);
+  --color: var(--ca-text-muted);
+  --border-color: var(--ca-border);
+  border: 1px solid var(--ca-border);
+  border-radius: var(--ca-radius-md);
+  transition: background var(--ca-dur-1) var(--ca-ease),
+    color var(--ca-dur-1) var(--ca-ease),
+    border-color var(--ca-dur-1) var(--ca-ease);
+}
+
+.cupid-chip.active {
+  --background: var(--ca-hover);
+  --color: var(--ca-text);
+  border-color: color-mix(in srgb, var(--ca-primary) 35%, transparent);
+}
+
+.cupid-chip:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}

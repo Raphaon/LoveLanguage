@@ -1,0 +1,24 @@
+.cupid-empty {
+  text-align: center;
+  padding: var(--ca-space-6);
+  border-radius: var(--ca-card-radius);
+  border: 1px dashed var(--ca-border);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--ca-text-muted);
+  display: grid;
+  gap: var(--ca-space-3);
+  justify-items: center;
+}
+
+.cupid-empty h3 {
+  color: var(--ca-text);
+  margin: 0;
+}
+
+.cupid-empty .orb {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 107, 156, 0.45), rgba(255, 184, 107, 0.25));
+  filter: blur(2px);
+}
