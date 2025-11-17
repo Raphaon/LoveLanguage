@@ -1,0 +1,12 @@
+.cupid-toolbar {
+  --background: rgba(11, 6, 20, 0.7);
+  --color: var(--ca-text);
+  --border-color: var(--ca-border);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--ca-border);
+}
+
+ion-title {
+  font-family: var(--ca-font-display);
+  letter-spacing: -0.02em;
+}

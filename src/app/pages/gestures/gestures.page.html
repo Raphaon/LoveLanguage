@@ -1,50 +1,55 @@
 <ion-header translucent="true">
-  <ion-toolbar>
-    <ion-title>Suggestions personnalisées</ion-title>
-  </ion-toolbar>
+  <cupid-toolbar title="Suggestions CupidArrow"></cupid-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="page gestures-page">
-    <section class="filters surface-card">
-      <div class="filters__header">
-        <div>
-          <p class="eyebrow">Filtrer les idées</p>
-          <h1>Suggestions personnalisées</h1>
-        </div>
-        <p>Affiche uniquement les gestes correspondant à ton langage, au type de relation et à tes envies.</p>
+  <div class="page-shell gestures-page">
+    <section class="hero ca-card">
+      <div>
+        <p class="ca-eyebrow">Inspiration instantanée</p>
+        <h1 class="ca-section-title">Suggestions personnalisées</h1>
+        <p class="muted">Affiche uniquement les gestes correspondant à ton langage, au type de relation et à tes envies.</p>
       </div>
+      <div class="hero-actions">
+        <cupid-button variant="secondary" size="sm" (click)="favoritesOnly = !favoritesOnly; applyFilters()">
+          {{ favoritesOnly ? 'Tout afficher' : 'Favoris uniquement' }}
+        </cupid-button>
+      </div>
+    </section>
 
+    <cupid-card title="Affiner" subtitle="Filtres" padding="lg" class="filters">
       <div class="filter-grid">
         <div class="filter-group">
           <h2>Langage d'amour</h2>
           <div class="chip-list">
-            <ion-chip [class.active]="!selectedLanguage" (click)="selectLanguage(undefined)">Tous</ion-chip>
-            <ion-chip
+            <cupid-chip [active]="!selectedLanguage" role="option" (click)="selectLanguage(undefined)">Tous</cupid-chip>
+            <cupid-chip
               *ngFor="let language of languages"
-              [class.active]="selectedLanguage === language.code"
+              [active]="selectedLanguage === language.code"
+              role="option"
               (click)="selectLanguage(language.code)">
               {{ language.label }}
-            </ion-chip>
+            </cupid-chip>
           </div>
         </div>
 
         <div class="filter-group">
           <h2>Relation</h2>
-          <ion-select placeholder="Tous" [value]="selectedRelationship" (ionChange)="selectRelationship($event.detail.value)">
-            <ion-select-option [value]="null">Tous</ion-select-option>
-            <ion-select-option *ngFor="let type of relationshipEntries" [value]="type[0]">
-              {{ type[1] }}
-            </ion-select-option>
-          </ion-select>
+          <div class="ca-form-field">
+            <label id="relationship-label">Relation</label>
+            <ion-select aria-labelledby="relationship-label" [value]="selectedRelationship" (ionChange)="selectRelationship($event.detail.value)">
+              <ion-select-option [value]="null">Tous</ion-select-option>
+              <ion-select-option *ngFor="let type of relationshipEntries" [value]="type[0]">
+                {{ type[1] }}
+              </ion-select-option>
+            </ion-select>
+          </div>
         </div>
 
         <div class="filter-group categories">
           <h2>Catégorie</h2>
           <ion-segment [value]="selectedCategory || 'all'">
-            <ion-segment-button value="all" (click)="selectCategory(undefined)">
-              Tous
-            </ion-segment-button>
+            <ion-segment-button value="all" (click)="selectCategory(undefined)">Tous</ion-segment-button>
             <ion-segment-button
               *ngFor="let category of categories"
               [value]="category.value"
@@ -55,18 +60,17 @@
         </div>
 
         <div class="filter-group search">
-          <ion-label position="stacked">Recherche</ion-label>
-          <ion-input
-            placeholder="Une idée, un mot-clé..."
-            [value]="search"
-            (ionInput)="onSearchChange($event.detail.value)"></ion-input>
-          <div class="favorite-toggle">
-            <ion-label>Favoris uniquement</ion-label>
-            <ion-toggle [(ngModel)]="favoritesOnly" (ionChange)="applyFilters()"></ion-toggle>
+          <div class="ca-form-field">
+            <label for="gesture-search">Recherche</label>
+            <ion-input
+              id="gesture-search"
+              placeholder="Une idée, un mot-clé..."
+              [value]="search"
+              (ionInput)="onSearchChange($event.detail.value)"></ion-input>
           </div>
         </div>
       </div>
-    </section>
+    </cupid-card>
 
     <section class="list" *ngIf="filteredGestures.length; else emptyState">
       <app-gesture-card
@@ -75,9 +79,13 @@
         (favoriteToggled)="toggleFavorite($event)">
       </app-gesture-card>
     </section>
-  </div>
 
-  <ng-template #emptyState>
-    <div class="empty surface-card">Aucune idée ne correspond à ces filtres pour le moment.</div>
-  </ng-template>
+    <ng-template #emptyState>
+      <cupid-empty-state title="Aucune idée ne correspond" description="Essaie d'élargir les filtres ou relance le tir de Cupidon.">
+        <cupid-button variant="primary" size="sm" (click)="favoritesOnly = false; selectCategory(undefined); selectLanguage(undefined); selectRelationship(undefined); onSearchChange('')">
+          Réinitialiser les filtres
+        </cupid-button>
+      </cupid-empty-state>
+    </ng-template>
+  </div>
 </ion-content>

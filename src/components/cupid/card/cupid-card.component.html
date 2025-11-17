@@ -1,0 +1,9 @@
+<ion-card class="cupid-card" [class.padding-sm]="padding === 'sm'" [class.padding-lg]="padding === 'lg'">
+  <ion-card-header *ngIf="title || subtitle">
+    <p class="ca-eyebrow" *ngIf="subtitle">{{ subtitle }}</p>
+    <ion-card-title *ngIf="title" class="ca-section-title">{{ title }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ng-content></ng-content>
+  </ion-card-content>
+</ion-card>

@@ -1,22 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {
-  IonChip,
-  IonContent,
-  IonHeader,
-  IonInput,
-  IonLabel,
-  IonSegment,
-  IonSegmentButton,
-  IonSelect,
-  IonSelectOption,
-  IonTitle,
-  IonToggle,
-  IonToolbar
-} from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { filterOutline, heart, heartOutline } from 'ionicons/icons';
+import { IonContent, IonHeader, IonInput, IonSegment, IonSegmentButton, IonSelect, IonSelectOption } from '@ionic/angular/standalone';
 import {
   Gesture,
   GestureCategory,
@@ -27,6 +12,11 @@ import {
 } from '../../core/models';
 import { GestureService } from '../../core/services';
 import { GestureCardComponent } from '../../shared/components/gesture-card/gesture-card.component';
+import { CupidToolbarComponent } from '../../../components/cupid/toolbar/cupid-toolbar.component';
+import { CupidCardComponent } from '../../../components/cupid/card/cupid-card.component';
+import { CupidChipComponent } from '../../../components/cupid/chip/cupid-chip.component';
+import { CupidButtonComponent } from '../../../components/cupid/button/cupid-button.component';
+import { CupidEmptyStateComponent } from '../../../components/cupid/empty-state/cupid-empty-state.component';
 
 @Component({
   selector: 'app-gestures',
@@ -38,17 +28,18 @@ import { GestureCardComponent } from '../../shared/components/gesture-card/gestu
     FormsModule,
     IonContent,
     IonHeader,
-    IonToolbar,
-    IonTitle,
-    IonChip,
     IonSegment,
     IonSegmentButton,
     IonInput,
     IonLabel,
     IonSelect,
     IonSelectOption,
-    IonToggle,
-    GestureCardComponent
+    GestureCardComponent,
+    CupidToolbarComponent,
+    CupidCardComponent,
+    CupidChipComponent,
+    CupidButtonComponent,
+    CupidEmptyStateComponent
   ]
 })
 export class GesturesPage implements OnInit {
@@ -72,9 +63,7 @@ export class GesturesPage implements OnInit {
     { label: 'Autre', value: GestureCategory.AUTRE }
   ];
 
-  constructor(private gestureService: GestureService) {
-    addIcons({ filterOutline, heart, heartOutline });
-  }
+  constructor(private gestureService: GestureService) {}
 
   async ngOnInit() {
     if (!this.gestureService.getAllGestures().length) {

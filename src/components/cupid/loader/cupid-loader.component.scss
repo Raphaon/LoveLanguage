@@ -1,0 +1,20 @@
+.cupid-loader {
+  display: flex;
+  align-items: center;
+  gap: var(--ca-space-3);
+}
+
+.spinner {
+  color: var(--ca-primary);
+}
+
+.lines {
+  flex: 1;
+  display: grid;
+  gap: 8px;
+}
+
+ion-skeleton-text {
+  --border-radius: 8px;
+  --background: rgba(255, 255, 255, 0.08);
+}

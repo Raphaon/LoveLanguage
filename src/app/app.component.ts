@@ -8,6 +8,7 @@ import { ConversationService } from './core/services/conversation.service';
 import { Router, NavigationEnd, NavigationError, NavigationStart } from '@angular/router';
 import { Subject, filter, takeUntil } from 'rxjs';
 import { StatusBar, Style } from '@capacitor/status-bar';
+import { ThemeService } from './theme/theme.service';
 // Si tu n'utilises pas / n'as pas installé le plugin SplashScreen, commente-le ou supprime-le
 // import { SplashScreen } from '@capacitor/splash-screen';
 
@@ -46,7 +47,8 @@ export class AppComponent implements OnInit, OnDestroy {
     private conversationService: ConversationService,
     private loadingController: LoadingController,
     private toastController: ToastController,
-    private router: Router
+    private router: Router,
+    private themeService: ThemeService
   ) {
     this.initializeApp();
   }
@@ -75,9 +77,9 @@ export class AppComponent implements OnInit, OnDestroy {
       if (this.platform.is('hybrid')) {
         await this.configureNativePlatform();
       }
-      
+
       // Configuration du thème
-      this.setupTheme();
+      await this.themeService.init();
       
       console.log('✅ Application initialisée');
     } catch (error) {
@@ -101,27 +103,6 @@ private async configureNativePlatform(): Promise<void> {
     console.warn('Plugins natifs non disponibles:', error);
   }
 }
-
-  /**
-   * Configure le thème de l'application
-   */
-  private setupTheme(): void {
-    // Détecter et appliquer le thème préféré
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    this.toggleDarkTheme(prefersDark.matches);
-    
-    // Écouter les changements de thème système
-    prefersDark.addEventListener('change', (mediaQuery) => {
-      this.toggleDarkTheme(mediaQuery.matches);
-    });
-  }
-
-  /**
-   * Active/désactive le thème sombre
-   */
-  private toggleDarkTheme(shouldAdd: boolean): void {
-    document.body.classList.toggle('dark', shouldAdd);
-  }
 
   /**
    * Initialise tous les services de données

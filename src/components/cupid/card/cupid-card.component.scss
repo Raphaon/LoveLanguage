@@ -1,0 +1,21 @@
+.cupid-card {
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--ca-border);
+}
+
+.cupid-card.padding-sm ion-card-content {
+  padding: var(--ca-space-3) var(--ca-space-4);
+}
+
+.cupid-card.padding-lg ion-card-content {
+  padding: var(--ca-space-6);
+}
+
+ion-card-title {
+  color: var(--ca-text);
+}
+
+:host ::ng-deep ion-card-content {
+  display: grid;
+  gap: var(--ca-space-3);
+}
