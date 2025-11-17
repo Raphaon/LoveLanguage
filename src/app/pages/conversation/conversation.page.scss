@@ -1,83 +1,508 @@
+// Variables de couleur et espacement
+$primary-color: var(--ion-color-primary);
+$secondary-color: var(--ion-color-secondary);
+$danger-color: var(--ion-color-danger);
+$medium-color: var(--ion-color-medium);
+$light-color: var(--ion-color-light);
+$dark-color: var(--ion-color-dark);
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+$border-radius: 12px;
+$transition-duration: 0.3s;
+
 .page {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  padding: $spacing-md;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
+// Section des filtres
 .filters {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.filter-group {
-  background: var(--ion-color-light, #f7f4f8);
-  border-radius: 16px;
-  padding: 1rem;
-}
-
-.filter-group h2 {
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.5rem;
-  color: #6b6b6b;
-}
-
-ion-chip {
-  margin: 0.25rem 0.4rem 0 0;
-  --background: rgba(255, 255, 255, 0.6);
-  --color: var(--ion-color-medium);
-}
-
-ion-chip.active {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
-}
-
-.question-card ion-card {
-  border-radius: 24px;
-  box-shadow: 0 16px 40px rgba(75, 31, 77, 0.15);
-  background: linear-gradient(180deg, #fffafc 0%, #f3efff 100%);
-}
-
-.question-meta {
-  font-size: 0.85rem;
-  color: var(--ion-color-medium-shade);
-  margin-bottom: 0.25rem;
-}
-
-.question-text {
-  font-size: 1.3rem;
-  font-weight: 600;
-  line-height: 1.5;
-  color: #2b1f32;
-}
-
-.question-actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem 1rem;
-}
-
-.loading-state {
-  display: flex;
-  justify-content: center;
-  padding: 3rem 0;
-}
-
-.empty {
-  color: var(--ion-color-medium);
-}
-
-@media (min-width: 768px) {
-  .filters {
-    flex-direction: row;
-  }
+  margin-bottom: $spacing-lg;
+  animation: slideDown 0.3s ease-out;
 
   .filter-group {
-    flex: 1;
+    margin-bottom: $spacing-lg;
+    background: var(--ion-background-color);
+    border-radius: $border-radius;
+    padding: $spacing-md;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .filter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: $spacing-md;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ion-text-color);
+      margin: 0 0 $spacing-md 0;
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+
+      ion-icon {
+        font-size: 1.2rem;
+        color: $primary-color;
+      }
+    }
+
+    &.depth {
+      ion-segment {
+        background: rgba(var(--ion-color-primary-rgb), 0.1);
+        border-radius: $border-radius;
+        padding: $spacing-xs;
+      }
+    }
+  }
+
+  .chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  ion-chip {
+    cursor: pointer;
+    transition: all $transition-duration ease;
+    border: 2px solid transparent;
+    background: rgba(var(--ion-color-primary-rgb), 0.05);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &.active {
+      background: var(--ion-color-primary);
+      color: white;
+      border-color: var(--ion-color-primary-shade);
+      
+      ion-badge {
+        background: white;
+        color: var(--ion-color-primary);
+      }
+    }
+
+    ion-badge {
+      margin-left: $spacing-sm;
+      font-size: 0.75rem;
+    }
+  }
+}
+
+// Carte de question
+.question-card {
+  ion-card {
+    border-radius: $border-radius * 1.5;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: all $transition-duration ease;
+    background: linear-gradient(135deg, 
+      var(--ion-card-background) 0%, 
+      rgba(var(--ion-color-primary-rgb), 0.02) 100%);
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    &.favorite {
+      border: 2px solid var(--ion-color-danger);
+      animation: pulse 2s infinite;
+    }
+  }
+
+  ion-card-header {
+    background: linear-gradient(135deg, 
+      rgba(var(--ion-color-primary-rgb), 0.05) 0%,
+      transparent 100%);
+    padding: $spacing-lg;
+    border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      gap: $spacing-md;
+      margin-bottom: $spacing-md;
+      flex-wrap: wrap;
+
+      .theme-badge,
+      .depth-badge {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        padding: $spacing-xs $spacing-sm;
+        background: rgba(var(--ion-color-primary-rgb), 0.1);
+        border-radius: 20px;
+        font-size: 0.85rem;
+        color: var(--ion-color-primary);
+
+        ion-icon {
+          font-size: 1rem;
+        }
+      }
+
+      .separator {
+        color: $medium-color;
+      }
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ion-text-color);
+      background: linear-gradient(135deg, 
+        var(--ion-color-primary) 0%, 
+        var(--ion-color-secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+
+  ion-card-content {
+    padding: $spacing-xl;
+
+    .question-container {
+      position: relative;
+    }
+
+    .question-text {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--ion-text-color);
+      margin: 0;
+      font-weight: 400;
+      letter-spacing: 0.3px;
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .favorite-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-xs;
+      margin-top: $spacing-md;
+      padding: $spacing-xs $spacing-sm;
+      background: rgba(var(--ion-color-danger-rgb), 0.1);
+      border-radius: 20px;
+      color: var(--ion-color-danger);
+      font-size: 0.85rem;
+      animation: slideIn 0.3s ease-out;
+
+      ion-icon {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .question-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: $spacing-md $spacing-lg;
+    background: rgba(var(--ion-color-light-rgb), 0.5);
+    border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+
+    ion-button {
+      flex: 1;
+      min-width: 100px;
+      font-weight: 500;
+      transition: all $transition-duration ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      &[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// États de chargement et erreur
+.loading-state,
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  animation: fadeIn 0.5s ease-out;
+
+  ion-spinner {
+    width: 48px;
+    height: 48px;
+  }
+
+  p {
+    margin-top: $spacing-md;
+    color: $medium-color;
+    font-size: 1rem;
+  }
+
+  ion-card {
+    max-width: 500px;
+    width: 100%;
+  }
+}
+
+// État vide
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  text-align: center;
+
+  ion-icon {
+    color: $medium-color;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: var(--ion-text-color);
+    margin: $spacing-sm 0;
+    
+    &.empty-hint {
+      color: $medium-color;
+      font-size: 0.9rem;
+    }
+  }
+
+  ion-button {
+    margin-top: $spacing-md;
+  }
+}
+
+// Section historique
+.history-section {
+  margin-top: $spacing-xl;
+  animation: slideUp 0.5s ease-out;
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: $spacing-md;
+    color: var(--ion-text-color);
+  }
+
+  .history-card {
+    margin-bottom: $spacing-md;
+    opacity: 0.8;
+    transition: opacity $transition-duration ease;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    ion-card-content {
+      padding: $spacing-md;
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: $spacing-sm;
+      }
+
+      .history-meta {
+        small {
+          color: $medium-color;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+// Section statistiques
+.statistics {
+  margin-top: $spacing-xl;
+
+  ion-card {
+    background: linear-gradient(135deg, 
+      var(--ion-card-background) 0%, 
+      rgba(var(--ion-color-secondary-rgb), 0.05) 100%);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: $spacing-md;
+
+    .stat-item {
+      text-align: center;
+      padding: $spacing-md;
+      border-radius: $border-radius;
+      background: rgba(var(--ion-color-primary-rgb), 0.05);
+      transition: all $transition-duration ease;
+
+      &:hover {
+        background: rgba(var(--ion-color-primary-rgb), 0.1);
+        transform: translateY(-2px);
+      }
+
+      .stat-value {
+        display: block;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--ion-color-primary);
+        margin-bottom: $spacing-xs;
+      }
+
+      .stat-label {
+        display: block;
+        font-size: 0.8rem;
+        color: $medium-color;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+// FAB personnalisé
+ion-fab {
+  ion-fab-button {
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all $transition-duration ease;
+
+    &:hover {
+      --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      transform: scale(1.1);
+    }
+  }
+
+  ion-fab-list {
+    ion-fab-button {
+      margin-bottom: $spacing-sm;
+    }
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(var(--ion-color-danger-rgb), 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(var(--ion-color-danger-rgb), 0);
+  }
+}
+
+// Media queries pour responsive
+@media (max-width: 768px) {
+  .page {
+    padding: $spacing-sm;
+  }
+
+  .question-card {
+    ion-card-content {
+      padding: $spacing-lg;
+
+      .question-text {
+        font-size: 1.1rem;
+      }
+    }
+
+    .question-actions {
+      padding: $spacing-sm;
+
+      ion-button {
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  .statistics {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+// Mode sombre
+@media (prefers-color-scheme: dark) {
+  .filters {
+    ion-chip {
+      background: rgba(255, 255, 255, 0.05);
+
+      &.active {
+        background: var(--ion-color-primary);
+      }
+    }
+  }
+
+  .question-card {
+    ion-card {
+      background: linear-gradient(135deg, 
+        var(--ion-card-background) 0%, 
+        rgba(255, 255, 255, 0.02) 100%);
+    }
+  }
+
+  .statistics {
+    .stat-item {
+      background: rgba(255, 255, 255, 0.05);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
   }
 }

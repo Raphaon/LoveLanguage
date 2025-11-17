@@ -1,82 +1,218 @@
 <ion-header translucent="true">
   <ion-toolbar>
     <ion-title>Questions pour faire connaissance</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="showFavorites()">
+        <ion-icon slot="icon-only" name="heart"></ion-icon>
+        <ion-badge *ngIf="favoriteIds.length > 0" color="danger">{{ favoriteIds.length }}</ion-badge>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="page">
-    <section class="filters">
+  <div class="page" [@fadeIn]>
+    <!-- Section des filtres -->
+    <section class="filters" *ngIf="showFilters && !loading && !error">
       <div class="filter-group">
-        <h2>Thèmes</h2>
-        <ion-chip
-          [class.active]="!selectedTheme"
-          (click)="selectTheme(undefined)">
-          <ion-label>Tous</ion-label>
-        </ion-chip>
-        <ion-chip
-          *ngFor="let theme of themes"
-          [class.active]="selectedTheme === theme"
-          (click)="selectTheme(theme)">
-          <ion-label>{{ theme | titlecase }}</ion-label>
-        </ion-chip>
+        <div class="filter-header">
+          <h2>Thèmes</h2>
+          <ion-button fill="clear" size="small" (click)="resetFilters()">
+            Réinitialiser
+          </ion-button>
+        </div>
+        <div class="chips-container">
+          <ion-chip
+            [class.active]="!selectedTheme"
+            (click)="selectTheme(undefined)">
+            <ion-label>Tous</ion-label>
+            <ion-badge color="medium">{{ statistics?.total || 0 }}</ion-badge>
+          </ion-chip>
+          <ion-chip
+            *ngFor="let theme of themes"
+            [class.active]="selectedTheme === theme"
+            (click)="selectTheme(theme)">
+            <ion-label>{{ getThemeLabel(theme) }}</ion-label>
+            <ion-badge color="medium">{{ statistics?.byTheme[theme] || 0 }}</ion-badge>
+          </ion-chip>
+        </div>
       </div>
 
       <div class="filter-group depth">
-        <h2>Niveau</h2>
-        <ion-segment [value]="selectedDepth || 'all'">
+        <h2>Niveau de profondeur</h2>
+        <ion-segment [value]="selectedDepth || 'all'" mode="ios">
           <ion-segment-button value="all" (click)="selectDepth(undefined)">
             <ion-label>Tous</ion-label>
           </ion-segment-button>
-          <ion-segment-button value="leger" (click)="selectDepth('leger')">
-            <ion-label>Léger</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="moyen" (click)="selectDepth('moyen')">
-            <ion-label>Moyen</ion-label>
-          </ion-segment-button>
-          <ion-segment-button value="profond" (click)="selectDepth('profond')">
-            <ion-label>Profond</ion-label>
+          <ion-segment-button 
+            *ngFor="let depth of depths"
+            [value]="depth" 
+            (click)="selectDepth(depth)">
+            <ion-label>{{ getDepthLabel(depth) }}</ion-label>
           </ion-segment-button>
         </ion-segment>
       </div>
     </section>
 
-    <section class="question-card" *ngIf="!loading; else loadingState">
-      <ion-card>
+    <!-- État de chargement -->
+    <section class="loading-state" *ngIf="loading">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <p>Chargement des questions...</p>
+    </section>
+
+    <!-- État d'erreur -->
+    <section class="error-state" *ngIf="error && !loading">
+      <ion-card color="danger">
         <ion-card-header>
-          <p class="question-meta">
-            <span>{{ selectedTheme ? (selectedTheme | titlecase) : 'Tous thèmes' }}</span>
-            ·
-            <span>{{ selectedDepth ? (selectedDepth | titlecase) : 'Tous niveaux' }}</span>
-          </p>
-          <h2>Question du moment</h2>
+          <h2>Oops! Une erreur s'est produite</h2>
         </ion-card-header>
         <ion-card-content>
-          <p class="question-text" *ngIf="currentQuestion as question; else emptyState">
-            {{ question.texte }}
-          </p>
+          <p>{{ error }}</p>
+          <ion-button 
+            expand="block" 
+            fill="clear" 
+            color="light"
+            (click)="initializeComponent()">
+            <ion-icon slot="start" name="refresh-outline"></ion-icon>
+            Réessayer
+          </ion-button>
         </ion-card-content>
+      </ion-card>
+    </section>
+
+    <!-- Carte de question -->
+    <section class="question-card" *ngIf="!loading && !error" [@slideIn]>
+      <ion-card [class.favorite]="isFavorite">
+        <ion-card-header>
+          <div class="question-meta">
+            <span class="theme-badge">
+              <ion-icon name="pricetag-outline"></ion-icon>
+              {{ selectedTheme ? getThemeLabel(selectedTheme) : 'Tous thèmes' }}
+            </span>
+            <span class="separator">•</span>
+            <span class="depth-badge">
+              <ion-icon name="layers-outline"></ion-icon>
+              {{ selectedDepth ? getDepthLabel(selectedDepth) : 'Tous niveaux' }}
+            </span>
+          </div>
+          <h2>Question du moment</h2>
+        </ion-card-header>
+        
+        <ion-card-content>
+          <div class="question-container" *ngIf="currentQuestion; else emptyState">
+            <p class="question-text">{{ currentQuestion.texte }}</p>
+            
+            <!-- Indicateur de favori -->
+            <div class="favorite-indicator" *ngIf="isFavorite">
+              <ion-icon name="heart" color="danger"></ion-icon>
+              <span>Dans vos favoris</span>
+            </div>
+          </div>
+        </ion-card-content>
+        
+        <!-- Actions de la question -->
         <div class="question-actions" *ngIf="currentQuestion">
           <ion-button fill="clear" (click)="toggleFavorite()">
-            <ion-icon slot="start" [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
-            {{ isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris' }}
+            <ion-icon 
+              slot="start" 
+              [name]="isFavorite ? 'heart' : 'heart-outline'"
+              [color]="isFavorite ? 'danger' : ''">
+            </ion-icon>
+            {{ isFavorite ? 'Retirer' : 'Favori' }}
           </ion-button>
+          
+          <ion-button fill="clear" (click)="shareQuestion()">
+            <ion-icon slot="start" name="share-outline"></ion-icon>
+            Partager
+          </ion-button>
+          
+          <ion-button fill="clear" (click)="previousQuestion()" [disabled]="questionHistory.length === 0">
+            <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+            Précédente
+          </ion-button>
+          
           <ion-button color="primary" (click)="pickQuestion()">
-            <ion-icon slot="start" name="refresh-outline"></ion-icon>
+            <ion-icon slot="start" name="dice-outline"></ion-icon>
             Nouvelle question
           </ion-button>
         </div>
       </ion-card>
+
+      <!-- Historique des questions (optionnel) -->
+      <div class="history-section" *ngIf="questionHistory.length > 0">
+        <h3>Questions précédentes</h3>
+        <ion-card *ngFor="let question of questionHistory.slice(0, 3)" class="history-card">
+          <ion-card-content>
+            <p>{{ question.texte }}</p>
+            <div class="history-meta">
+              <small>{{ getThemeLabel(question.theme) }} • {{ getDepthLabel(question.depth) }}</small>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </div>
     </section>
 
-    <ng-template #loadingState>
-      <div class="loading-state">
-        <ion-spinner name="crescent"></ion-spinner>
+    <!-- Template état vide -->
+    <ng-template #emptyState>
+      <div class="empty-state">
+        <ion-icon name="help-circle-outline" size="large" color="medium"></ion-icon>
+        <p>Aucune question disponible avec ces filtres.</p>
+        <p class="empty-hint">Essayez de modifier vos critères de sélection.</p>
+        <ion-button fill="clear" (click)="resetFilters()">
+          <ion-icon slot="start" name="refresh-outline"></ion-icon>
+          Réinitialiser les filtres
+        </ion-button>
       </div>
     </ng-template>
 
-    <ng-template #emptyState>
-      <p class="empty">Aucune question disponible avec ces filtres pour le moment.</p>
-    </ng-template>
+    <!-- Statistiques (optionnel) -->
+    <section class="statistics" *ngIf="statistics && !loading && !error">
+      <ion-card>
+        <ion-card-header>
+          <h3>Statistiques</h3>
+        </ion-card-header>
+        <ion-card-content>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-value">{{ statistics.total }}</span>
+              <span class="stat-label">Questions totales</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">{{ statistics.viewedCount }}</span>
+              <span class="stat-label">Questions vues</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">{{ statistics.favoriteCount }}</span>
+              <span class="stat-label">Favoris</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">{{ getFilteredQuestionCount() }}</span>
+              <span class="stat-label">Avec filtres actuels</span>
+            </div>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </section>
   </div>
+
+  <!-- FAB pour actions rapides -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button size="small">
+      <ion-icon name="ellipsis-horizontal"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button color="primary" (click)="pickQuestion()">
+        <ion-icon name="dice-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="danger" (click)="toggleFavorite()" *ngIf="currentQuestion">
+        <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="secondary" (click)="shareQuestion()" *ngIf="currentQuestion">
+        <ion-icon name="share-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="medium" (click)="showFilters = !showFilters">
+        <ion-icon name="filter-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
 </ion-content>

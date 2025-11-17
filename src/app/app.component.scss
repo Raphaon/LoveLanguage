@@ -1,0 +1,185 @@
+// Styles globaux pour l'application
+ion-app {
+  // S'assure que l'app prend toute la hauteur
+  height: 100vh;
+  width: 100vw;
+}
+
+// Loader d'initialisation personnalisé
+.app-initialization-loader {
+  --background: rgba(0, 0, 0, 0.8);
+  --spinner-color: var(--ion-color-primary);
+  
+  .loading-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    .loading-content {
+      font-size: 1.1rem;
+      margin-top: 20px;
+      color: white;
+      text-align: center;
+    }
+  }
+}
+
+// Transitions fluides pour le thème
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Support du mode sombre
+body.dark {
+  --ion-background-color: #1e1e1e;
+  --ion-background-color-rgb: 30, 30, 30;
+  
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255, 255, 255;
+  
+  --ion-border-color: #222222;
+  
+  --ion-color-step-50: #232323;
+  --ion-color-step-100: #2e2e2e;
+  --ion-color-step-150: #3a3a3a;
+  --ion-color-step-200: #454545;
+  --ion-color-step-250: #515151;
+  --ion-color-step-300: #5c5c5c;
+  --ion-color-step-350: #686868;
+  --ion-color-step-400: #737373;
+  --ion-color-step-450: #7f7f7f;
+  --ion-color-step-500: #8a8a8a;
+  --ion-color-step-550: #969696;
+  --ion-color-step-600: #a1a1a1;
+  --ion-color-step-650: #adadad;
+  --ion-color-step-700: #b8b8b8;
+  --ion-color-step-750: #c4c4c4;
+  --ion-color-step-800: #cfcfcf;
+  --ion-color-step-850: #dbdbdb;
+  --ion-color-step-900: #e6e6e6;
+  --ion-color-step-950: #f2f2f2;
+  
+  --ion-item-background: #2a2a2a;
+  
+  --ion-card-background: #2a2a2a;
+  
+  --ion-toolbar-background: #2a2a2a;
+  --ion-toolbar-border-color: #3a3a3a;
+}
+
+// Animations globales
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+// Classes utilitaires pour les animations
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+// Amélioration de la scrollbar (navigateurs desktop)
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ion-color-step-100);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ion-color-step-400);
+  border-radius: 4px;
+  
+  &:hover {
+    background: var(--ion-color-step-500);
+  }
+}
+
+// Ajustements pour PWA
+@media (display-mode: standalone) {
+  // Styles spécifiques pour le mode PWA
+  ion-app {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+// Optimisations pour les performances
+ion-content {
+  // Active l'accélération matérielle
+  transform: translateZ(0);
+  will-change: scroll-position;
+}
+
+// Désactiver les sélections de texte où non nécessaire
+ion-toolbar,
+ion-tab-bar,
+ion-fab {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+// Focus visible pour l'accessibilité
+:focus-visible {
+  outline: 2px solid var(--ion-color-primary);
+  outline-offset: 2px;
+}
+
+// Suppression du focus pour les clics souris
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// Print styles
+@media print {
+  ion-header,
+  ion-footer,
+  ion-fab,
+  ion-menu {
+    display: none !important;
+  }
+  
+  ion-content {
+    position: relative !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+}

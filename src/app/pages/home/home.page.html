@@ -10,11 +10,17 @@
       <div class="hero__body">
         <p class="eyebrow">Programme guidé</p>
         <h1>Comprends ton langage de l’amour</h1>
-        <p class="lead">Un test ultra rapide, des rituels matérialisés et des questions inspirantes pour nourrir chaque relation.</p>
+        <p class="lead">
+          Un test ultra rapide, des rituels matérialisés et des questions inspirantes
+          pour nourrir chaque relation.
+        </p>
 
         <div class="hero__meta">
           <span class="version-chip">Version 2</span>
-          <p class="version-note">Le moteur de quiz génératif compose désormais des questions inédites à partir de tes gestes favoris.</p>
+          <p class="version-note">
+            Le moteur de quiz génératif compose désormais des questions inédites
+            à partir de tes gestes favoris.
+          </p>
         </div>
 
         <div class="hero__actions">
@@ -22,7 +28,9 @@
             <ion-icon slot="start" name="play-circle"></ion-icon>
             Commencer le test
           </ion-button>
-          <button type="button" class="ghost" (click)="goTo('/about')">Découvrir l’application</button>
+          <button type="button" class="ghost" (click)="goTo('/about')">
+            Découvrir l’application
+          </button>
         </div>
 
         <div class="hero__stats">
@@ -41,17 +49,25 @@
         </div>
       </div>
 
+      <!-- Panneau latéral -->
       <div class="hero__panel glass-panel" *ngIf="questionOfTheDay || primaryLanguage">
-        <div class="panel-card" *ngIf="primaryLanguage">
+        <!-- Dernier aperçu -->
+        <div class="panel-card" *ngIf="primaryLanguage as pl">
           <p class="eyebrow">Dernier aperçu</p>
-          <h3>{{ primaryLanguage?.label }}</h3>
-          <p>{{ primaryLanguage?.descriptionCourte }}</p>
-          <ion-button fill="clear" size="small" (click)="goTo('/results')">Voir les résultats</ion-button>
+          <h3>{{ pl.label }}</h3>
+          <p>{{ pl.descriptionCourte }}</p>
+          <ion-button fill="clear" size="small" (click)="goTo('/results')">
+            Voir les résultats
+          </ion-button>
         </div>
+
+        <!-- Question du jour -->
         <div class="panel-card secondary" *ngIf="questionOfTheDay">
           <p class="eyebrow">Question du jour</p>
           <p>{{ questionOfTheDay }}</p>
-          <ion-button fill="clear" size="small" (click)="goTo('/questions')">Nouvelle question</ion-button>
+          <ion-button fill="clear" size="small" (click)="goTo('/questions')">
+            Nouvelle question
+          </ion-button>
         </div>
       </div>
     </section>
@@ -77,35 +93,49 @@
         <button type="button" class="module-card" (click)="goTo('/questions')">
           <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
           <h3>Questions inspirantes</h3>
-          <p>Tire au sort un sujet profond ou léger pour lancer une belle conversation.</p>
+          <p>
+            Tire au sort un sujet profond ou léger pour lancer une belle conversation.
+          </p>
           <span>Lancer une question</span>
         </button>
       </div>
     </section>
 
     <section class="insights-grid">
-      <article class="insight-card highlight" *ngIf="latestResult && primaryLanguage">
+      <!-- Dernier résultat -->
+      <article
+        class="insight-card highlight"
+        *ngIf="latestResult && primaryLanguage as pl"
+      >
         <div class="card-head">
           <p class="eyebrow">Dernier résultat</p>
-          <ion-button fill="clear" size="small" (click)="goTo('/results')">Voir</ion-button>
+          <ion-button fill="clear" size="small" (click)="goTo('/results')">
+            Voir
+          </ion-button>
         </div>
-        <h3>{{ primaryLanguage?.label }}</h3>
-        <p>{{ primaryLanguage?.descriptionCourte }}</p>
+        <h3>{{ pl.label }}</h3>
+        <p>{{ pl.descriptionCourte }}</p>
       </article>
 
+      <!-- Question d’ouverture -->
       <article class="insight-card" *ngIf="questionOfTheDay">
         <div class="card-head">
           <p class="eyebrow">Question d’ouverture</p>
           <ion-icon name="help-circle-outline"></ion-icon>
         </div>
         <p>{{ questionOfTheDay }}</p>
-        <ion-button fill="clear" size="small" (click)="goTo('/questions')">Nouvelle question</ion-button>
+        <ion-button fill="clear" size="small" (click)="goTo('/questions')">
+          Nouvelle question
+        </ion-button>
       </article>
 
+      <!-- Idées du jour -->
       <article class="insight-card" *ngIf="featuredGestures.length">
         <div class="card-head">
           <p class="eyebrow">Idées du jour</p>
-          <ion-button fill="clear" size="small" (click)="goTo('/gestures')">Tout voir</ion-button>
+          <ion-button fill="clear" size="small" (click)="goTo('/gestures')">
+            Tout voir
+          </ion-button>
         </div>
         <ul>
           <li *ngFor="let gesture of featuredGestures">

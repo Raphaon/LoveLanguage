@@ -1,4 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { BehaviorSubject, Observable } from 'rxjs';
+
+export interface AppConfig {
+  darkMode: boolean;
+  language: string;
+  notifications: boolean;
+  soundEffects: boolean;import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, NgIf, NgFor, NgClass } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -34,13 +42,12 @@ import {
   filterOutline,
   shareOutline,
   copyOutline,
-  diceOutline,
+  diceOutline
 } from 'ionicons/icons';
-
 import { ConversationQuestion, QuestionDepth, QuestionTheme } from '../../core/models';
 import { ConversationService } from '../../core/services/conversation.service';
 import { Subject } from 'rxjs';
-import { trigger, style, transition, animate } from '@angular/animations';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-conversation',
@@ -67,8 +74,8 @@ import { trigger, style, transition, animate } from '@angular/animations';
     IonBadge,
     IonFab,
     IonFabButton,
-    IonButtons,
-    IonFabList,
+    IonButtons,   // pour <ion-buttons>
+    IonFabList,   // pour <ion-fab-list>
     NgIf,
     NgFor,
     NgClass
@@ -492,5 +499,300 @@ export class ConversationPage implements OnInit, OnDestroy {
       profond: 'Profond'
     };
     return labels[depth] || depth;
+  }
+}
+
+  animations: boolean;
+  fontSize: 'small' | 'medium' | 'large';
+  autoSave: boolean;
+  showTutorials: boolean;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ConfigService {
+  private readonly CONFIG_KEY = 'app_config';
+  private readonly DEFAULT_CONFIG: AppConfig = {
+    darkMode: false,
+    language: 'fr',
+    notifications: true,
+    soundEffects: true,
+    animations: true,
+    fontSize: 'medium',
+    autoSave: true,
+    showTutorials: true
+  };
+
+  private config$ = new BehaviorSubject<AppConfig>(this.DEFAULT_CONFIG);
+  
+  // Expose l'environnement pour un accès facile
+  readonly env = environment;
+  
+  constructor() {
+    this.loadConfig();
+    this.setupThemeListener();
+  }
+
+  /**
+   * Charge la configuration depuis le stockage local
+   */
+  private loadConfig(): void {
+    try {
+      const savedConfig = localStorage.getItem(this.CONFIG_KEY);
+      if (savedConfig) {
+        const config = JSON.parse(savedConfig);
+        this.config$.next({ ...this.DEFAULT_CONFIG, ...config });
+        this.applyConfig(this.config$.value);
+      } else {
+        // Détecter les préférences système au premier lancement
+        this.detectSystemPreferences();
+      }
+    } catch (error) {
+      console.error('Erreur lors du chargement de la configuration:', error);
+      this.config$.next(this.DEFAULT_CONFIG);
+    }
+  }
+
+  /**
+   * Détecte les préférences système de l'utilisateur
+   */
+  private detectSystemPreferences(): void {
+    const config = { ...this.DEFAULT_CONFIG };
+    
+    // Détecter le thème préféré
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      config.darkMode = true;
+    }
+    
+    // Détecter la langue du navigateur
+    const browserLang = navigator.language.split('-')[0];
+    if (['fr', 'en', 'es', 'de', 'it'].includes(browserLang)) {
+      config.language = browserLang;
+    }
+    
+    // Détecter si l'utilisateur préfère moins d'animations
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      config.animations = false;
+    }
+    
+    this.config$.next(config);
+    this.saveConfig();
+    this.applyConfig(config);
+  }
+
+  /**
+   * Configure un écouteur pour les changements de thème système
+   */
+  private setupThemeListener(): void {
+    if (window.matchMedia) {
+      const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      darkModeQuery.addEventListener('change', (e) => {
+        if (this.getConfig().darkMode !== e.matches) {
+          this.updateConfig({ darkMode: e.matches });
+        }
+      });
+      
+      const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      reducedMotionQuery.addEventListener('change', (e) => {
+        if (this.getConfig().animations === e.matches) {
+          this.updateConfig({ animations: !e.matches });
+        }
+      });
+    }
+  }
+
+  /**
+   * Applique la configuration actuelle
+   */
+  private applyConfig(config: AppConfig): void {
+    // Appliquer le thème
+    document.body.classList.toggle('dark', config.darkMode);
+    
+    // Appliquer la taille de police
+    document.documentElement.style.setProperty('--app-font-size', this.getFontSize(config.fontSize));
+    
+    // Appliquer les animations
+    document.body.classList.toggle('no-animations', !config.animations);
+    
+    // Appliquer la langue
+    document.documentElement.lang = config.language;
+  }
+
+  /**
+   * Obtient la taille de police en pixels
+   */
+  private getFontSize(size: 'small' | 'medium' | 'large'): string {
+    const sizes = {
+      small: '14px',
+      medium: '16px',
+      large: '18px'
+    };
+    return sizes[size];
+  }
+
+  /**
+   * Sauvegarde la configuration dans le stockage local
+   */
+  private saveConfig(): void {
+    try {
+      localStorage.setItem(this.CONFIG_KEY, JSON.stringify(this.config$.value));
+    } catch (error) {
+      console.error('Erreur lors de la sauvegarde de la configuration:', error);
+    }
+  }
+
+  /**
+   * Obtient la configuration actuelle
+   */
+  getConfig(): AppConfig {
+    return this.config$.value;
+  }
+
+  /**
+   * Obtient un observable de la configuration
+   */
+  getConfig$(): Observable<AppConfig> {
+    return this.config$.asObservable();
+  }
+
+  /**
+   * Met à jour la configuration
+   */
+  updateConfig(partialConfig: Partial<AppConfig>): void {
+    const newConfig = { ...this.config$.value, ...partialConfig };
+    this.config$.next(newConfig);
+    this.saveConfig();
+    this.applyConfig(newConfig);
+  }
+
+  /**
+   * Réinitialise la configuration aux valeurs par défaut
+   */
+  resetConfig(): void {
+    this.config$.next(this.DEFAULT_CONFIG);
+    this.saveConfig();
+    this.applyConfig(this.DEFAULT_CONFIG);
+  }
+
+  /**
+   * Active/désactive le mode sombre
+   */
+  toggleDarkMode(): void {
+    this.updateConfig({ darkMode: !this.config$.value.darkMode });
+  }
+
+  /**
+   * Vérifie si une fonctionnalité est activée
+   */
+  isFeatureEnabled(feature: keyof typeof environment.features): boolean {
+    return this.env.features[feature];
+  }
+
+  /**
+   * Obtient une valeur de configuration de l'environnement
+   */
+  getEnvConfig<T = any>(path: string): T {
+    const keys = path.split('.');
+    let value: any = this.env;
+    
+    for (const key of keys) {
+      value = value?.[key];
+      if (value === undefined) {
+        console.warn(`Configuration non trouvée: ${path}`);
+        return null as T;
+      }
+    }
+    
+    return value as T;
+  }
+
+  /**
+   * Vérifie si l'application est en mode production
+   */
+  isProduction(): boolean {
+    return this.env.production;
+  }
+
+  /**
+   * Vérifie si l'application est en mode développement
+   */
+  isDevelopment(): boolean {
+    return !this.env.production;
+  }
+
+  /**
+   * Obtient le niveau de log actuel
+   */
+  getLogLevel(): string {
+    return this.env.logging.level;
+  }
+
+  /**
+   * Vérifie si le mode hors ligne est activé
+   */
+  isOfflineModeEnabled(): boolean {
+    return this.env.features.offlineMode;
+  }
+
+  /**
+   * Obtient les URLs externes
+   */
+  getExternalUrl(key: keyof typeof environment.externalUrls): string {
+    return this.env.externalUrls[key];
+  }
+
+  /**
+   * Obtient les paramètres du quiz
+   */
+  getQuizConfig(): typeof environment.quiz {
+    return this.env.quiz;
+  }
+
+  /**
+   * Obtient les paramètres de conversation
+   */
+  getConversationConfig(): typeof environment.conversation {
+    return this.env.conversation;
+  }
+
+  /**
+   * Obtient les paramètres de performance
+   */
+  getPerformanceConfig(): typeof environment.performance {
+    return this.env.performance;
+  }
+
+  /**
+   * Export la configuration actuelle (pour debug ou support)
+   */
+  exportConfig(): string {
+    return JSON.stringify({
+      userConfig: this.config$.value,
+      environment: {
+        production: this.env.production,
+        version: this.env.app.version,
+        features: this.env.features
+      }
+    }, null, 2);
+  }
+
+  /**
+   * Import une configuration (pour restauration)
+   */
+  importConfig(configJson: string): boolean {
+    try {
+      const data = JSON.parse(configJson);
+      if (data.userConfig) {
+        this.config$.next(data.userConfig);
+        this.saveConfig();
+        this.applyConfig(data.userConfig);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('Erreur lors de l\'import de la configuration:', error);
+      return false;
+    }
   }
 }
