@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { CommonModule, NgIf, NgFor, NgClass } from '@angular/common';
+import { CommonModule, NgIf, NgFor } from '@angular/common';
 
 
 
@@ -74,7 +74,6 @@ import { trigger, style, transition, animate } from '@angular/animations';
     IonFabList,
     NgIf,
     NgFor,
-    NgClass
   ],
   animations: [
     trigger('slideIn', [

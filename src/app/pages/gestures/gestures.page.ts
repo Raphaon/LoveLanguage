@@ -8,8 +8,7 @@ import {
   IonSegment,
   IonSegmentButton,
   IonSelect,
-  IonSelectOption,
-  IonLabel
+  IonSelectOption
 } from '@ionic/angular/standalone';
 
 import {
@@ -41,7 +40,6 @@ import { CupidEmptyStateComponent } from '../../../components/cupid/empty-state/
     IonSegment,
     IonSegmentButton,
     IonInput,
-    IonLabel,
     IonSelect,
     IonSelectOption,
     GestureCardComponent,
