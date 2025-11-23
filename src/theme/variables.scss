@@ -1,15 +1,15 @@
 :root {
-  /* CupidArrow Core Tokens */
-  --ca-bg: #0b0614;
-  --ca-bg-gradient: linear-gradient(145deg, #0b0614 0%, #1b0b2d 40%, #301444 100%);
-  --ca-primary: #ff6b9c;
-  --ca-secondary: #ffb86b;
+  /* CupidArrow Core Tokens - love / cosy palette */
+  --ca-bg: #0d0616;
+  --ca-bg-gradient: linear-gradient(135deg, #0d0616 0%, #1a0a33 45%, #2d0f4c 100%);
+  --ca-primary: #f694c7;
+  --ca-secondary: #d4a7f4;
   --ca-accent-soft: #ffd5e5;
-  --ca-text: #ffffff;
-  --ca-text-muted: #d2c6e6;
-  --ca-card: rgba(22, 11, 40, 0.9);
-  --ca-border: rgba(255, 255, 255, 0.08);
-  --ca-hover: rgba(255, 107, 156, 0.15);
+  --ca-text: #ebebf5;
+  --ca-text-muted: #b7adc8;
+  --ca-card: rgba(28, 15, 52, 0.8);
+  --ca-border: rgba(255, 255, 255, 0.12);
+  --ca-hover: rgba(246, 148, 199, 0.14);
   --ca-error: #ff4b6b;
   --ca-success: #3dd68c;
 
@@ -18,42 +18,42 @@
   --ca-fs-md: 16px;
   --ca-fs-lg: 18px;
   --ca-fs-xl: 22px;
-  --ca-fs-2xl: 28px;
+  --ca-fs-2xl: 32px;
 
-  --ca-radius-sm: 8px;
-  --ca-radius-md: 12px;
-  --ca-radius-lg: 16px;
+  --ca-radius-sm: 12px;
+  --ca-radius-md: 16px;
+  --ca-radius-lg: 24px;
   --ca-space-2: 8px;
   --ca-space-3: 12px;
-  --ca-space-4: 16px;
-  --ca-space-6: 24px;
-  --ca-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  --ca-space-4: 18px;
+  --ca-space-6: 28px;
+  --ca-shadow: 0 14px 36px rgba(6, 0, 18, 0.35);
   --ca-ease: cubic-bezier(.22, .61, .36, 1);
-  --ca-dur-1: 150ms;
-  --ca-dur-2: 250ms;
+  --ca-dur-1: 160ms;
+  --ca-dur-2: 260ms;
 
-  --ca-font-display: ui-serif, Georgia, "Times New Roman", serif;
-  --ca-font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ca-font-display: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --ca-font-text: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Ionic Mapping */
   --ion-background-color: var(--ca-bg);
   --ion-text-color: var(--ca-text);
   --ion-color-primary: var(--ca-primary);
-  --ion-color-primary-rgb: 255, 107, 156;
-  --ion-color-primary-contrast: #0b0614;
-  --ion-color-primary-contrast-rgb: 11, 6, 20;
-  --ion-color-primary-shade: #e65f8c;
-  --ion-color-primary-tint: #ff82ad;
+  --ion-color-primary-rgb: 246, 148, 199;
+  --ion-color-primary-contrast: #0d0616;
+  --ion-color-primary-contrast-rgb: 13, 6, 22;
+  --ion-color-primary-shade: #d887b0;
+  --ion-color-primary-tint: #f8a6cf;
 
   --ion-color-secondary: var(--ca-secondary);
-  --ion-color-secondary-rgb: 255, 184, 107;
-  --ion-color-secondary-contrast: #1b0b2d;
-  --ion-color-secondary-contrast-rgb: 27, 11, 45;
-  --ion-color-secondary-shade: #e6a460;
-  --ion-color-secondary-tint: #ffc07f;
+  --ion-color-secondary-rgb: 212, 167, 244;
+  --ion-color-secondary-contrast: #1a0a33;
+  --ion-color-secondary-contrast-rgb: 26, 10, 51;
+  --ion-color-secondary-shade: #ba8ccf;
+  --ion-color-secondary-tint: #dcb6f6;
 
   --ion-color-success: var(--ca-success);
-  --ion-color-success-contrast: #0b0614;
+  --ion-color-success-contrast: #0d0616;
   --ion-color-danger: var(--ca-error);
   --ion-color-danger-contrast: #ffffff;
 

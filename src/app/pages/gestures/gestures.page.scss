@@ -25,6 +25,28 @@
   min-width: 180px;
 }
 
+.hero-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(246, 148, 199, 0.18);
+  color: var(--ca-text);
+  font-weight: 600;
+}
+
+.pill.soft {
+  background: rgba(212, 167, 244, 0.2);
+}
+
 .filters .filter-grid {
   display: grid;
   gap: var(--ca-space-4);

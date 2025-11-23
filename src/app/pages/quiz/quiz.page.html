@@ -8,25 +8,29 @@
 </ion-header>
 
 <ion-content fullscreen="true" *ngIf="!loading && currentQuestion as question; else loadingState">
-  <div class="page quiz-page">
-    <section class="quiz__progress surface-card">
-      <div class="badge">Question {{ currentIndex + 1 }} / {{ total }}</div>
-      <div class="progress">
-        <div>
-          <h2>{{ question.texte | slice:0:80 }}{{ question.texte.length > 80 ? '…' : '' }}</h2>
-          <p>Réponds spontanément, ton intuition est la bonne.</p>
+  <div class="page-shell quiz-page">
+    <section class="quiz-hero glass-panel">
+      <div class="progress-meta">
+        <div class="badge">Question {{ currentIndex + 1 }} / {{ total }}</div>
+        <p class="muted">Réponds spontanément, ton intuition est la bonne.</p>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-label">
+          {{ question.texte | slice:0:90 }}{{ question.texte.length > 90 ? '…' : '' }}
         </div>
         <ion-progress-bar [value]="progress"></ion-progress-bar>
       </div>
     </section>
 
-    <section class="quiz__card surface-card">
-      <p class="eyebrow">{{ question.source === 'procedural' ? 'Question générée' : 'Question' }}</p>
-      <div class="procedural-hint" *ngIf="question.source === 'procedural'">
-        <ion-icon name="sparkles-outline"></ion-icon>
-        <span>Créée à partir des gestes qui te ressemblent</span>
+    <section class="quiz__card glass-panel">
+      <div class="question-head">
+        <p class="eyebrow">{{ question.source === 'procedural' ? 'Question générée' : 'Question' }}</p>
+        <div class="procedural-hint" *ngIf="question.source === 'procedural'">
+          <ion-icon name="sparkles-outline"></ion-icon>
+          <span>Créée à partir des gestes qui te ressemblent</span>
+        </div>
+        <h3>{{ question.texte }}</h3>
       </div>
-      <h3>{{ question.texte }}</h3>
 
       <div class="options">
         <button
@@ -40,17 +44,17 @@
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </button>
       </div>
-    </section>
 
-    <div class="actions">
-      <ion-button fill="clear" (click)="goPrevious()" [disabled]="!canGoBack">
-        Retour
-      </ion-button>
-      <ion-button color="primary" (click)="submitAnswer()" [disabled]="!canSubmit">
-        <ion-icon slot="end" name="arrow-forward"></ion-icon>
-        {{ currentIndex + 1 === total ? 'Voir mes résultats' : 'Continuer' }}
-      </ion-button>
-    </div>
+      <div class="actions">
+        <ion-button fill="clear" (click)="goPrevious()" [disabled]="!canGoBack">
+          Retour
+        </ion-button>
+        <ion-button color="primary" (click)="submitAnswer()" [disabled]="!canSubmit">
+          <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          {{ currentIndex + 1 === total ? 'Voir mes résultats' : 'Continuer' }}
+        </ion-button>
+      </div>
+    </section>
   </div>
 </ion-content>
 

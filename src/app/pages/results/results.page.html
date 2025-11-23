@@ -5,23 +5,26 @@
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="page results-page" *ngIf="result as testResult; else emptyState">
-    <section class="summary surface-card">
+  <div class="page-shell results-page" *ngIf="result as testResult; else emptyState">
+    <section class="summary glass-panel">
       <div>
         <p class="eyebrow">Ton langage dominant</p>
         <h1 *ngIf="primaryLanguage as primary">{{ primary.label }}</h1>
         <p class="lead" *ngIf="primaryLanguage as primary">{{ primary.descriptionCourte }}</p>
       </div>
-      <div class="chips" *ngIf="secondaryLanguage as secondary">
-        <p class="eyebrow">Langage secondaire</p>
-        <span>{{ secondary.label }}</span>
+      <div class="secondary" *ngIf="secondaryLanguage as secondary">
+        <div class="chip">Langage secondaire</div>
+        <h3>{{ secondary.label }}</h3>
         <p>{{ secondary.descriptionCourte }}</p>
       </div>
     </section>
 
-    <section class="chart-card surface-card">
+    <section class="chart-card glass-panel">
       <div class="card-head">
-        <p class="eyebrow">Répartition détaillée</p>
+        <div>
+          <p class="eyebrow">Répartition détaillée</p>
+          <h3>Comment les scores se répartissent</h3>
+        </div>
         <ion-button size="small" fill="clear" (click)="restartQuiz()">
           Refaire le test
         </ion-button>
@@ -29,7 +32,7 @@
       <app-chart [scores]="testResult.scores"></app-chart>
     </section>
 
-    <section class="insight surface-card" *ngIf="resultMessage">
+    <section class="insight glass-panel" *ngIf="resultMessage">
       <p class="eyebrow">Interprétation</p>
       <p>{{ resultMessage }}</p>
     </section>
@@ -39,15 +42,15 @@
         <ion-icon slot="start" name="gift-outline"></ion-icon>
         Voir les gestes d'attention adaptés
       </ion-button>
-      <ion-button expand="block" fill="clear" (click)="restartQuiz()">
-        <ion-icon slot="start" name="arrow-forward"></ion-icon>
+      <ion-button expand="block" fill="outline" (click)="restartQuiz()">
+        <ion-icon slot="start" name="refresh-outline"></ion-icon>
         Refaire le test
       </ion-button>
     </section>
   </div>
 
   <ng-template #emptyState>
-    <div class="empty surface-card">
+    <div class="empty glass-panel">
       <ion-icon name="stats-chart-outline"></ion-icon>
       <p>Aucun résultat pour le moment. Lance ton premier test !</p>
       <ion-button (click)="restartQuiz()">Commencer le test</ion-button>

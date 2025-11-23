@@ -9,9 +9,14 @@
         <p class="ca-eyebrow">Inspiration instantanée</p>
         <h1 class="ca-section-title">Suggestions personnalisées</h1>
         <p class="muted">Affiche uniquement les gestes correspondant à ton langage, au type de relation et à tes envies.</p>
+        <div class="hero-badges">
+          <span class="pill">{{ filteredGestures.length }} résultat(s)</span>
+          <span class="pill soft" *ngIf="favoritesOnly">Favoris affichés</span>
+        </div>
       </div>
       <div class="hero-actions">
         <cupid-button variant="secondary" size="sm" (click)="favoritesOnly = !favoritesOnly; applyFilters()">
+          <ion-icon slot="start" [name]="favoritesOnly ? 'heart' : 'heart-outline'"></ion-icon>
           {{ favoritesOnly ? 'Tout afficher' : 'Favoris uniquement' }}
         </cupid-button>
       </div>
