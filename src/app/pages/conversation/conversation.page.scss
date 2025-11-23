@@ -1,399 +1,302 @@
-// Variables de couleur et espacement
-$primary-color: var(--ion-color-primary);
-$secondary-color: var(--ion-color-secondary);
-$danger-color: var(--ion-color-danger);
-$medium-color: var(--ion-color-medium);
-$light-color: var(--ion-color-light);
-$dark-color: var(--ion-color-dark);
-
-$spacing-xs: 4px;
-$spacing-sm: 8px;
-$spacing-md: 16px;
-$spacing-lg: 24px;
-$spacing-xl: 32px;
-
-$border-radius: 12px;
-$transition-duration: 0.3s;
-
-.page {
-  padding: $spacing-md;
-  max-width: 1200px;
-  margin: 0 auto;
+.conversation-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
-// Section des filtres
+.intro-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-radius: 22px;
+  padding: 1.25rem 1.4rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+}
+
+.intro-card h1 {
+  margin: 0.15rem 0;
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: #f7ebff;
+}
+
+.intro-card .muted {
+  margin: 0;
+  color: var(--ca-text-muted);
+}
+
+.intro-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.glass-panel {
+  background: rgba(19, 10, 32, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+}
+
 .filters {
-  margin-bottom: $spacing-lg;
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.2rem;
   animation: slideDown 0.3s ease-out;
+}
 
-  .filter-group {
-    margin-bottom: $spacing-lg;
-    background: var(--ion-background-color);
-    border-radius: $border-radius;
-    padding: $spacing-md;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.filter-group {
+  display: grid;
+  gap: 0.75rem;
+}
 
-    .filter-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: $spacing-md;
-    }
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
 
-    h2 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--ion-text-color);
-      margin: 0 0 $spacing-md 0;
-      display: flex;
-      align-items: center;
-      gap: $spacing-sm;
+.filter-header h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  color: #f6ebff;
+  font-size: 1.1rem;
+}
 
-      ion-icon {
-        font-size: 1.2rem;
-        color: $primary-color;
-      }
-    }
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
 
-    &.depth {
-      ion-segment {
-        background: rgba(var(--ion-color-primary-rgb), 0.1);
-        border-radius: $border-radius;
-        padding: $spacing-xs;
-      }
-    }
+ion-chip {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid transparent;
+  --background: rgba(255, 255, 255, 0.04);
+
+  &.active {
+    border-color: rgba(246, 148, 199, 0.8);
+    --background: rgba(246, 148, 199, 0.16);
+    color: #fef6ff;
   }
 
-  .chips-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: $spacing-sm;
-  }
-
-  ion-chip {
-    cursor: pointer;
-    transition: all $transition-duration ease;
-    border: 2px solid transparent;
-    background: rgba(var(--ion-color-primary-rgb), 0.05);
-
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    }
-
-    &.active {
-      background: var(--ion-color-primary);
-      color: white;
-      border-color: var(--ion-color-primary-shade);
-      
-      ion-badge {
-        background: white;
-        color: var(--ion-color-primary);
-      }
-    }
-
-    ion-badge {
-      margin-left: $spacing-sm;
-      font-size: 0.75rem;
-    }
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 }
 
-// Carte de question
+.depth ion-segment {
+  --background: rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  padding: 6px;
+}
+
 .question-card {
-  ion-card {
-    border-radius: $border-radius * 1.5;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    overflow: hidden;
-    transition: all $transition-duration ease;
-    background: linear-gradient(135deg, 
-      var(--ion-card-background) 0%, 
-      rgba(var(--ion-color-primary-rgb), 0.02) 100%);
-
-    &:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    }
-
-    &.favorite {
-      border: 2px solid var(--ion-color-danger);
-      animation: pulse 2s infinite;
-    }
-  }
-
-  ion-card-header {
-    background: linear-gradient(135deg, 
-      rgba(var(--ion-color-primary-rgb), 0.05) 0%,
-      transparent 100%);
-    padding: $spacing-lg;
-    border-bottom: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
-
-    .question-meta {
-      display: flex;
-      align-items: center;
-      gap: $spacing-md;
-      margin-bottom: $spacing-md;
-      flex-wrap: wrap;
-
-      .theme-badge,
-      .depth-badge {
-        display: flex;
-        align-items: center;
-        gap: $spacing-xs;
-        padding: $spacing-xs $spacing-sm;
-        background: rgba(var(--ion-color-primary-rgb), 0.1);
-        border-radius: 20px;
-        font-size: 0.85rem;
-        color: var(--ion-color-primary);
-
-        ion-icon {
-          font-size: 1rem;
-        }
-      }
-
-      .separator {
-        color: $medium-color;
-      }
-    }
-
-    h2 {
-      margin: 0;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--ion-text-color);
-      background: linear-gradient(135deg, 
-        var(--ion-color-primary) 0%, 
-        var(--ion-color-secondary) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-  }
-
-  ion-card-content {
-    padding: $spacing-xl;
-
-    .question-container {
-      position: relative;
-    }
-
-    .question-text {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: var(--ion-text-color);
-      margin: 0;
-      font-weight: 400;
-      letter-spacing: 0.3px;
-      animation: fadeIn 0.5s ease-out;
-    }
-
-    .favorite-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: $spacing-xs;
-      margin-top: $spacing-md;
-      padding: $spacing-xs $spacing-sm;
-      background: rgba(var(--ion-color-danger-rgb), 0.1);
-      border-radius: 20px;
-      color: var(--ion-color-danger);
-      font-size: 0.85rem;
-      animation: slideIn 0.3s ease-out;
-
-      ion-icon {
-        font-size: 1rem;
-      }
-    }
-  }
-
-  .question-actions {
-    display: flex;
-    justify-content: space-between;
-    padding: $spacing-md $spacing-lg;
-    background: rgba(var(--ion-color-light-rgb), 0.5);
-    border-top: 1px solid rgba(var(--ion-color-medium-rgb), 0.2);
-    flex-wrap: wrap;
-    gap: $spacing-sm;
-
-    ion-button {
-      flex: 1;
-      min-width: 100px;
-      font-weight: 500;
-      transition: all $transition-duration ease;
-
-      &:hover {
-        transform: translateY(-2px);
-      }
-
-      &[disabled] {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-// États de chargement et erreur
+.question-shell {
+  padding: 1.25rem 1.5rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(246, 148, 199, 0.12), rgba(212, 167, 244, 0.1));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.3);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.question-shell.favorite {
+  box-shadow: 0 0 0 1px rgba(255, 75, 107, 0.3), 0 18px 32px rgba(0, 0, 0, 0.35);
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.question-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.theme-badge,
+.depth-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ca-text);
+}
+
+.separator {
+  color: var(--ca-text-muted);
+}
+
+.question-card h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fef6ff;
+}
+
+.question-container {
+  position: relative;
+}
+
+.question-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--ca-text);
+  margin: 0;
+  letter-spacing: 0.01em;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.favorite-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 14px;
+  background: rgba(255, 75, 107, 0.12);
+  color: var(--ion-color-danger);
+}
+
+.question-actions {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  align-items: center;
+}
+
+.history-section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.history-section h3 {
+  margin: 0;
+  color: #f7ebff;
+}
+
+.history-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.history-card {
+  --background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.history-card p {
+  margin: 0 0 0.35rem;
+  color: var(--ca-text);
+}
+
+.history-meta small {
+  color: var(--ca-text-muted);
+}
+
 .loading-state,
 .error-state {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
+  min-height: 260px;
   animation: fadeIn 0.5s ease-out;
-
-  ion-spinner {
-    width: 48px;
-    height: 48px;
-  }
-
-  p {
-    margin-top: $spacing-md;
-    color: $medium-color;
-    font-size: 1rem;
-  }
-
-  ion-card {
-    max-width: 500px;
-    width: 100%;
-  }
+  gap: 0.5rem;
 }
 
-// État vide
+.error-state ion-card {
+  width: 100%;
+  max-width: 520px;
+}
+
 .empty-state {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: $spacing-xl;
+  gap: 0.35rem;
+  padding: 1.25rem;
   text-align: center;
-
-  ion-icon {
-    color: $medium-color;
-    margin-bottom: $spacing-md;
-  }
-
-  p {
-    color: var(--ion-text-color);
-    margin: $spacing-sm 0;
-    
-    &.empty-hint {
-      color: $medium-color;
-      font-size: 0.9rem;
-    }
-  }
-
-  ion-button {
-    margin-top: $spacing-md;
-  }
 }
 
-// Section historique
-.history-section {
-  margin-top: $spacing-xl;
-  animation: slideUp 0.5s ease-out;
-
-  h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: $spacing-md;
-    color: var(--ion-text-color);
-  }
-
-  .history-card {
-    margin-bottom: $spacing-md;
-    opacity: 0.8;
-    transition: opacity $transition-duration ease;
-
-    &:hover {
-      opacity: 1;
-    }
-
-    ion-card-content {
-      padding: $spacing-md;
-
-      p {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        margin-bottom: $spacing-sm;
-      }
-
-      .history-meta {
-        small {
-          color: $medium-color;
-          font-size: 0.8rem;
-        }
-      }
-    }
-  }
+.empty-state p {
+  margin: 0;
 }
 
-// Section statistiques
+.empty-hint {
+  color: var(--ca-text-muted);
+  font-size: 0.95rem;
+}
+
 .statistics {
-  margin-top: $spacing-xl;
-
   ion-card {
-    background: linear-gradient(135deg, 
-      var(--ion-card-background) 0%, 
-      rgba(var(--ion-color-secondary-rgb), 0.05) 100%);
+    background: linear-gradient(135deg, rgba(212, 167, 244, 0.08), rgba(246, 148, 199, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: $spacing-md;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 0.9rem;
+  }
 
-    .stat-item {
-      text-align: center;
-      padding: $spacing-md;
-      border-radius: $border-radius;
-      background: rgba(var(--ion-color-primary-rgb), 0.05);
-      transition: all $transition-duration ease;
+  .stat-item {
+    text-align: center;
+    padding: 0.9rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.2s ease;
+  }
 
-      &:hover {
-        background: rgba(var(--ion-color-primary-rgb), 0.1);
-        transform: translateY(-2px);
-      }
+  .stat-item:hover {
+    transform: translateY(-2px);
+  }
 
-      .stat-value {
-        display: block;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: var(--ion-color-primary);
-        margin-bottom: $spacing-xs;
-      }
+  .stat-value {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--ion-color-primary);
+  }
 
-      .stat-label {
-        display: block;
-        font-size: 0.8rem;
-        color: $medium-color;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-    }
+  .stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--ca-text-muted);
+    letter-spacing: 0.04em;
   }
 }
 
-// FAB personnalisé
-ion-fab {
-  ion-fab-button {
-    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all $transition-duration ease;
-
-    &:hover {
-      --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-      transform: scale(1.1);
-    }
-  }
-
-  ion-fab-list {
-    ion-fab-button {
-      margin-bottom: $spacing-sm;
-    }
-  }
+ion-fab ion-fab-button {
+  --box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
 }
 
-// Animations
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -405,7 +308,7 @@ ion-fab {
 
 @keyframes slideDown {
   from {
-    transform: translateY(-20px);
+    transform: translateY(-12px);
     opacity: 0;
   }
   to {
@@ -414,95 +317,12 @@ ion-fab {
   }
 }
 
-@keyframes slideUp {
-  from {
-    transform: translateY(20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    box-shadow: 0 0 0 0 rgba(var(--ion-color-danger-rgb), 0.4);
-  }
-  50% {
-    box-shadow: 0 0 0 10px rgba(var(--ion-color-danger-rgb), 0);
-  }
-}
-
-// Media queries pour responsive
 @media (max-width: 768px) {
-  .page {
-    padding: $spacing-sm;
+  .intro-card {
+    flex-direction: column;
   }
 
-  .question-card {
-    ion-card-content {
-      padding: $spacing-lg;
-
-      .question-text {
-        font-size: 1.1rem;
-      }
-    }
-
-    .question-actions {
-      padding: $spacing-sm;
-
-      ion-button {
-        font-size: 0.85rem;
-      }
-    }
-  }
-
-  .statistics {
-    .stats-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-}
-
-// Mode sombre
-@media (prefers-color-scheme: dark) {
-  .filters {
-    ion-chip {
-      background: rgba(255, 255, 255, 0.05);
-
-      &.active {
-        background: var(--ion-color-primary);
-      }
-    }
-  }
-
-  .question-card {
-    ion-card {
-      background: linear-gradient(135deg, 
-        var(--ion-card-background) 0%, 
-        rgba(255, 255, 255, 0.02) 100%);
-    }
-  }
-
-  .statistics {
-    .stat-item {
-      background: rgba(255, 255, 255, 0.05);
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-    }
+  .question-actions {
+    grid-template-columns: 1fr;
   }
 }

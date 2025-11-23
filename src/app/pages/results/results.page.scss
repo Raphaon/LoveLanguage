@@ -1,39 +1,63 @@
 .results-page {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
 }
 
 .summary {
   display: grid;
-  gap: 1.25rem;
-  background: linear-gradient(135deg, rgba(103, 80, 164, 0.1), rgba(208, 188, 255, 0.3));
+  gap: 1rem;
+  padding: 1.25rem 1.35rem;
+  align-items: center;
 }
 
 .summary h1 {
   margin: 0;
-  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  color: #fef6ff;
 }
 
 .summary .lead {
-  color: var(--app-text-muted);
-  margin: 0;
+  color: var(--ca-text-muted);
+  margin: 0.25rem 0 0;
 }
 
-.chips span {
+.secondary {
+  padding: 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.secondary h3 {
+  margin: 0.35rem 0 0.25rem;
+  color: #fef6ff;
+}
+
+.secondary p {
+  margin: 0;
+  color: var(--ca-text-muted);
+}
+
+.chip {
   display: inline-flex;
   padding: 0.35rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(103, 80, 164, 0.15);
+  border-radius: 12px;
+  background: rgba(246, 148, 199, 0.2);
   color: var(--ion-color-primary);
-  font-weight: 600;
-  margin-bottom: 0.4rem;
+  font-weight: 700;
 }
 
 .chart-card {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.85rem;
+  padding: 1.15rem 1.35rem;
+}
+
+.chart-card h3 {
+  margin: 0.25rem 0 0;
+  color: #f7ebff;
 }
 
 .chart-card app-chart {
@@ -41,18 +65,23 @@
   height: 280px;
 }
 
-.insight p {
-  margin: 0;
-  color: var(--app-text-muted);
+.insight {
+  padding: 1.1rem 1.3rem;
 }
 
-.actions ion-button + ion-button {
-  margin-top: 0.75rem;
+.insight p {
+  margin: 0;
+  color: var(--ca-text-muted);
+}
+
+.actions {
+  display: grid;
+  gap: 0.75rem;
 }
 
 .empty {
   text-align: center;
-  padding: 2.5rem 1.25rem;
+  padding: 2rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -67,6 +96,9 @@
 @media (min-width: 768px) {
   .summary {
     grid-template-columns: repeat(2, 1fr);
-    align-items: center;
+  }
+
+  .actions {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

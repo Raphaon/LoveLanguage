@@ -1,59 +1,74 @@
 <ion-header translucent="true">
   <ion-toolbar>
-    <ion-title>Love Lang</ion-title>
+    <ion-title>Love Language</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="goTo('/results')" *ngIf="latestResult">
+        <ion-icon slot="start" name="stats-chart"></ion-icon>
+        Derniers résultats
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen="true">
-  <div class="page home-page">
-    <section class="hero surface-card">
+  <div class="page-shell home-page">
+    <section class="hero">
+      <div class="hero__glow"></div>
       <div class="hero__body">
         <p class="eyebrow">Programme guidé</p>
         <h1>Comprends ton langage de l’amour</h1>
         <p class="lead">
-          Un test ultra rapide, des rituels matérialisés et des questions inspirantes
-          pour nourrir chaque relation.
+          Un test rapide, des rituels concrets et des questions inspirantes pour nourrir chaque relation.
         </p>
 
         <div class="hero__meta">
-          <span class="version-chip">Version 2</span>
+          <div class="meta-chip">
+            <ion-icon name="sparkles-outline"></ion-icon>
+            Version 2
+          </div>
           <p class="version-note">
-            Le moteur de quiz génératif compose désormais des questions inédites
-            à partir de tes gestes favoris.
+            Le quiz génératif compose désormais des questions inédites à partir de tes gestes favoris.
           </p>
         </div>
 
         <div class="hero__actions">
-          <ion-button color="primary" (click)="startQuiz()">
-            <ion-icon slot="start" name="play-circle"></ion-icon>
+          <ion-button color="primary" size="large" (click)="startQuiz()">
+            <ion-icon slot="start" name="heart"></ion-icon>
             Commencer le test
           </ion-button>
-          <button type="button" class="ghost" (click)="goTo('/about')">
+          <ion-button fill="outline" color="light" size="large" (click)="goTo('/about')">
             Découvrir l’application
-          </button>
+          </ion-button>
         </div>
 
         <div class="hero__stats">
-          <div>
-            <span>03 min</span>
-            <p>pour répondre</p>
+          <div class="stat-pill">
+            <ion-icon name="time-outline"></ion-icon>
+            <div>
+              <span>03 min</span>
+              <p>pour répondre</p>
+            </div>
           </div>
-          <div>
-            <span>5 langages</span>
-            <p>clairement expliqués</p>
+          <div class="stat-pill">
+            <ion-icon name="book-outline"></ion-icon>
+            <div>
+              <span>5 langages</span>
+              <p>clairement expliqués</p>
+            </div>
           </div>
-          <div>
-            <span>+40 idées</span>
-            <p>personnalisées</p>
+          <div class="stat-pill">
+            <ion-icon name="sparkles-outline"></ion-icon>
+            <div>
+              <span>+40 idées</span>
+              <p>personnalisées</p>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Panneau latéral -->
-      <div class="hero__panel glass-panel" *ngIf="questionOfTheDay || primaryLanguage">
-        <!-- Dernier aperçu -->
+      <div class="hero__panel" *ngIf="questionOfTheDay || primaryLanguage">
         <div class="panel-card" *ngIf="primaryLanguage as pl">
-          <p class="eyebrow">Dernier aperçu</p>
+          <div class="panel-chip">Langage dominant</div>
           <h3>{{ pl.label }}</h3>
           <p>{{ pl.descriptionCourte }}</p>
           <ion-button fill="clear" size="small" (click)="goTo('/results')">
@@ -61,9 +76,8 @@
           </ion-button>
         </div>
 
-        <!-- Question du jour -->
         <div class="panel-card secondary" *ngIf="questionOfTheDay">
-          <p class="eyebrow">Question du jour</p>
+          <div class="panel-chip muted">Question du jour</div>
           <p>{{ questionOfTheDay }}</p>
           <ion-button fill="clear" size="small" (click)="goTo('/questions')">
             Nouvelle question
@@ -79,48 +93,58 @@
       </div>
       <div class="module-grid">
         <button type="button" class="module-card" (click)="goTo('/quiz')">
-          <ion-icon name="bulb-outline"></ion-icon>
-          <h3>Test guidé</h3>
-          <p>15 questions adaptatives pour révéler ton langage d’amour principal.</p>
-          <span>Commencer</span>
+          <div class="icon-circle primary">
+            <ion-icon name="bulb-outline"></ion-icon>
+          </div>
+          <div class="module-copy">
+            <h3>Test guidé</h3>
+            <p>15 questions adaptatives pour révéler ton langage d’amour principal.</p>
+          </div>
+          <span class="cta">Commencer</span>
         </button>
         <button type="button" class="module-card" (click)="goTo('/gestures')">
-          <ion-icon name="gift-outline"></ion-icon>
-          <h3>Idées personnalisées</h3>
-          <p>Des gestes concrets adaptés à ton couple, ta famille ou tes amis.</p>
-          <span>Explorer</span>
+          <div class="icon-circle">
+            <ion-icon name="gift-outline"></ion-icon>
+          </div>
+          <div class="module-copy">
+            <h3>Idées personnalisées</h3>
+            <p>Des gestes concrets adaptés à ton couple, ta famille ou tes amis.</p>
+          </div>
+          <span class="cta">Explorer</span>
         </button>
         <button type="button" class="module-card" (click)="goTo('/questions')">
-          <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-          <h3>Questions inspirantes</h3>
-          <p>
-            Tire au sort un sujet profond ou léger pour lancer une belle conversation.
-          </p>
-          <span>Lancer une question</span>
+          <div class="icon-circle secondary">
+            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+          </div>
+          <div class="module-copy">
+            <h3>Questions inspirantes</h3>
+            <p>Tire au sort un sujet profond ou léger pour lancer une belle conversation.</p>
+          </div>
+          <span class="cta">Lancer une question</span>
         </button>
       </div>
     </section>
 
     <section class="insights-grid">
-      <!-- Dernier résultat -->
-      <article
-        class="insight-card highlight"
-        *ngIf="latestResult && primaryLanguage as pl"
-      >
+      <article class="insight-card highlight" *ngIf="latestResult && primaryLanguage as pl">
         <div class="card-head">
-          <p class="eyebrow">Dernier résultat</p>
+          <div>
+            <p class="eyebrow">Dernier résultat</p>
+            <h3>{{ pl.label }}</h3>
+          </div>
           <ion-button fill="clear" size="small" (click)="goTo('/results')">
             Voir
           </ion-button>
         </div>
-        <h3>{{ pl.label }}</h3>
         <p>{{ pl.descriptionCourte }}</p>
       </article>
 
-      <!-- Question d’ouverture -->
       <article class="insight-card" *ngIf="questionOfTheDay">
         <div class="card-head">
-          <p class="eyebrow">Question d’ouverture</p>
+          <div>
+            <p class="eyebrow">Question d’ouverture</p>
+            <h4>Inspiration du jour</h4>
+          </div>
           <ion-icon name="help-circle-outline"></ion-icon>
         </div>
         <p>{{ questionOfTheDay }}</p>
@@ -129,17 +153,19 @@
         </ion-button>
       </article>
 
-      <!-- Idées du jour -->
       <article class="insight-card" *ngIf="featuredGestures.length">
         <div class="card-head">
-          <p class="eyebrow">Idées du jour</p>
+          <div>
+            <p class="eyebrow">Idées du jour</p>
+            <h4>Gestes pour toi</h4>
+          </div>
           <ion-button fill="clear" size="small" (click)="goTo('/gestures')">
             Tout voir
           </ion-button>
         </div>
         <ul>
           <li *ngFor="let gesture of featuredGestures">
-            <h4>{{ gesture.title }}</h4>
+            <div class="gesture-title">{{ gesture.title }}</div>
             <p>{{ gesture.description }}</p>
           </li>
         </ul>
