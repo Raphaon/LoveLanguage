@@ -7,10 +7,15 @@ export type CupidTheme = 'cupid-dark' | 'cupid-light';
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
   private readonly storageKey = 'cupid_theme_preference';
+  
+  
   private readonly prefersDark = typeof window !== 'undefined' && window.matchMedia
-    ? window.matchMedia('(prefers-color-scheme: dark)')
-    : ({ matches: false, addEventListener: () => {} } as MediaQueryList);
-  private readonly theme$ = new BehaviorSubject<CupidTheme>('cupid-dark');
+  ? window.matchMedia('(prefers-color-scheme: dark)')
+  : ({ matches: false, addEventListener: () => {} } as unknown as MediaQueryList);
+
+  
+  
+    private readonly theme$ = new BehaviorSubject<CupidTheme>('cupid-dark');
 
   constructor(private storage: StorageService) {
     this.prefersDark.addEventListener('change', (event) => {
@@ -41,17 +46,24 @@ export class ThemeService {
     await this.storage.set(this.storageKey, theme);
   }
 
-  private hasExplicitPreference(): boolean {
-    return document.body.dataset.caTheme !== undefined;
+private hasExplicitPreference(): boolean {
+  return document.body.dataset['caTheme'] !== undefined;
+}
+
+private applyTheme(theme: CupidTheme, withDataset = true): void {
+  document.body.classList.toggle('ca-light', theme === 'cupid-light');
+  document.body.classList.toggle('ca-dark', theme === 'cupid-dark');
+
+  if (withDataset) {
+    document.body.dataset['caTheme'] = theme;
   }
 
-  private applyTheme(theme: CupidTheme, withDataset = true): void {
-    document.body.classList.toggle('ca-light', theme === 'cupid-light');
-    document.body.classList.toggle('ca-dark', theme === 'cupid-dark');
-    if (withDataset) {
-      document.body.dataset.caTheme = theme;
-    }
-    document.documentElement.style.setProperty('color-scheme', theme === 'cupid-dark' ? 'dark' : 'light');
-    this.theme$.next(theme);
-  }
+  document.documentElement.style.setProperty(
+    'color-scheme',
+    theme === 'cupid-dark' ? 'dark' : 'light'
+  );
+
+  this.theme$.next(theme);
+}
+
 }
