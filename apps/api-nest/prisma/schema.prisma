@@ -1,0 +1,184 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  Patient
+  Doctor
+  Nurse
+  Admin
+}
+
+enum UserStatus {
+  pending
+  active
+  rejected
+}
+
+enum AppointmentStatus {
+  requested
+  confirmed
+  canceled
+  completed
+}
+
+model Tenant {
+  id        String   @id @default(cuid())
+  name      String
+  country   String
+  createdAt DateTime @default(now())
+  users     User[]
+  hospitals Hospital[]
+}
+
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  passwordHash  String
+  role          Role
+  status        UserStatus @default(pending)
+  tenantId      String
+  tenant        Tenant     @relation(fields: [tenantId], references: [id])
+  profile       Json
+  consentId     String?    
+  consent       Consent?   @relation(fields: [consentId], references: [id])
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  staff         Staff?
+  appointments  Appointment[] @relation("PatientAppointments")
+  notifications Notification[]
+  auditLogs     AuditLog[] @relation("AuditActor")
+}
+
+model Consent {
+  id        String   @id @default(cuid())
+  version   String
+  scopes    String[]
+  acceptedAt DateTime
+  revokedAt DateTime?
+  tenantId  String
+}
+
+model Hospital {
+  id        String   @id @default(cuid())
+  tenantId  String
+  tenant    Tenant   @relation(fields: [tenantId], references: [id])
+  name      String
+  country   String
+  address   String?
+  contacts  Json?
+  active    Boolean  @default(true)
+  services  Service[]
+}
+
+model Service {
+  id          String   @id @default(cuid())
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id])
+  name        String
+  description String?
+  hospitalId  String?
+  hospital    Hospital? @relation(fields: [hospitalId], references: [id])
+  units       Unit[]
+  staff       Staff[]   @relation("StaffServices", references: [id])
+}
+
+model Unit {
+  id         String  @id @default(cuid())
+  serviceId  String
+  service    Service @relation(fields: [serviceId], references: [id])
+  name       String
+  schedule   Json?
+}
+
+model Staff {
+  id        String  @id @default(cuid())
+  userId    String  @unique
+  user      User    @relation(fields: [userId], references: [id])
+  specialties String[]
+  services   Service[] @relation("StaffServices")
+  availability StaffAvailability[]
+  appointments Appointment[] @relation("StaffAppointments")
+}
+
+model StaffAvailability {
+  id       String @id @default(cuid())
+  staffId  String
+  staff    Staff  @relation(fields: [staffId], references: [id])
+  dayOfWeek Int
+  startTime String
+  endTime   String
+  timezone  String
+}
+
+model Appointment {
+  id           String   @id @default(cuid())
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id])
+  dateTimeStart DateTime
+  dateTimeEnd   DateTime
+  status       AppointmentStatus @default(requested)
+  patientId    String
+  patient      User     @relation("PatientAppointments", fields: [patientId], references: [id])
+  staffId      String?
+  staff        Staff?   @relation("StaffAppointments", fields: [staffId], references: [id])
+  serviceId    String
+  service      Service  @relation(fields: [serviceId], references: [id])
+  location     Json?
+  notes        String?
+  consultation Consultation?
+}
+
+model Consultation {
+  id            String   @id @default(cuid())
+  appointmentId String   @unique
+  appointment   Appointment @relation(fields: [appointmentId], references: [id])
+  summary       String?
+  vitals        Json?
+  diagnosis     String?
+  prescriptions Json?
+  documents     Json?
+  createdBy     String
+  createdAt     DateTime @default(now())
+}
+
+model MedicalRecord {
+  id        String  @id @default(cuid())
+  patientId String  @unique
+  patient   User    @relation(fields: [patientId], references: [id])
+  allergies Json?
+  conditions Json?
+  medications Json?
+  encryptedPayload Bytes?
+  iv        Bytes?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Notification {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id])
+  type     String
+  payload  Json
+  channel  String
+  sentAt   DateTime?
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  actorId   String
+  actor     User     @relation("AuditActor", fields: [actorId], references: [id])
+  action    String
+  entity    String
+  entityId  String
+  tenantId  String
+  ip        String?
+  timestamp DateTime @default(now())
+}
